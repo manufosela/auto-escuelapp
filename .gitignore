@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# private content: anything derived from copyrighted material (scanned books, OCR output)
+# must NEVER be committed to this public repo
+private/
+
+# secrets
+.env
+.env.*
+!.env.example
+serviceAccountKey.json
+*-firebase-adminsdk-*.json
+
+# firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# tooling
+coverage/
+.scannerwork/
+.DS_Store
