@@ -1,0 +1,14 @@
+{
+	"statement": "En una autovía, sin limitación específica de la señalización, ¿cuál es la velocidad máxima genérica para un turismo?",
+	"options": ["90 km/h", "100 km/h", "120 km/h"],
+	"correctIndex": 2,
+	"explanation": "El art. 48 del Reglamento General de Circulación fija en 120 km/h la velocidad máxima genérica para turismos y motocicletas en autopista y autovía.",
+	"subject": 1,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 48",
+		"asOfDate": "2026-06-26"
+	},
+	"source": { "type": "own" },
+	"validFrom": "2026-09-18"
+}

@@ -22,6 +22,14 @@ de qué fuente y bajo qué condición. El razonamiento completo está en
 - Cualquier extracción del simulador oficial de examen de la DGT.
 - Contenido de webs o manuales comerciales de autoescuela.
 
+## Schema del contenido
+
+Las colecciones `topics`, `questions` y `signs` (definidas en
+`src/content.config.js`) validan su forma automáticamente en `astro build` /
+`astro check`: un campo mal formado hace fallar el build señalando el
+fichero y el campo exactos. Los ficheros con prefijo `_ejemplo-` son
+fixtures que ejercitan el schema, no contenido final.
+
 ## Cómo se comprueba
 
 - `scripts/guard-content.mjs` bloquea en pre-commit cualquier fichero bajo
