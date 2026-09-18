@@ -6,7 +6,7 @@ de qué fuente y bajo qué condición. El razonamiento completo está en
 
 | Contenido | Ubicación prevista | Fuente | Condición de uso |
 |---|---|---|---|
-| Texto normativo citado en el temario | `src/content/legal/` (AUT-TSK-0003) | API de datos abiertos del BOE (`boe.es/datosabiertos`) | Copiable con cita de fuente, aviso de texto consolidado informativo y fecha de actualización |
+| Texto normativo citado en el temario | `src/content/legal/` (`scripts/fetch-legal.mjs`) | API de datos abiertos del BOE (`boe.es/datosabiertos`) | Copiable con cita de fuente, aviso de texto consolidado informativo y fecha de actualización |
 | Catálogo de señales (imágenes) | `public/signs/` (AUT-TSK-0006) | Wikimedia Commons, `Category:SVG road signs in Spain` | Licencia por fichero, ver `ATTRIBUTIONS.md` |
 | Temario (texto) | `src/content/topics/` (AUT-TSK-0005) | Redacción propia sobre el Anexo V.B.1 del RD 818/2009 | MIT (redacción propia) |
 | Preguntas de la revista DGT | `src/content/questions/revista-dgt.json` (AUT-TSK-0007) | `revista.dgt.es/es/test/` (solo texto) | Copiable con cita de la revista; sin imágenes |
