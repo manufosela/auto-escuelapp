@@ -1,12 +1,32 @@
 [
 	{
+		"id": "R-1",
+		"group": "priority",
+		"name": "Ceda el paso",
+		"meaning": "Obligación de ceder el paso a los vehículos que circulan por la vía a la que se aproxima.",
+		"svg": "public/signs/r-1.svg",
+		"licence": "Public domain",
+		"author": "Unknown author",
+		"sourceUrl": "https://commons.wikimedia.org/wiki/File:Spain_traffic_signal_r1.svg"
+	},
+	{
 		"id": "R-2",
 		"group": "priority",
-		"name": "Detención obligatoria (STOP)",
-		"meaning": "Obligación de detenerse ante la señal y ceder el paso en la intersección o tramo de vía en que se encuentre.",
-		"svg": "public/signs/r2.svg",
-		"licence": "Public Domain",
-		"author": "Ministerio del Interior / DGT",
-		"sourceUrl": "https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Spain"
+		"name": "Stop",
+		"meaning": "Detención obligatoria: obligación de detenerse ante la señal y ceder el paso.",
+		"svg": "public/signs/r-2.svg",
+		"licence": "Public domain",
+		"author": "Ministerio de Transportes, Movilidad y Agenda Urbana",
+		"sourceUrl": "https://commons.wikimedia.org/wiki/File:Spain_traffic_signal_r2,_2023_set.svg"
+	},
+	{
+		"id": "R-101",
+		"group": "prohibitory",
+		"name": "Entrada prohibida",
+		"meaning": "Entrada prohibida a toda clase de vehículos en ambos sentidos.",
+		"svg": "public/signs/r-101.svg",
+		"licence": "Public domain",
+		"author": "Benedicto16",
+		"sourceUrl": "https://commons.wikimedia.org/wiki/File:Spain_traffic_signal_r101.svg"
 	}
 ]

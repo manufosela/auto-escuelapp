@@ -18,7 +18,23 @@ Formato de cada entrada, una vez generado:
 
 ## Señales
 
-_(vacío — se rellenará en AUT-TSK-0006)_
+- Código: R-1
+  Fichero: public/signs/r-1.svg
+  Autor: Unknown author
+  Licencia: Public domain
+  Origen: https://commons.wikimedia.org/wiki/File:Spain_traffic_signal_r1.svg
+
+- Código: R-2
+  Fichero: public/signs/r-2.svg
+  Autor: Ministerio de Transportes, Movilidad y Agenda Urbana
+  Licencia: Public domain
+  Origen: https://commons.wikimedia.org/wiki/File:Spain_traffic_signal_r2,_2023_set.svg
+
+- Código: R-101
+  Fichero: public/signs/r-101.svg
+  Autor: Benedicto16
+  Licencia: Public domain
+  Origen: https://commons.wikimedia.org/wiki/File:Spain_traffic_signal_r101.svg
 
 ## Otras fuentes con atribución
 
