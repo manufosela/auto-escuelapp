@@ -1,0 +1,97 @@
+{
+	"normId": "BOE-A-2003-23514",
+	"blockId": "a50",
+	"title": "Artículo 50",
+	"versions": [
+		{
+			"sourceNormId": "BOE-A-2003-23514",
+			"publicationDate": "2003-12-23",
+			"effectiveDate": "2004-01-23",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 50. Límites de velocidad en vías urbanas y travesías."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. La velocidad máxima que no deberán rebasar los vehículos en vías urbanas y travesías se establece, con carácter general, en 50 kilómetros por hora, salvo para los vehículos que transporten mercancías peligrosas, que circularán como máximo a 40 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "Estos límites podrán ser rebajados en travesías especialmente peligrosas por acuerdo de la autoridad municipal con el titular de la vía, y en las vías urbanas, por decisión del órgano competente de la corporación municipal."
+				},
+				{
+					"class": "parrafo",
+					"text": "En las mismas condiciones, los límites podrán ser ampliados mediante el empleo de la correspondiente señalización, en las travesías y en las autopistas y autovías dentro de poblado, sin rebasar en ningún caso los límites genéricos establecidos para dichas vías fuera de poblado. En defecto de señalización, la velocidad máxima que no deberán rebasar los vehículos en autopistas y autovías dentro de poblado será de 80 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "Los autobuses que transporten pasajeros de pie con autorización no podrán superar en ninguna circunstancia la velocidad máxima establecida en el artículo 48.1.b) para los casos contemplados en el párrafo anterior."
+				},
+				{
+					"class": "parrafo",
+					"text": "2. Las infracciones a las normas de este precepto tendrán la consideración de graves conforme se prevé en el artículo 65.4.c), salvo que tengan la consideración de muy graves, de conformidad con lo dispuesto en el artículo 65.5.e), ambos del texto articulado de la Ley sobre tráfico, circulación de vehículos a motor y seguridad vial."
+				}
+			]
+		},
+		{
+			"sourceNormId": "BOE-A-2020-13969",
+			"publicationDate": "2020-11-11",
+			"effectiveDate": "2021-05-11",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 50. Límites de velocidad en vías urbanas y travesías."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. El límite genérico de velocidad en vías urbanas será de:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a) 20 km/h en vías que dispongan de plataforma única de calzada y acera."
+				},
+				{
+					"class": "parrafo",
+					"text": "b) 30 km/h en vías de un único carril por sentido de circulación."
+				},
+				{
+					"class": "parrafo",
+					"text": "c) 50 km/h en vías de dos o más carriles por sentido de circulación."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "A estos efectos, los carriles reservados para la circulación de determinados usuarios o uso exclusivo de transporte público no serán contabilizados."
+				},
+				{
+					"class": "parrafo",
+					"text": "2. Las velocidades genéricas establecidas podrán ser rebajadas previa señalización específica, por la Autoridad municipal."
+				},
+				{
+					"class": "parrafo",
+					"text": "3. Excepcionalmente, la Autoridad Municipal podrá aumentar la velocidad en vías de un único carril por sentido hasta una velocidad máxima de 50 km/h, previa señalización específica."
+				},
+				{
+					"class": "parrafo",
+					"text": "4. En las vías urbanas a las que se refiere el apartado 1 c) y en travesías, los vehículos que transporten mercancías peligrosas circularán como máximo a 40 km/h."
+				},
+				{
+					"class": "parrafo",
+					"text": "5. El límite genérico de velocidad en travesías es de 50 km/h para todo tipo de vehículos. Este límite podrá ser rebajado por acuerdo de la Autoridad Municipal con el titular de la vía, previa señalización especifica."
+				},
+				{
+					"class": "parrafo",
+					"text": "6. El límite genérico de velocidad en autopistas y autovías que transcurren dentro de poblado será de 80 km/h, no obstante podrá ser ampliados por acuerdo de la Autoridad Municipal y el titular de la vía, previa señalización específica, sin rebasar en ningún caso los límites genéricos establecidos para dichas vías fuera de poblado."
+				},
+				{
+					"class": "parrafo",
+					"text": "7. Las autoridades municipales y titulares de la vía podrán adoptar las medidas necesarias para lograr el calmado del tráfico y facilitar la percepción de los límites de velocidad establecidos."
+				},
+				{
+					"class": "parrafo",
+					"text": "8. Las infracciones a las normas de este precepto tendrán la consideración de graves conforme se prevé en el artículo 76. a), salvo que tengan la consideración de muy graves, de conformidad con lo dispuesto en el artículo 77.a), ambos del texto refundido de la Ley sobre tráfico, circulación de vehículos a motor y seguridad vial."
+				}
+			]
+		}
+	]
+}

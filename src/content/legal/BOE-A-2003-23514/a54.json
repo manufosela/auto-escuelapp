@@ -1,0 +1,54 @@
+{
+	"normId": "BOE-A-2003-23514",
+	"blockId": "a54",
+	"title": "Artículo 54",
+	"versions": [
+		{
+			"sourceNormId": "BOE-A-2003-23514",
+			"publicationDate": "2003-12-23",
+			"effectiveDate": "2004-01-23",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 54. Distancias entre vehículos."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. Todo conductor de un vehículo que circule detrás de otro deberá dejar entre ambos un espacio libre que le permita detenerse, en caso de frenado brusco, sin colisionar con él, teniendo en cuenta especialmente la velocidad y las condiciones de adherencia y frenado."
+				},
+				{
+					"class": "parrafo",
+					"text": "No obstante, se permitirá a los conductores de bicicletas circular en grupo sin mantener tal separación, extremando en esta ocasión la atención, a fin de evitar alcances entre ellos (artículo 20.2 del texto articulado)."
+				},
+				{
+					"class": "parrafo",
+					"text": "2. Además de lo dispuesto en el apartado anterior, la separación que debe guardar todo conductor de vehículo que circule detrás de otro sin señalar su propósito de adelantamiento deberá ser tal que permita al que a su vez le siga adelantarlo con seguridad, excepto si se trata de ciclistas que circulan en grupo. Los vehículos con masa máxima autorizada superior a 3.500 kilogramos y los vehículos y conjuntos de vehículos de más de 10 metros de longitud total deberán guardar, a estos efectos, una separación mínima de 50 metros (artículo 20.3 del texto articulado)."
+				},
+				{
+					"class": "parrafo",
+					"text": "3. Lo dispuesto en el apartado anterior no será de aplicación:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a) En poblado."
+				},
+				{
+					"class": "parrafo",
+					"text": "b) Donde estuviese prohibido el adelantamiento."
+				},
+				{
+					"class": "parrafo",
+					"text": "c) Donde hubiese más de un carril destinado a la circulación en su mismo sentido."
+				},
+				{
+					"class": "parrafo",
+					"text": "d) Cuando la circulación estuviese tan saturada que no permita el adelantamiento (artículo 20.4 del texto articulado)."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "4. Las infracciones a las normas de este precepto tendrán la consideración de graves, conforme a lo dispuesto en el artículo 65.4.c) del texto articulado de la Ley sobre tráfico, circulación de vehículos a motor y seguridad vial."
+				}
+			]
+		}
+	]
+}
