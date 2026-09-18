@@ -16,7 +16,11 @@ const CONTENT_DIR = path.join(import.meta.dirname, '..', 'src', 'content', 'lega
 
 // Bloques a descargar. Se añaden aquí explícitamente según los va
 // necesitando el contenido (temario, preguntas) — nunca "toda la norma".
-const BLOCKS = [{ normId: 'BOE-A-2003-23514', blockId: 'a48' }];
+const BLOCKS = [
+	{ normId: 'BOE-A-2003-23514', blockId: 'a48' },
+	{ normId: 'BOE-A-2003-23514', blockId: 'a50' },
+	{ normId: 'BOE-A-2003-23514', blockId: 'a54' },
+];
 
 const parser = new XMLParser({
 	ignoreAttributes: false,
