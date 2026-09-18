@@ -50,3 +50,6 @@ if [ -x "$HOME/.git-hooks/pre-commit" ]; then
   [ "$rc" -eq 0 ] || exit "$rc"
 fi
 # <<< kj:managed:hook:pre-commit <<<
+
+# --- guard de contenido del proyecto (AUT-TSK-0002, no gestionado por kj harden) ---
+node scripts/guard-content.mjs || exit 1

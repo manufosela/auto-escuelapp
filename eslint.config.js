@@ -18,4 +18,14 @@ export default [
       eqeqeq: 'error',
     },
   },
+  {
+    // Scripts de Node (herramientas de desarrollo, no código de la app)
+    files: ['scripts/**/*.mjs', '*.config.js', '*.config.mjs'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+      },
+    },
+  },
 ];

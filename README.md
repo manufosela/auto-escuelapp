@@ -26,6 +26,8 @@ Todo el contenido público de este repo procede de fuentes reutilizables o es de
 
 No se incluyen preguntas del simulador de la DGT, ni contenido de manuales o webs comerciales de autoescuela.
 
+Detalle completo de licencias por tipo de contenido en [`CONTENT-LICENSE.md`](./CONTENT-LICENSE.md), atribuciones por fichero en [`ATTRIBUTIONS.md`](./ATTRIBUTIONS.md) y trazabilidad fuente-por-fuente en [`docs/SOURCES.md`](./docs/SOURCES.md).
+
 ## Desarrollo
 
 ```sh
