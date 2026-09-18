@@ -1,0 +1,12 @@
+rules_version = '2';
+
+// Deny-all por defecto. Las reglas por colección (historial de usuario,
+// reportes de preguntas) se añaden en las tareas AUT-TSK-0019/AUT-TSK-0021,
+// siempre restringidas por request.auth.uid.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
