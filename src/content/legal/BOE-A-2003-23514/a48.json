@@ -1,0 +1,299 @@
+{
+	"normId": "BOE-A-2003-23514",
+	"blockId": "a48",
+	"title": "Artículo 48",
+	"versions": [
+		{
+			"sourceNormId": "BOE-A-2003-23514",
+			"publicationDate": "2003-12-23",
+			"effectiveDate": "2004-01-23",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 48. Velocidades máximas en vías fuera de poblado."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. Las velocidades máximas que no deberán ser rebasadas, salvo en los supuestos previstos en el artículo 51, son las siguientes:"
+				},
+				{
+					"class": "parrafo",
+					"text": "a) Para automóviles:"
+				},
+				{
+					"class": "parrafo",
+					"text": "1.º En autopistas y autovías: turismos y motocicletas, 120 kilómetros por hora ; autobuses, vehículos derivados de turismos y vehículos mixtos adaptables, 100 kilómetros por hora ; camiones, vehículos articulados, conjuntos de vehículos, furgones, autocaravanas y automóviles con remolque de hasta 750 kilogramos, 90 kilómetros por hora ; restantes automóviles con remolque, 80 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "2.º En carreteras convencionales señalizadas como vías para automóviles y en el resto de carreteras convencionales, siempre que estas últimas tengan un arcén pavimentado de 1,50 metros o más de anchura, o más de un carril para algunos de los sentidos de circulación: turismos y motocicletas, 100 kilómetros por hora ; autobuses, vehículos derivados de turismos y vehículos mixtos adaptables, 90 kilómetros por hora ; camiones, tractocamiones, furgones, autocaravanas, vehículos articulados y automóviles con remolque, 80 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "3.º En el resto de las vías fuera de poblado: turismos, motocicletas y vehículos de tres ruedas y cuadriciclos asimilados a motocicletas, 90 kilómetros por hora ; autobuses, vehículos derivados de turismos y vehículos mixtos adaptables, 80 kilómetros por hora ; camiones, tractocamiones, autocaravanas, furgones, vehículos articulados y automóviles con remolque, 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "4.º En cualquier tipo de vía donde esté permitida su circulación: vehículos de tres ruedas y cuadriciclos, 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "b) Para los vehículos que realicen transporte escolar y de menores o que transporten mercancías peligrosas, se reducirá en 10 kilómetros por hora la velocidad máxima fijada en el párrafo a) en función del tipo de vehículo y de la vía por la que circula."
+				},
+				{
+					"class": "parrafo",
+					"text": "En el supuesto de que en un autobús viajen pasajeros de pie porque así esté autorizado, la velocidad máxima, cualquiera que sea el tipo de vía fuera de poblado, será de 80 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "c) Para vehículos especiales y conjuntos de vehículos, también especiales, aunque sólo tenga tal naturaleza uno de los que integran el conjunto:"
+				},
+				{
+					"class": "parrafo",
+					"text": "1.º Si carecen de señalización de frenado, llevan remolque o son motocultores: 25 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "2.º Los restantes vehículos especiales: 40 kilómetros por hora, salvo cuando puedan desarrollar una velocidad superior a los 60 kilómetros por hora en llano con arreglo a sus características, y cumplan las condiciones que se señalan en las normas reguladoras de los vehículos ; en tal caso, la velocidad máxima será de 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "d) Para vehículos en régimen de transporte especial, la señalada en el anexo III de este reglamento."
+				},
+				{
+					"class": "parrafo",
+					"text": "e) Para ciclos, ciclomotores de dos y tres ruedas y cuadriciclos ligeros: 45 kilómetros por hora. No obstante, los conductores de bicicletas podrán superar dicha velocidad máxima en aquellos tramos en los que las circunstancias de la vía permitan desarrollar una velocidad superior."
+				},
+				{
+					"class": "parrafo",
+					"text": "f) Los vehículos en los que su conductor circule a pie no sobrepasarán la velocidad del paso humano, y los animales que arrastren un vehículo, la del trote."
+				},
+				{
+					"class": "parrafo",
+					"text": "g) Los vehículos a los que, por razones de ensayo o experimentación, les haya sido concedido un permiso especial para ensayos podrán rebasar las velocidades establecidas como máximas en 30 kilómetros por hora, pero sólo dentro del itinerario fijado y en ningún caso cuando circulen por vías urbanas, travesías o por tramos en los que exista señalización específica que limite la velocidad."
+				},
+				{
+					"class": "parrafo",
+					"text": "2. Las infracciones a las normas de este precepto tendrán la consideración de graves o muy graves, según corresponda por el exceso de velocidad, conforme se prevé en los artículos 65.4.c) y 65.5.e), ambos del texto articulado."
+				}
+			]
+		},
+		{
+			"sourceNormId": "BOE-A-2006-15406",
+			"publicationDate": "2006-09-05",
+			"effectiveDate": "2006-09-06",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 48. Velocidades máximas en vías fuera de poblado."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. Las velocidades máximas que no deberán ser rebasadas, salvo en los supuestos previstos en el artículo 51, son las siguientes:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a) Para automóviles:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "1.º En autopistas y autovías: turismos y motocicletas, 120 kilómetros por hora; autobuses, vehículos derivados de turismo y vehículos mixtos adaptables, 100 kilómetros por hora; camiones, vehículos articulados, tractocamiones, furgones y automóviles con remolque de hasta 750 kilogramos, 90 kilómetros por hora; restantes automóviles con remolque, 80 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "2.º En carreteras convencionales señalizadas como vías para automóviles y en el resto de carreteras convencionales, siempre que estas últimas tengan un arcén pavimentado de 1,50 metros o más de anchura, o más de un carril para alguno de los sentidos de circulación: turismos y motocicletas, 100 kilómetros por hora; autobuses, vehículos derivados de turismo y vehículos mixtos adaptables, 90 kilómetros por hora; camiones, tractocamiones, furgones, vehículos articulados y automóviles con remolque, 80 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "3.º En el resto de las vías fuera de poblado: turismos y motocicletas, 90 kilómetros por hora; autobuses, vehículos derivados de turismo y vehículos mixtos adaptables, 80 kilómetros por hora; camiones, tractocamiones, furgones, vehículos articulados y automóviles con remolque, 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "4.º En cualquier tipo de vía donde esté permitida su circulación: vehículos de tres ruedas y cuadriciclos, 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "b) Para los vehículos que realicen transporte escolar y de menores o que transporten mercancías peligrosas, se reducirá en 10 kilómetros por hora la velocidad máxima fijada en el párrafo a) en función del tipo de vehículo y de la vía por la que circula."
+				},
+				{
+					"class": "parrafo",
+					"text": "En el supuesto de que en un autobús viajen pasajeros de pie porque así esté autorizado, la velocidad máxima, cualquiera que sea el tipo de vía fuera de poblado, será de 80 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "c) Para vehículos especiales y conjuntos de vehículos, también especiales, aunque sólo tenga tal naturaleza uno de los que integran el conjunto:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "1.º Si carecen de señalización de frenado, llevan remolque o son motocultores: 25 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "2.º Los restantes vehículos especiales: 40 kilómetros por hora, salvo cuando puedan desarrollar una velocidad superior a los 60 kilómetros por hora en llano con arreglo a sus características, y cumplan las condiciones que se señalan en las normas reguladoras de los vehículos; en tal caso, la velocidad máxima será de 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "d) Para vehículos en régimen de transporte especial, la señalada en el anexo III de este reglamento."
+				},
+				{
+					"class": "parrafo",
+					"text": "e) Para ciclos, ciclomotores de dos y tres ruedas y cuadriciclos ligeros: 45 kilómetros por hora. No obstante, los conductores de bicicletas podrán superar dicha velocidad máxima en aquellos tramos en los que las circunstancias de la vía permitan desarrollar una velocidad superior."
+				},
+				{
+					"class": "parrafo",
+					"text": "f) Los vehículos en los que su conductor circule a pie no sobrepasarán la velocidad del paso humano, y los animales que arrastren un vehículo, la del trote."
+				},
+				{
+					"class": "parrafo",
+					"text": "g) Los vehículos a los que, por razones de ensayo o experimentación, les haya sido concedido un permiso especial para ensayos podrán rebasar las velocidades establecidas como máximas en 30 kilómetros por hora, pero sólo dentro del itinerario fijado y en ningún caso cuando circulen por vías urbanas, travesías o por tramos en los que exista señalización específica que limite la velocidad."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "2. Las infracciones a las normas de este precepto tendrán la consideración de graves o muy graves, según corresponda por el exceso de velocidad, conforme se prevé en los artículos 65.4.a) y 65.5. c), ambos del texto articulado de la Ley sobre tráfico, circulación de vehículos a motor y seguridad vial."
+				}
+			]
+		},
+		{
+			"sourceNormId": "BOE-A-2018-18002",
+			"publicationDate": "2018-12-29",
+			"effectiveDate": "2019-01-29",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 48. Velocidades máximas en vías fuera de poblado."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. Las velocidades máximas que no deberán ser rebasadas, salvo en los supuestos previstos en el artículo 51, son las siguientes:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a)"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "1.º En carreteras convencionales con separación física de los dos sentidos de circulación, el titular de la vía podrá fijar un límite máximo de 100 km/h para turismos, motocicletas y autocaravanas con masa máxima autorizada igual o inferior a 3.500 kg."
+				},
+				{
+					"class": "parrafo",
+					"text": "2.º A los vehículos de tres ruedas asimilados a las motocicletas, se aplican los mismos límites de velocidad que se establecen para las motocicletas de dos ruedas."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "b) Para los vehículos que realicen transporte escolar y de menores o que transporten mercancías peligrosas, se reducirá en 10 kilómetros por hora la velocidad máxima fijada en el párrafo a) en función del tipo de vehículo y de la vía por la que circula."
+				},
+				{
+					"class": "parrafo",
+					"text": "En el supuesto de que en un autobús viajen pasajeros de pie porque así esté autorizado o en caso de que el autobús no esté dotado de cinturón de seguridad, la velocidad máxima en vías convencionales será de 80 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "c) Para vehículos especiales y conjuntos de vehículos, también especiales, aunque sólo tenga tal naturaleza uno de los que integran el conjunto:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "1.º Si carecen de señalización de frenado, llevan remolque o son motocultores: 25 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "2.º Los restantes vehículos especiales: 40 kilómetros por hora, salvo cuando puedan desarrollar una velocidad superior a los 60 kilómetros por hora en llano con arreglo a sus características, y cumplan las condiciones que se señalan en las normas reguladoras de los vehículos; en tal caso, la velocidad máxima será de 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "d) Para vehículos en régimen de transporte especial, la señalada en el anexo III de este reglamento."
+				},
+				{
+					"class": "parrafo",
+					"text": "e) Para ciclos, ciclomotores de dos y tres ruedas y cuadriciclos ligeros: 45 kilómetros por hora. No obstante, los conductores de bicicletas podrán superar dicha velocidad máxima en aquellos tramos en los que las circunstancias de la vía permitan desarrollar una velocidad superior."
+				},
+				{
+					"class": "parrafo",
+					"text": "f) En las vías sin pavimentar el límite de velocidad máximo será de 30 km/h."
+				},
+				{
+					"class": "parrafo",
+					"text": "g) Los vehículos a los que, por razones de ensayo o experimentación, les haya sido concedido un permiso especial para ensayos podrán rebasar las velocidades establecidas como máximas en 30 kilómetros por hora, pero sólo dentro del itinerario fijado y en ningún caso cuando circulen por vías urbanas, travesías o por tramos en los que exista señalización específica que limite la velocidad."
+				},
+				{
+					"class": "parrafo",
+					"text": "h) A los vehículos de tres ruedas y cuadriciclos en cualquier tipo de vía donde esté permitida su circulación se aplica el límite de 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "2. Las infracciones a las normas de este precepto tendrán la consideración de graves o muy graves, según corresponda por el exceso de velocidad, conforme se prevé en los artículos 76.a) y 77.a), ambos del texto refundido de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial."
+				}
+			]
+		},
+		{
+			"sourceNormId": "BOE-A-2026-13889",
+			"publicationDate": "2026-06-26",
+			"effectiveDate": "2026-10-01",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 48. Velocidades máximas en vías fuera de poblado."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. Las velocidades máximas que no deberán ser rebasadas, salvo en los supuestos previstos en el artículo 51, son las siguientes:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a)"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "1.º En carreteras convencionales con separación física de los dos sentidos de circulación, el titular de la vía podrá fijar un límite máximo de 100 km/h para turismos, motocicletas y autocaravanas con masa máxima autorizada igual o inferior a 3.500 kg."
+				},
+				{
+					"class": "parrafo",
+					"text": "2.º A los vehículos de tres ruedas asimilados a las motocicletas, se aplican los mismos límites de velocidad que se establecen para las motocicletas de dos ruedas."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "b) Para los vehículos que realicen transporte escolar y de menores o que transporten mercancías peligrosas, se reducirá en 10 kilómetros por hora la velocidad máxima fijada en el párrafo a) en función del tipo de vehículo y de la vía por la que circula."
+				},
+				{
+					"class": "parrafo",
+					"text": "En el supuesto de que en un autobús viajen pasajeros de pie porque así esté autorizado o en caso de que el autobús no esté dotado de cinturón de seguridad, la velocidad máxima, cualquiera que sea el tipo de vía fuera de poblado, será de 80 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "c) Para vehículos especiales y conjuntos de vehículos, también especiales, aunque sólo tenga tal naturaleza uno de los que integran el conjunto:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "1.º Si carecen de señalización de frenado, llevan remolque o son motocultores: 25 kilómetros por hora."
+				},
+				{
+					"class": "parrafo",
+					"text": "2.º Los restantes vehículos especiales: 40 kilómetros por hora, salvo cuando puedan desarrollar una velocidad superior a los 60 kilómetros por hora en llano con arreglo a sus características, y cumplan las condiciones que se señalan en las normas reguladoras de los vehículos; en tal caso, la velocidad máxima será de 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "d) Para vehículos en régimen de transporte especial, la señalada en el anexo III de este reglamento."
+				},
+				{
+					"class": "parrafo",
+					"text": "e) Para ciclos, ciclomotores de dos y tres ruedas y cuadriciclos ligeros: 45 kilómetros por hora. No obstante, los conductores de bicicletas podrán superar dicha velocidad máxima en aquellos tramos en los que las circunstancias de la vía permitan desarrollar una velocidad superior."
+				},
+				{
+					"class": "parrafo",
+					"text": "f) En las vías sin pavimentar el límite de velocidad máximo será de 30 km/h."
+				},
+				{
+					"class": "parrafo",
+					"text": "g) Los vehículos a los que, por razones de ensayo o experimentación, les haya sido concedido un permiso especial para ensayos podrán rebasar las velocidades establecidas como máximas en 30 kilómetros por hora, pero sólo dentro del itinerario fijado y en ningún caso cuando circulen por vías urbanas, travesías o por tramos en los que exista señalización específica que limite la velocidad."
+				},
+				{
+					"class": "parrafo",
+					"text": "h) A los vehículos de tres ruedas y cuadriciclos en cualquier tipo de vía donde esté permitida su circulación se aplica el límite de 70 kilómetros por hora."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "2. Las infracciones a las normas de este precepto tendrán la consideración de graves o muy graves, según corresponda por el exceso de velocidad, conforme se prevé en los artículos 76.a) y 77.a), ambos del texto refundido de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial."
+				}
+			]
+		}
+	]
+}
