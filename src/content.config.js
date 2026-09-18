@@ -70,6 +70,30 @@ const questions = defineCollection({
 	}),
 });
 
+const legal = defineCollection({
+	loader: glob({ pattern: '**/*.json', base: './src/content/legal' }),
+	schema: z.object({
+		normId: z.string().regex(/^BOE-[AB]-\d{4}-\d+$/),
+		blockId: z.string().min(1),
+		title: z.string(),
+		versions: z
+			.array(
+				z.object({
+					sourceNormId: z.string().regex(/^BOE-[AB]-\d{4}-\d+$/),
+					publicationDate: z.coerce.date(),
+					effectiveDate: z.coerce.date(),
+					paragraphs: z.array(
+						z.object({
+							class: z.string().nullable(),
+							text: z.string(),
+						}),
+					),
+				}),
+			)
+			.min(1),
+	}),
+});
+
 const signs = defineCollection({
 	loader: file('./src/content/signs/signs.json'),
 	schema: z.object({
@@ -95,4 +119,4 @@ const signs = defineCollection({
 	}),
 });
 
-export const collections = { topics, questions, signs };
+export const collections = { topics, questions, signs, legal };
