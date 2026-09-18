@@ -1,0 +1,44 @@
+---
+import { resolveEffectiveVersion } from '../lib/legal-version.js';
+
+interface Props {
+	block: {
+		normId: string;
+		blockId: string;
+		title: string;
+		versions: Array<{
+			sourceNormId: string;
+			publicationDate: Date;
+			effectiveDate: Date;
+			paragraphs: Array<{ class: string | null; text: string }>;
+		}>;
+	};
+	atDate?: Date;
+}
+
+const { block, atDate = new Date() } = Astro.props;
+const version = resolveEffectiveVersion(block.versions, atDate);
+if (!version) {
+	throw new Error(
+		`Sin versión vigente de ${block.normId}/${block.blockId} en ${atDate.toISOString()}`,
+	);
+}
+const boeUrl = `https://www.boe.es/buscar/act.php?id=${block.normId}`;
+const updatedAt = version.publicationDate.toISOString().slice(0, 10);
+---
+
+<blockquote class="legal-cite">
+	{
+		version.paragraphs.map((paragraph) => (
+			<p class={paragraph.class ?? undefined}>{paragraph.text}</p>
+		))
+	}
+	<footer>
+		<p>
+			Basado en datos de la <a href="https://www.boe.es">Agencia Estatal
+			Boletín Oficial del Estado</a>. Texto consolidado de carácter
+			meramente informativo. Última actualización: {updatedAt}.
+			<a href={boeUrl}>Ver en boe.es</a>
+		</p>
+	</footer>
+</blockquote>
