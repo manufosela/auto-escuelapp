@@ -1,0 +1,12 @@
+[
+	{
+		"id": "R-2",
+		"group": "priority",
+		"name": "Detención obligatoria (STOP)",
+		"meaning": "Obligación de detenerse ante la señal y ceder el paso en la intersección o tramo de vía en que se encuentre.",
+		"svg": "public/signs/r2.svg",
+		"licence": "Public Domain",
+		"author": "Ministerio del Interior / DGT",
+		"sourceUrl": "https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Spain"
+	}
+]
