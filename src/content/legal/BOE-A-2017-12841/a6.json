@@ -1,0 +1,261 @@
+{
+	"normId": "BOE-A-2017-12841",
+	"blockId": "a6",
+	"title": "Artículo 6",
+	"versions": [
+		{
+			"sourceNormId": "BOE-A-2017-12841",
+			"publicationDate": "2017-11-08",
+			"effectiveDate": "2018-05-20",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 6. Fecha y frecuencia de las inspecciones técnicas periódicas."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. La inspección técnica periódica de los vehículos deberá efectuarse con la siguiente frecuencia:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "A efectos de la determinación de frecuencia, la antigüedad del vehículo deberá ser computada a partir de la fecha de primera matriculación o puesta en servicio que conste en el Registro de Vehículos del organismo autónomo Jefatura Central de Tráfico y que podrá ser consignada en el permiso de circulación o documento equivalente."
+				},
+				{
+					"class": "parrafo",
+					"text": "La citada tabla no será aplicable a los vehículos de las categorías L y M1 destinados al servicio de escuela de conductores, ni a los vehículos de la categoría M1 utilizados como ambulancias y taxis, así como de transporte escolar y de menores. Dichos vehículos se someterán a inspección con las frecuencias siguientes:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a) Vehículos de escuela de conductores de las categorías M1 y L:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "Antigüedad:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "Hasta dos años: Exento."
+				},
+				{
+					"class": "parrafo",
+					"text": "De dos a cinco años: Anual."
+				},
+				{
+					"class": "parrafo",
+					"text": "De más de cinco años: Semestral."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "b) Vehículos de la categoría M1 utilizados como ambulancias y taxis, y de transporte escolar y de menores."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "Antigüedad:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "Hasta cinco años: Anual."
+				},
+				{
+					"class": "parrafo",
+					"text": "De más de cinco años: Semestral."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "2. Los vehículos catalogados como históricos se someterán a inspecciones técnicas periódicas en las condiciones que se establezcan para su catalogación según el Reglamento de Vehículos Históricos, aprobado por Real Decreto 1247/1995, de 14 de julio, y al menos con la siguiente frecuencia:"
+				},
+				{
+					"class": "centro_redonda",
+					"text": "Vehículos catalogados como históricos"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "3. En el caso de vehículos mixtos, la frecuencia de inspección aplicable será la correspondiente a la categoría N en la que el vehículo pueda catalogarse."
+				},
+				{
+					"class": "parrafo",
+					"text": "4. Los vehículos quad se equipararán a los de la categoría L (resto de L, por no corresponder con L1e), de la tabla anterior."
+				},
+				{
+					"class": "parrafo",
+					"text": "5. El plazo de validez de las inspecciones técnicas periódicas se obtendrá adicionando a la fecha en la que el resultado de la inspección haya sido favorable la frecuencia indicada en este artículo. No obstante, si dicha fecha está comprendida en los 30 días naturales precedentes a la expiración del plazo de validez de la inspección anterior, el plazo de validez se obtendrá adicionando la frecuencia correspondiente a la citada fecha de expiración."
+				},
+				{
+					"class": "parrafo",
+					"text": "6. Las inspecciones técnicas periódicas podrán efectuarse conjuntamente con cualesquiera de las otras inspecciones establecidas en el artículo 5 siempre que se efectúen todas las mediciones y comprobaciones establecidas para la inspección periódica. Las inspecciones voluntarias podrán ser consideradas como periódicas siempre que se efectúen todas las mediciones y comprobaciones exigidas para estas inspecciones."
+				},
+				{
+					"class": "parrafo",
+					"text": "7. Se podrá exigir que un vehículo se someta a inspección antes de la fecha indicada en los apartados anteriores en los casos siguientes:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a) Tras un accidente u otra causa, cuando el vehículo haya sufrido un daño importante que pueda afectar a algún elemento de seguridad de los sistemas de dirección, suspensión, transmisión o frenado, o al bastidor o estructura autoportante en los puntos de anclaje de alguno de estos órganos, deberá ser presentado a inspección antes de su nueva puesta en circulación, en la que se dictamine sobre la aptitud del vehículo para circular por las vías públicas."
+				},
+				{
+					"class": "parrafo",
+					"text": "El agente de la autoridad encargado de la vigilancia del tráfico en el ejercicio de las funciones que tienen encomendadas que realice el informe y atestado, será quien proponga la inspección del vehículo antes de su puesta en servicio, después de la preceptiva reparación, comunicándolo tanto al interesado como a la Dirección General de Tráfico. Recibida dicha comunicación, la Dirección General de Tráfico dictará resolución imponiendo, en su caso, la inspección extraordinaria al vehículo."
+				},
+				{
+					"class": "parrafo",
+					"text": "b) Cuando los componentes y sistemas de seguridad y de protección del medio ambiente del vehículo hayan sido alterados o modificados, siguiendo lo establecido en el artículo 8 del Real Decreto 866/2010, de 2 de julio, por el que se regula la tramitación de las reformas de vehículos."
+				},
+				{
+					"class": "parrafo",
+					"text": "c) Cuando cualquiera de los organismos a los que la normativa vigente atribuye competencias en materia de tráfico y circulación de vehículos a motor tenga fundada sospecha de que por no reunir el vehículo las condiciones técnicas exigibles para permitir su circulación, se pueda poner en peligro la seguridad vial. En estos casos, la inspección se limitará al elemento o conjunto que se suponga defectuoso. A petición del interesado, será válida como inspección periódica siempre que se efectúen todas las mediciones y comprobaciones exigidas para estas inspecciones."
+				},
+				{
+					"class": "parrafo",
+					"text": "d) En los casos en que el vehículo, por cambio de uso, servicio, dedicación o destino, se viera obligado a una frecuencia de inspección más severa o se produjera alguna modificación técnica del vehículo, deberá realizarse una inspección, anotándose en la tarjeta ITV el nuevo destino y la nueva fecha de inspección correspondiente a la nueva periodicidad."
+				},
+				{
+					"class": "parrafo",
+					"text": "Si el cambio de uso, servicio, dedicación o destino del vehículo tiene lugar antes del vencimiento del primer plazo de inspección, y no implica ninguna modificación técnica del vehículo, sólo se realizará la anotación pertinente en la tarjeta ITV, anotándose como plazo de la primera inspección la que le correspondería a la situación más severa de las dos. En el caso de vehículos de turismo, no serán necesarias tales anotaciones si el fabricante las incluye en el apartado observaciones de la tarjeta ITV."
+				},
+				{
+					"class": "parrafo",
+					"text": "En los supuestos contemplados en las letras b) y c) anteriores, los agentes de la autoridad encargados de la vigilancia del tráfico que legalmente tengan atribuida la vigilancia del mismo, podrán ordenar su traslado hasta la estación ITV que resulte más adecuada para su examen, siempre que no suponga un recorrido de ida superior a treinta kilómetros. No obstante, cuando los mencionados lugares se encuentren situados en el mismo sentido de la marcha que siga el vehículo, no existirá limitación en relación con la distancia a recorrer. El conductor del vehículo así requerido estará obligado a conducirlo, acompañado por los agentes de la autoridad encargados de la vigilancia del tráfico, hasta la estación ITV, así como a facilitar las operaciones de inspección y verificación del vehículo, haciéndose cargo de los gastos de éstas, en caso de producirse, por cuenta del denunciado, si se acredita la infracción y, en caso contrario, de la Administración actuante."
+				},
+				{
+					"class": "parrafo",
+					"text": "Cuando una estación ITV reciba un requerimiento de control a un vehículo, por parte de los agentes de la autoridad encargados de la vigilancia del tráfico, realizarán las verificaciones pertinentes, en las condiciones establecidas en este real decreto con la máxima diligencia con el fin de no perturbar la actuación de vigilancia del tráfico ejercitada por los agentes."
+				},
+				{
+					"class": "parrafo",
+					"text": "8. Los tractocamiones y los semirremolques podrán ser inspeccionados conjunta o separadamente."
+				},
+				{
+					"class": "parrafo",
+					"text": "9. En los casos de incumplimiento de lo establecido en materia de inspecciones en el artículo 4 y en este mismo artículo, y sin perjuicio de la denuncia que habrán de formular por las infracciones correspondientes, los agentes de la autoridad encargados de la vigilancia del tráfico en el ejercicio de las funciones que tienen encomendadas concederán al titular o arrendatario a largo plazo del vehículo un plazo de 10 días para someter al mismo a inspección técnica. Trascurrido el plazo indicado sin que se hubiera acreditado la presentación del mismo a la citada inspección, la Jefatura de Tráfico iniciará el procedimiento para acordar la baja de oficio del vehículo."
+				}
+			]
+		},
+		{
+			"sourceNormId": "BOE-A-2024-18614",
+			"publicationDate": "2024-09-18",
+			"effectiveDate": "2024-10-01",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 6. Fecha y frecuencia de las inspecciones técnicas periódicas."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. La inspección técnica periódica de los vehículos deberá efectuarse con la siguiente frecuencia:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "A efectos de la determinación de frecuencia, la antigüedad del vehículo deberá ser computada a partir de la fecha de primera matriculación o puesta en servicio que conste en el Registro de Vehículos del organismo autónomo Jefatura Central de Tráfico y que podrá ser consignada en el permiso de circulación o documento equivalente."
+				},
+				{
+					"class": "parrafo",
+					"text": "La citada tabla no será aplicable a los vehículos de las categorías L y M1 destinados al servicio de escuela de conductores, ni a los vehículos de la categoría M1 utilizados como ambulancias y taxis, así como de transporte escolar y de menores. Dichos vehículos se someterán a inspección con las frecuencias siguientes:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a) Vehículos de escuela de conductores de las categorías M1 y L:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "Antigüedad:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "Hasta dos años: Exento."
+				},
+				{
+					"class": "parrafo",
+					"text": "De dos a cinco años: Anual."
+				},
+				{
+					"class": "parrafo",
+					"text": "De más de cinco años: Semestral."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "b) Vehículos de la categoría M1 utilizados como ambulancias y taxis, y de transporte escolar y de menores."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "Antigüedad:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "Hasta cinco años: Anual."
+				},
+				{
+					"class": "parrafo",
+					"text": "De más de cinco años: Semestral."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "2. Los vehículos históricos se someterán a inspecciones técnicas periódicas, al menos, con la siguiente frecuencia:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "No obstante lo establecido en el párrafo anterior, aquellos vehículos clasificados como históricos con antigüedad superior a sesenta años desde su fabricación o primera matriculación, así como los ciclomotores clasificados como históricos con independencia de su antigüedad, quedarán exentos de someterse a la inspección técnica de vehículos, sin perjuicio de que las personas titulares de estos vehículos puedan someterlos a ITV voluntarias."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "3. En el caso de vehículos mixtos, la frecuencia de inspección aplicable será la correspondiente a la categoría N en la que el vehículo pueda catalogarse."
+				},
+				{
+					"class": "parrafo",
+					"text": "4. Los vehículos quad se equipararán a los de la categoría L (resto de L, por no corresponder con L1e), de la tabla anterior."
+				},
+				{
+					"class": "parrafo",
+					"text": "5. El plazo de validez de las inspecciones técnicas periódicas se obtendrá adicionando a la fecha en la que el resultado de la inspección haya sido favorable la frecuencia indicada en este artículo. No obstante, si dicha fecha está comprendida en los 30 días naturales precedentes a la expiración del plazo de validez de la inspección anterior, el plazo de validez se obtendrá adicionando la frecuencia correspondiente a la citada fecha de expiración."
+				},
+				{
+					"class": "parrafo",
+					"text": "6. Las inspecciones técnicas periódicas podrán efectuarse conjuntamente con cualesquiera de las otras inspecciones establecidas en el artículo 5 siempre que se efectúen todas las mediciones y comprobaciones establecidas para la inspección periódica. Las inspecciones voluntarias podrán ser consideradas como periódicas siempre que se efectúen todas las mediciones y comprobaciones exigidas para estas inspecciones."
+				},
+				{
+					"class": "parrafo",
+					"text": "7. Se podrá exigir que un vehículo se someta a inspección antes de la fecha indicada en los apartados anteriores en los casos siguientes:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a) Tras un accidente u otra causa, cuando el vehículo haya sufrido un daño importante que pueda afectar a algún elemento de seguridad de los sistemas de dirección, suspensión, transmisión o frenado, o al bastidor o estructura autoportante en los puntos de anclaje de alguno de estos órganos, deberá ser presentado a inspección antes de su nueva puesta en circulación, en la que se dictamine sobre la aptitud del vehículo para circular por las vías públicas."
+				},
+				{
+					"class": "parrafo",
+					"text": "El agente de la autoridad encargado de la vigilancia del tráfico en el ejercicio de las funciones que tienen encomendadas que realice el informe y atestado, será quien proponga la inspección del vehículo antes de su puesta en servicio, después de la preceptiva reparación, comunicándolo tanto al interesado como a la Dirección General de Tráfico. Recibida dicha comunicación, la Dirección General de Tráfico dictará resolución imponiendo, en su caso, la inspección extraordinaria al vehículo."
+				},
+				{
+					"class": "parrafo",
+					"text": "b) Cuando los componentes y sistemas de seguridad y de protección del medio ambiente del vehículo hayan sido alterados o modificados, siguiendo lo establecido en el artículo 8 del Real Decreto 866/2010, de 2 de julio, por el que se regula la tramitación de las reformas de vehículos."
+				},
+				{
+					"class": "parrafo",
+					"text": "c) Cuando cualquiera de los organismos a los que la normativa vigente atribuye competencias en materia de tráfico y circulación de vehículos a motor tenga fundada sospecha de que por no reunir el vehículo las condiciones técnicas exigibles para permitir su circulación, se pueda poner en peligro la seguridad vial. En estos casos, la inspección se limitará al elemento o conjunto que se suponga defectuoso. A petición del interesado, será válida como inspección periódica siempre que se efectúen todas las mediciones y comprobaciones exigidas para estas inspecciones."
+				},
+				{
+					"class": "parrafo",
+					"text": "d) En los casos en que el vehículo, por cambio de uso, servicio, dedicación o destino, se viera obligado a una frecuencia de inspección más severa o se produjera alguna modificación técnica del vehículo, deberá realizarse una inspección, anotándose en la tarjeta ITV el nuevo destino y la nueva fecha de inspección correspondiente a la nueva periodicidad."
+				},
+				{
+					"class": "parrafo",
+					"text": "Si el cambio de uso, servicio, dedicación o destino del vehículo tiene lugar antes del vencimiento del primer plazo de inspección, y no implica ninguna modificación técnica del vehículo, sólo se realizará la anotación pertinente en la tarjeta ITV, anotándose como plazo de la primera inspección la que le correspondería a la situación más severa de las dos. En el caso de vehículos de turismo, no serán necesarias tales anotaciones si el fabricante las incluye en el apartado observaciones de la tarjeta ITV."
+				},
+				{
+					"class": "parrafo",
+					"text": "En los supuestos contemplados en las letras b) y c) anteriores, los agentes de la autoridad encargados de la vigilancia del tráfico que legalmente tengan atribuida la vigilancia del mismo, podrán ordenar su traslado hasta la estación ITV que resulte más adecuada para su examen, siempre que no suponga un recorrido de ida superior a treinta kilómetros. No obstante, cuando los mencionados lugares se encuentren situados en el mismo sentido de la marcha que siga el vehículo, no existirá limitación en relación con la distancia a recorrer. El conductor del vehículo así requerido estará obligado a conducirlo, acompañado por los agentes de la autoridad encargados de la vigilancia del tráfico, hasta la estación ITV, así como a facilitar las operaciones de inspección y verificación del vehículo, haciéndose cargo de los gastos de éstas, en caso de producirse, por cuenta del denunciado, si se acredita la infracción y, en caso contrario, de la Administración actuante."
+				},
+				{
+					"class": "parrafo",
+					"text": "Cuando una estación ITV reciba un requerimiento de control a un vehículo, por parte de los agentes de la autoridad encargados de la vigilancia del tráfico, realizarán las verificaciones pertinentes, en las condiciones establecidas en este real decreto con la máxima diligencia con el fin de no perturbar la actuación de vigilancia del tráfico ejercitada por los agentes."
+				},
+				{
+					"class": "parrafo",
+					"text": "8. Los tractocamiones y los semirremolques podrán ser inspeccionados conjunta o separadamente."
+				},
+				{
+					"class": "parrafo",
+					"text": "9. En los casos de incumplimiento de lo establecido en materia de inspecciones en el artículo 4 y en este mismo artículo, y sin perjuicio de la denuncia que habrán de formular por las infracciones correspondientes, los agentes de la autoridad encargados de la vigilancia del tráfico en el ejercicio de las funciones que tienen encomendadas concederán al titular o arrendatario a largo plazo del vehículo un plazo de 10 días para someter al mismo a inspección técnica. Trascurrido el plazo indicado sin que se hubiera acreditado la presentación del mismo a la citada inspección, la Jefatura de Tráfico iniciará el procedimiento para acordar la baja de oficio del vehículo."
+				}
+			]
+		}
+	]
+}
