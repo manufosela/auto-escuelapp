@@ -1,0 +1,171 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+// Con barra final: el service worker solo resuelve /ruta/ -> /ruta/index.html
+// en offline (workbox directoryIndex), no /ruta sin barra. Ver AUT-TSK-0011.
+const NAV_ITEMS = [
+	{ href: '/', label: 'Inicio', icon: '🏠' },
+	{ href: '/temario/', label: 'Temario', icon: '📖' },
+	{ href: '/practica/', label: 'Test', icon: '📝' },
+	{ href: '/progreso/', label: 'Progreso', icon: '📊' },
+];
+
+const currentPath = Astro.url.pathname.endsWith('/')
+	? Astro.url.pathname
+	: `${Astro.url.pathname}/`;
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#154082" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+		<link rel="apple-touch-icon" href="/icons/icon-180.png" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header class="app-header">
+			<p class="brand">auto-escuelapp</p>
+		</header>
+		<main>
+			<slot />
+			<SiteFooter />
+		</main>
+		<nav class="bottom-nav" aria-label="Navegación principal">
+			{
+				NAV_ITEMS.map((item) => (
+					<a
+						href={item.href}
+						aria-current={currentPath === item.href ? 'page' : undefined}
+					>
+						<span class="icon" aria-hidden="true">
+							{item.icon}
+						</span>
+						<span class="label">{item.label}</span>
+					</a>
+				))
+			}
+		</nav>
+		<script>
+			// Registro del service worker generado por src/integrations/pwa.mjs.
+			// Se genera con skipWaiting + clientsClaim, así que una versión
+			// nueva toma el control sola; solo hace falta recargar una vez para
+			// que la página en curso use los recursos actualizados.
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('/sw.js');
+				let reloaded = false;
+				navigator.serviceWorker.addEventListener('controllerchange', () => {
+					if (reloaded) return;
+					reloaded = true;
+					window.location.reload();
+				});
+			}
+		</script>
+	</body>
+</html>
+
+<style>
+	:root {
+		--color-bg: #ffffff;
+		--color-text: #1a1a1a;
+		--color-surface: #f3f5f8;
+		--color-border: #dde2e8;
+		--color-accent: #154082;
+		--bottom-nav-height: 64px;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--color-bg: #10161f;
+			--color-text: #eef1f5;
+			--color-surface: #1a2230;
+			--color-border: #2a3444;
+			--color-accent: #6fa3ff;
+		}
+	}
+
+	:global(html) {
+		box-sizing: border-box;
+	}
+
+	:global(*, *::before, *::after) {
+		box-sizing: inherit;
+	}
+
+	:global(body) {
+		margin: 0;
+		min-height: 100dvh;
+		background: var(--color-bg);
+		color: var(--color-text);
+		font-family:
+			system-ui,
+			-apple-system,
+			'Segoe UI',
+			Roboto,
+			sans-serif;
+		overflow-x: hidden;
+	}
+
+	.app-header {
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.brand {
+		margin: 0;
+		font-weight: 700;
+		font-size: 1.1rem;
+		color: var(--color-accent);
+	}
+
+	main {
+		padding: 1rem 1rem calc(var(--bottom-nav-height) + 1rem);
+		max-width: 640px;
+		margin: 0 auto;
+	}
+
+	.bottom-nav {
+		position: fixed;
+		inset-block-end: 0;
+		inset-inline: 0;
+		display: flex;
+		height: var(--bottom-nav-height);
+		padding-bottom: env(safe-area-inset-bottom, 0);
+		background: var(--color-surface);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.bottom-nav a {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.15rem;
+		min-height: 44px;
+		text-decoration: none;
+		color: var(--color-text);
+		font-size: 0.7rem;
+	}
+
+	.bottom-nav a[aria-current='page'] {
+		color: var(--color-accent);
+		font-weight: 600;
+	}
+
+	.bottom-nav .icon {
+		font-size: 1.25rem;
+		line-height: 1;
+	}
+</style>
