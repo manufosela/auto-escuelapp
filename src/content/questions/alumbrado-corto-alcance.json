@@ -1,0 +1,21 @@
+{
+	"statement": "Circula de noche por una travesía cuya vía está insuficientemente iluminada. ¿Qué alumbrado debe llevar encendido?",
+	"options": [
+		"Alumbrado de corto alcance o de cruce.",
+		"Alumbrado de largo alcance únicamente.",
+		"Solo las luces de posición."
+	],
+	"correctIndex": 0,
+	"explanation": "El art. 101.1 del Reglamento General de Circulación obliga a llevar encendido el alumbrado de corto alcance o de cruce en los poblados (incluidas las travesías) cuando la vía esté insuficientemente iluminada, además del alumbrado de posición.",
+	"subject": 9,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 101.1",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own-book",
+		"page": 37
+	},
+	"validFrom": "2026-09-19"
+}
