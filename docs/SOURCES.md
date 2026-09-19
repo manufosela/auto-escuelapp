@@ -9,7 +9,7 @@ de qué fuente y bajo qué condición. El razonamiento completo está en
 | Texto normativo citado en el temario | `src/content/legal/` (`scripts/fetch-legal.mjs`) | API de datos abiertos del BOE (`boe.es/datosabiertos`) | Copiable con cita de fuente, aviso de texto consolidado informativo y fecha de actualización |
 | Catálogo de señales (imágenes) | `public/signs/` (`scripts/fetch-signs.mjs`) | Wikimedia Commons, `Category:SVG road signs in Spain` | Licencia por fichero, ver `ATTRIBUTIONS.md`. Cobertura parcial y verificada manualmente; pendientes en `docs/research/senales-pendientes.md` |
 | Temario (texto) | `src/content/topics/` (AUT-TSK-0005) | Redacción propia sobre el Anexo V.B.1 del RD 818/2009 | MIT (redacción propia) |
-| Preguntas de la revista DGT | `src/content/questions/revista-dgt.json` (AUT-TSK-0007) | `revista.dgt.es/es/test/` (solo texto) | Copiable con cita de la revista; sin imágenes |
+| Preguntas de la revista DGT | Borrador en `docs/research/revista-dgt-imports/` (`scripts/import-revista-dgt.mjs`), publicadas una a una en `src/content/questions/*.json` tras revisión (AUT-TSK-0008) | `revista.dgt.es/es/test/` (solo texto) | Copiable con cita de la revista; sin imágenes |
 | Preguntas propias | `src/content/questions/*.json` (5 preguntas semilla en AUT-TSK-0013, banco completo en AUT-TSK-0009) | Redacción propia, estilo documentado en `docs/research/formato-examen-y-preguntas.md` | MIT (redacción propia) |
 | Fichas de repaso | `src/content/flashcards/` (AUT-TSK-0016) | Redacción propia | MIT (redacción propia) |
 
@@ -18,7 +18,7 @@ de qué fuente y bajo qué condición. El razonamiento completo está en
 - `~/Downloads/Documentos/PDF_Otros/autoescuela_san_cristobal-LIBRO.pdf`
   (Ediciones Matfer, con copyright) y cualquier texto o imagen derivada de él.
   Se usa solo en local, bajo `private/` (gitignored), para contrastar huecos
-  de contenido — ver AUT-TSK-0008. Nunca entra en el repo público.
+  de contenido — ver AUT-TSK-0010. Nunca entra en el repo público.
 - Cualquier extracción del simulador oficial de examen de la DGT.
 - Contenido de webs o manuales comerciales de autoescuela.
 

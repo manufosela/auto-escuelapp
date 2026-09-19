@@ -41,7 +41,7 @@ Formato de cada entrada, una vez generado:
 - Texto de preguntas: revista *Tráfico y Seguridad Vial* (Dirección General
   de Tráfico) — https://revista.dgt.es/es/test/. Cada pregunta importada de
   esta fuente conserva su número de test y URL en el propio fichero de
-  contenido (ver `AUT-TSK-0007`).
+  contenido (ver `AUT-TSK-0008`).
 - Normativa: Agencia Estatal Boletín Oficial del Estado —
   https://www.boe.es/datosabiertos/. Cada bloque normativo citado en la app
   indica su fecha de última actualización (ver `AUT-TSK-0003`).

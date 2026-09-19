@@ -1,0 +1,18 @@
+{
+	"statement": "¿A qué velocidad máxima tiene permitido circular un ciclomotor por esta carretera convencional con un carril para cada sentido de la circulación?",
+	"options": ["45 kilómetros por hora.", "80 kilómetros por hora.", "60 kilómetros por hora."],
+	"correctIndex": 0,
+	"explanation": "El art. 48.1.e) del Reglamento General de Circulación fija en 45 km/h la velocidad máxima para ciclos, ciclomotores de dos y tres ruedas y cuadriciclos ligeros, con independencia del tipo de vía por la que circulen.",
+	"subject": 1,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 48.1.e)",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "revista-dgt",
+		"testNumber": 278,
+		"url": "https://revista.dgt.es/es/test/Test-num-278.shtml"
+	},
+	"validFrom": "2026-09-19"
+}
