@@ -94,6 +94,17 @@ const legal = defineCollection({
 	}),
 });
 
+const flashcards = defineCollection({
+	loader: glob({ pattern: '**/*.json', base: './src/content/flashcards' }),
+	schema: z.object({
+		front: z.string().min(1),
+		back: z.string().min(1),
+		// Tema (id de la colección `topics`) al que pertenece la ficha.
+		topic: z.string().min(1),
+		legalReference: LEGAL_REFERENCE,
+	}),
+});
+
 const signs = defineCollection({
 	loader: file('./src/content/signs/signs.json'),
 	schema: z.object({
@@ -119,4 +130,4 @@ const signs = defineCollection({
 	}),
 });
 
-export const collections = { topics, questions, signs, legal };
+export const collections = { topics, questions, signs, legal, flashcards };
