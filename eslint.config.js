@@ -31,4 +31,23 @@ export default [
       },
     },
   },
+  {
+    // Código de navegador (componentes Lit, scripts de página)
+    files: ['src/**/*.js'],
+    languageOptions: {
+      globals: {
+        console: 'readonly',
+        customElements: 'readonly',
+        document: 'readonly',
+        fetch: 'readonly',
+        localStorage: 'readonly',
+        navigator: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        window: 'readonly',
+      },
+    },
+  },
 ];
