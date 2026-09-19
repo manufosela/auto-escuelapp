@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const entries = await getCollection('questions');
+const questions = entries.map((entry) => ({
+	id: entry.id,
+	statement: entry.data.statement,
+	options: entry.data.options,
+	correctIndex: entry.data.correctIndex,
+	explanation: entry.data.explanation,
+	subject: entry.data.subject,
+	validFrom: entry.data.validFrom.toISOString(),
+	validUntil: entry.data.validUntil?.toISOString(),
+}));
+---
+
+<BaseLayout
+	title="Repaso — auto-escuelapp"
+	description="Repaso priorizado de las preguntas que más fallas."
+>
+	<h1>Repaso</h1>
+	<p>Las preguntas que más has fallado, en orden de prioridad.</p>
+	<practice-runner id="review-runner"></practice-runner>
+</BaseLayout>
+
+<script type="application/json" id="review-questions-data" set:html={JSON.stringify(questions)} />
+<script>
+	import '../../../components/practice-runner.js';
+	import { loadAttempts } from '../../../lib/history-store.js';
+	import { buildReviewQueue } from '../../../lib/review-queue.js';
+
+	interface Question {
+		id: string;
+		statement: string;
+		options: string[];
+		correctIndex: number;
+		explanation: string;
+		subject: number;
+		validFrom: string;
+		validUntil?: string;
+	}
+
+	const dataEl = document.getElementById('review-questions-data');
+	if (!dataEl?.textContent) throw new Error('Faltan los datos de preguntas para el repaso');
+	const questions: Question[] = JSON.parse(dataEl.textContent);
+
+	const runner = document.getElementById('review-runner') as (HTMLElement & {
+		orderedQuestions: Question[];
+	}) | null;
+	if (!runner) throw new Error('No se encuentra el elemento review-runner');
+
+	loadAttempts().then((attempts) => {
+		const queue = buildReviewQueue(attempts);
+		const byId = new Map(questions.map((question) => [question.id, question]));
+		const orderedQuestions = queue
+			.map((entry) => byId.get(entry.questionId))
+			.filter((question): question is Question => question !== undefined);
+		runner.orderedQuestions = orderedQuestions;
+	});
+</script>
