@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
 	const topics = await getCollection('topics');
@@ -23,11 +23,12 @@ const { Content } = await render(topic);
 	<Content />
 	<p class="legal-refs">
 		Referencias:{' '}
-		{topic.data.legalReferences
-			.map((ref) => `${ref.norm} ${ref.article}`)
-			.join(', ')}
+		{topic.data.legalReferences.map((ref) => `${ref.norm} ${ref.article}`).join(', ')}
 	</p>
-	<p><a href={`/practica/tema/${topic.id}/`}>Practicar este tema</a></p>
+	<p>
+		<a href={`/practica/tema/${topic.id}/`}>Practicar este tema</a> ·
+		<a href={`/temario/${topic.id}/fichas/`}>Fichas de repaso</a>
+	</p>
 </BaseLayout>
 
 <style>

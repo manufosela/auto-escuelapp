@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+	const topics = await getCollection('topics');
+	return topics.map((topic) => ({ params: { slug: topic.id }, props: { topic } }));
+}
+
+const { topic } = Astro.props;
+const allCards = await getCollection('flashcards');
+const cards = allCards
+	.filter((entry) => entry.data.topic === topic.id)
+	.map((entry) => ({ front: entry.data.front, back: entry.data.back }));
+---
+
+<BaseLayout
+	title={`Fichas — ${topic.data.title} — auto-escuelapp`}
+	description={`Fichas de repaso rápido del tema ${topic.data.title}.`}
+>
+	<h1>Fichas — {topic.data.title}</h1>
+	<flashcard-deck id="flashcard-deck"></flashcard-deck>
+</BaseLayout>
+
+<script>
+	import '../../../components/flashcard-deck.js';
+</script>
+<script define:vars={{ cards }}>
+	document.getElementById('flashcard-deck').cards = cards;
+</script>
