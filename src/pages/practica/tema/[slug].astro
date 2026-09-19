@@ -10,6 +10,7 @@ export async function getStaticPaths() {
 const { topic } = Astro.props;
 const allQuestions = await getCollection('questions');
 const questions = allQuestions.map((entry) => ({
+	id: entry.id,
 	statement: entry.data.statement,
 	options: entry.data.options,
 	correctIndex: entry.data.correctIndex,
@@ -25,7 +26,7 @@ const questions = allQuestions.map((entry) => ({
 	description={`Práctica del tema ${topic.data.title} con corrección inmediata.`}
 >
 	<h1>{topic.data.title}</h1>
-	<practice-runner id="practice-runner"></practice-runner>
+	<practice-runner id="practice-runner" topic-id={topic.id}></practice-runner>
 </BaseLayout>
 
 <script>

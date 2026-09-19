@@ -2,6 +2,7 @@
 // rejilla 01-30 con solo dos estados (contestada/no contestada), cuenta
 // atrás y corrección al finalizar. Ver docs/research/formato-examen-y-preguntas.md.
 import { css, html, LitElement } from 'lit';
+import { buildAttempt } from '../lib/attempt.js';
 import { EXAM_RULES, isPassingResult } from '../lib/exam-rules.js';
 import { selectExamQuestions } from '../lib/exam-selection.js';
 import {
@@ -11,6 +12,7 @@ import {
 	createExamSession,
 	goToQuestion,
 } from '../lib/exam-session.js';
+import { saveAttempt } from '../lib/history-store.js';
 
 const STORAGE_KEY = 'auto-escuelapp:exam-session:v1';
 
@@ -239,6 +241,16 @@ export class ExamRunner extends LitElement {
 	_finish() {
 		clearInterval(this._timerId);
 		this._finished = true;
+		const { results } = correctExam(this._session);
+		const attempt = buildAttempt({
+			mode: 'exam',
+			startedAt: this._session.startedAt,
+			results,
+			isPassing: (failures) => isPassingResult(failures, this.licence),
+		});
+		saveAttempt(attempt).catch((error) =>
+			console.error('exam-runner: fallo guardando el intento', error),
+		);
 		clearStoredSession();
 	}
 
