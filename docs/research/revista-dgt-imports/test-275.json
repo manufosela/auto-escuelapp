@@ -1,0 +1,247 @@
+{
+	"testNumber": 275,
+	"url": "https://revista.dgt.es/es/test/Test-num-275.shtml",
+	"importedAt": "2026-09-19T17:42:09.680Z",
+	"questions": [
+		{
+			"number": 1,
+			"statement": "Si existen semáforos con indicaciones distintas a la derecha y a la izquierda, ¿a cuál obedecerán los que pretendan seguir de frente?",
+			"options": [
+				"Al situado a su derecha.",
+				"Al que se encuentre más cerca del vehículo.",
+				"Al situado inmediatamente a su izquierda."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 2,
+			"statement": "En el centro de la calzada hay doble línea continua; ¿qué indica?",
+			"options": [
+				"Que la calzada es peligrosa.",
+				"Que hay un carril especial.",
+				"Que no se puede atravesar, ni pisar la línea."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 3,
+			"statement": "Al cruzar un arcén por el que transitan peatones, ¿qué debe hacer?",
+			"options": [
+				"Avisarles mediante señales acústicas para que se aparten.",
+				"Cederles el paso, pero solamente si forman un grupo.",
+				"Cederles el paso si no disponen de zona peatonal."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 8,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 4,
+			"statement": "Esta señal, ¿prohíbe cambiar de dirección a la izquierda?",
+			"options": [
+				"No.",
+				"Sí, pero no prohíbe girar a la derecha.",
+				"Sí; prohíbe realizar cualquier giro."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 5,
+			"statement": "Un furgón, ¿puede utilizar un carril reversible?",
+			"options": [
+				"Solo si su M.M.A. no es superior a 3.500 kilogramos.",
+				"No.",
+				"Sí."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 6,
+			"statement": "Como norma general, en la parte transitable del arcén de una vía interurbana, ¿está permitida la parada o el estacionamiento?",
+			"options": [
+				"Está permitida la parada, pero no el estacionamiento.",
+				"Está prohibida tanto la parada como el estacionamiento.",
+				"Está permitida tanto la parada como el estacionamiento."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 7,
+			"statement": "Circulando por una autopista observa que se ha pasado una salida, ¿puede volver a ella circulando marcha atrás?",
+			"options": [
+				"No.",
+				"Sí, cuando el recorrido no supere los 15 metros.",
+				"Sí, comprobando que no existe peligro para otros usuarios."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 8,
+			"statement": "¿Puede circular con su turismo si el equipaje no permite una visión adecuada de la vía por el espejo retrovisor interior?",
+			"options": [
+				"No; en ningún caso la carga puede disminuir la visibilidad a través del espejo retrovisor.",
+				"Sí, si el vehículo lleva dos espejos retrovisores exteriores, uno a cada lado.",
+				"Solo si el retrovisor derecho es gran angular y el interior es panorámico."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 12,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 9,
+			"statement": "¿Qué significado tiene esta señal?",
+			"options": [
+				"Peligro por la proximidad de un paso a nivel provisto de barreras o semibarreras.",
+				"Peligro por la proximidad de un paso a nivel sin barreras de más de una vía férrea.",
+				"Peligro por la proximidad de un cruce con una línea de tranvía."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 10,
+			"statement": "En general, un conductor con sueño...",
+			"options": [
+				"acepta un mayor nivel de riesgo en la conducción.",
+				"acepta un menor nivel de riesgo en la conducción.",
+				"tarda menos en reaccionar ante un suceso imprevisto."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 4,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 11,
+			"statement": "¿Cómo se conocen a los colectivos de personas que tienen una mayor probabilidad de verse implicados en un accidente de tráfico o de fallecer a consecuencia del mismo?",
+			"options": [
+				"Grupos de riesgo o vulnerables en el tráfico.",
+				"Víctimas de accidentes de tráfico.",
+				"Grupos en riesgo de exclusión social."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 12,
+			"statement": "¿Puede sobresalir por la parte trasera del vehículo la carga indivisible que transporta un turismo?",
+			"options": [
+				"Sí, un máximo de hasta el 10% de la longitud del vehículo.",
+				"No, la carga no puede sobresalir por la parte trasera de un turismo.",
+				"Sí, un máximo de hasta el 15% de la longitud del vehículo."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 13,
+			"statement": "¿Qué indican estas marcas viales?",
+			"options": [
+				"Prohibición de estacionar.",
+				"Zona de estacionamiento exclusiva para residentes.",
+				"Zona de estacionamiento de duración limitada."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 14,
+			"statement": "Si queda detenido en un atasco, ¿qué distancia es aconsejable mantener con el vehículo de delante?",
+			"options": [
+				"Un metro como máximo.",
+				"Un espacio mínimo para ocupar menos espacio.",
+				"Dos o tres metros para no golpear al vehículo de delante en caso de alcance trasero."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		},
+		{
+			"number": 15,
+			"statement": "¿Qué condiciones deben tener los neumáticos de una motocicleta?",
+			"options": [
+				"Las dos ruedas tienen que ser del mismo tamaño y características.",
+				"Las ranuras de la banda de rodadura deben tener una profundidad mínima de 1,6 milímetros.",
+				"No deben presentar ampollas, deformaciones anormales o roturas."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 14,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 275,
+				"url": "https://revista.dgt.es/es/test/Test-num-275.shtml"
+			}
+		}
+	]
+}
