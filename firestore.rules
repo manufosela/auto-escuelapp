@@ -33,7 +33,22 @@ service cloud.firestore {
       allow update, delete: if false;
     }
 
-    // Deny-all para todo lo demás (AUT-TSK-0020 añadirá reportes de preguntas).
+    // Reporte de una pregunta defectuosa: igual que un intento, de solo
+    // creación (nunca se edita ni se borra desde el cliente).
+    function isValidQuestionReport(data) {
+      return data.keys().hasAll(['questionId', 'reason', 'createdAt'])
+        && data.questionId is string && data.questionId.size() > 0
+        && data.reason in ['wrong_answer', 'unclear', 'outdated', 'other']
+        && data.createdAt is string;
+    }
+
+    match /users/{userId}/questionReports/{reportId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidQuestionReport(request.resource.data);
+      allow update, delete: if false;
+    }
+
+    // Deny-all para todo lo demás.
     match /{document=**} {
       allow read, write: if false;
     }
