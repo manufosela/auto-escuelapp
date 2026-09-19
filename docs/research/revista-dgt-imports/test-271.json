@@ -1,0 +1,247 @@
+{
+	"testNumber": 271,
+	"url": "https://revista.dgt.es/es/test/Test-num-271.shtml",
+	"importedAt": "2026-09-19T17:42:03.527Z",
+	"questions": [
+		{
+			"number": 1,
+			"statement": "Un conductor que señaliza un cambio de carril, ¿tiene preferencia sobre los conductores de los vehículos que circulan por el carril al que se pretende desplazar?",
+			"options": [
+				"Sí.",
+				"No.",
+				"Sólo si va a adelantar a un vehículo de grandes dimensiones."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 2,
+			"statement": "¿Qué debe hacer el conductor de un vehículo que, por motivos de emergencia, quede inmovilizado dentro de un paso inferior?",
+			"options": [
+				"Permanecer en el interior del vehículo.",
+				"Inmovilizar el vehículo lo más cerca posible del borde izquierdo de la calzada.",
+				"Solicitar auxilio a través del poste de socorro más próximo, si existiese."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 3,
+			"statement": "En esta situación, ¿está permitido adelantar al ciclista?",
+			"options": [
+				"Sí, aunque para ello haya que invadir el carril de sentido contrario.",
+				"Sólo si al adelantar no se invade el carril de sentido contrario.",
+				"No, porque la señalización prohíbe el adelantamiento."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 8,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 4,
+			"statement": "Conducir durante mucho tiempo a una velocidad elevada...",
+			"options": [
+				"disminuye la aparición de la fatiga pero aumenta la agresividad.",
+				"acelera la aparición de la fatiga y, por tanto, disminuye la agresividad.",
+				"acelera la aparición de la fatiga y hace que aumente la agresividad."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 5,
+			"statement": "Factores individuales como la edad, la fatiga o el estado físico del conductor, ¿pueden hacer que los efectos secundarios de los medicamentos sean diferentes en cada persona?",
+			"options": [
+				"No, los efectos secundarios son los mismos para todas las personas.",
+				"Sí, los efectos secundarios pueden variar en cada persona.",
+				"Sólo si durante el tratamiento no se siguen los consejos del médico."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 4,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 6,
+			"statement": "Si se lleva instalado un navegador GPS hay que tener en cuenta que...",
+			"options": [
+				"mientras se conduce no es conveniente apartar la vista del navegador.",
+				"las indicaciones del navegador prevalecen sobre la señalización de la vía.",
+				"el criterio del conductor debe prevalecer sobre las indicaciones del navegador."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 7,
+			"statement": "Se debe desactivar el airbag frontal cuando en el asiento correspondiente al copiloto...",
+			"options": [
+				"viaje una mujer embarazada.",
+				"se instale un dispositivo de retención infantil orientado hacia atrás.",
+				"se instale un dispositivo de retención infantil orientado hacia delante."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 15,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 8,
+			"statement": "En una autopista que transcurre por zona urbana, ¿a qué velocidad máxima puede circular un turismo si no existe señalización?",
+			"options": [
+				"A 80 km/h.",
+				"A 120 km/h.",
+				"A 100 km/h."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 9,
+			"statement": "¿Puede rebasar la velocidad máxima indicada en la señal?",
+			"options": [
+				"Sí, en 20 km/h para adelantar.",
+				"No.",
+				"Sí, mientras lo permitan las circunstancias."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 10,
+			"statement": "Si debido a la lluvia intensa, en una vía interurbana no se distingue un vehículo de color negro a 50 metros de distancia, ¿es posible circular con el alumbrado de largo alcance encendido?",
+			"options": [
+				"No, está prohibido.",
+				"Sí, porque la vía está insuficientemente iluminada.",
+				"Sólo se puede encender la luz de cruce y la antiniebla delantera."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 6,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 11,
+			"statement": "La parte externa de uno de los neumáticos de su vehículo presenta una deformación en forma de bulto, ¿es recomendable sustituir el neumático lo antes posible?",
+			"options": [
+				"Sí, porque aumenta la posibilidad de sufrir un reventón.",
+				"No. Se puede seguir circulando con seguridad ya que no supone un riesgo importante.",
+				"No; no es necesario sustituirlo ya que siempre se puede reparar en un taller especializado."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 14,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 12,
+			"statement": "El agente balancea una luz amarilla; ¿qué indica?",
+			"options": [
+				"Precaución al circular.",
+				"El carril por el que se debe circular.",
+				"Obliga a detenerse a los conductores hacia los que dirige la luz."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 13,
+			"statement": "Los carriles reversibles están delimitados por marcas longitudinales…",
+			"options": [
+				"discontinuas con una separación sensiblemente más corta.",
+				"discontinuas simples a ambos lados.",
+				"dobles discontinuas a ambos lados."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 14,
+			"statement": "Conforme a los datos de accidentalidad, en los períodos de vacaciones y los fines de semana...",
+			"options": [
+				"no varía de forma importante el número de accidentes con víctimas mortales.",
+				"aumenta el número de accidentes con víctimas mortales.",
+				"disminuye el número de accidentes con víctimas mortales."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		},
+		{
+			"number": 15,
+			"statement": "Si su turismo ha pasado favorablemente la primera ITV, ¿cuándo tiene que pasar la próxima inspección?",
+			"options": [
+				"Dentro de 2 años.",
+				"Dentro de 4 años.",
+				"Al año siguiente."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 10,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 271,
+				"url": "https://revista.dgt.es/es/test/Test-num-271.shtml"
+			}
+		}
+	]
+}

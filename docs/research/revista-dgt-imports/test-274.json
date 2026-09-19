@@ -1,0 +1,247 @@
+{
+	"testNumber": 274,
+	"url": "https://revista.dgt.es/es/test/Test-num-274.shtml",
+	"importedAt": "2026-09-19T17:42:08.141Z",
+	"questions": [
+		{
+			"number": 1,
+			"statement": "De día es obligatorio encender el alumbrado que corresponda cuando se circule...",
+			"options": [
+				"por un puente móvil.",
+				"por un carril reservado a vehículos con alta ocupación (VAO).",
+				"por pasos inferiores o tramos de vía afectados por la señal \"Túnel\"."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 2,
+			"statement": "Entre los siguientes tipos de señales, ¿cuál es el orden de prioridad?",
+			"options": [
+				"Señales verticales, agentes y semáforos.",
+				"Agentes, semáforos y señales verticales.",
+				"Semáforos, agentes y señales verticales."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 3,
+			"statement": "Esta señal prohíbe la entrada a...",
+			"options": [
+				"ciclos y ciclomotores.",
+				"ciclos.",
+				"todos los vehículos de dos ruedas."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 4,
+			"statement": "En general, bajo los efectos de la cocaína el conductor...",
+			"options": [
+				"es inseguro e infravalora sus capacidades al volante.",
+				"se concentra mejor, por lo que sus decisiones son más seguras.",
+				"es competitivo e impulsivo."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 5,
+			"statement": "Las embarazadas, ¿están obligadas a utilizar el cinturón de seguridad?",
+			"options": [
+				"Sí, como norma general.",
+				"No, porque es peligroso para el feto.",
+				"Solo si no les dificulta los movimientos para conducir."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 15,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 6,
+			"statement": "El calor afecta negativamente a las capacidades para conducir con seguridad. Un conductor que se encuentra bajo sus efectos normalmente:",
+			"options": [
+				"Tarda más en reaccionar y es menos agresivo.",
+				"Tarda más en reaccionar y es más agresivo.",
+				"Tarda menos en reaccionar y es más agresivo."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 7,
+			"statement": "Cuando la luz de marcha atrás esté averiada, ¿cómo debe indicar que va a dar marcha atrás?",
+			"options": [
+				"Moviendo el brazo de arriba abajo.",
+				"Con el brazo extendido y la palma de la mano hacia atrás.",
+				"Advirtiéndolo con el claxon."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 8,
+			"statement": "En una vía interurbana con un carril por sentido, ¿dónde se colocará un ciclomotor para girar a la izquierda, si no existe carril específico para realizar el giro?",
+			"options": [
+				"En el eje de la calzada, sin invadir el carril de sentido contrario.",
+				"En la parte central del carril por el que circule.",
+				"A la derecha, fuera de la calzada siempre que sea posible."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 9,
+			"statement": "Esta marca transversal discontinua, ¿obliga a detenerse antes de franquearla?",
+			"options": [
+				"Solo si hay visibilidad reducida.",
+				"No, porque no parar no implica ningún peligro a la circulación.",
+				"No, salvo que sea necesario para ceder el paso."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 10,
+			"statement": "Para intentar evitar la aparición de la somnolencia durante la conducción es aconsejable dormir...",
+			"options": [
+				"entre 5 y 7 horas diarias.",
+				"menos horas de las necesarias, para mantener alto el nivel de alerta.",
+				"las horas suficientes para estar descansado, que para la mayoría de las personas son entre 7 y 9 horas."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 4,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 11,
+			"statement": "¿Cómo debe comportarse el conductor de un turismo, sobre todo en vías urbanas, para evitar un accidente con una motocicleta o un ciclomotor?",
+			"options": [
+				"Debe circular en paralelo y lo más cerca posible de los vehículos de dos ruedas.",
+				"Debe mirar por los retrovisores con frecuencia.",
+				"Debe reducir o incluso eliminar la distancia de seguridad."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 12,
+			"statement": "En un carril habilitado en sentido contrario al habitual por trabajos en la calzada, ¿qué vehículos tienen permitido utilizarlo?",
+			"options": [
+				"Todos los que estén autorizados a circular por la vía.",
+				"Solo turismos y motocicletas.",
+				"Automóviles que no superen los 3.500 kg de M.M.A. y motocicletas."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 13,
+			"statement": "En los adelantamientos a ciclistas en vías con un carril para cada sentido, ¿está permitido ocupar el carril de sentido contrario?",
+			"options": [
+				"Sí, siempre que el adelantamiento se pueda realizar con seguridad.",
+				"No.",
+				"Solo si ambos sentidos están separados por línea blanca discontinua."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 8,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 14,
+			"statement": "Los conductores, ¿están obligados a realizar las pruebas para la comprobación de la tasa de alcoholemia cuando sean requeridos para ello por la policía de tráfico?",
+			"options": [
+				"No; pueden negarse a hacerla y seguir circulando.",
+				"Solo están obligados en caso de accidente de tráfico.",
+				"Sí; negarse a realizarla es un delito incluido en el Código Penal."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 4,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		},
+		{
+			"number": 15,
+			"statement": "¿Es conveniente utilizar un aceite lubricante con un índice de viscosidad tan bajo que, al calentarse el motor, se vuelva excesivamente líquido?",
+			"options": [
+				"No, ya que el aceite no llega a engrasar bien las piezas del motor.",
+				"Sí; cuanto más líquido, mejor engrasa y además arrastra los residuos depositados en el motor.",
+				"Solo si el motor se calienta en exceso, ya que engrasa mejor y ayuda a bajar su temperatura."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 274,
+				"url": "https://revista.dgt.es/es/test/Test-num-274.shtml"
+			}
+		}
+	]
+}

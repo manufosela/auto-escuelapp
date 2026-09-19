@@ -1,0 +1,247 @@
+{
+	"testNumber": 273,
+	"url": "https://revista.dgt.es/es/test/Test-num-273.shtml",
+	"importedAt": "2026-09-19T17:42:06.601Z",
+	"questions": [
+		{
+			"number": 1,
+			"statement": "¿Está permitido circular con un vehículo cuyas placas de matrícula presentan obstáculos que impiden o dificultan su lectura e identificación?",
+			"options": [
+				"No; el conductor debe verificar que las placas de matrícula se pueden leer correctamente.",
+				"Sí, siempre que la placa de matrícula delantera se pueda leer correctamente.",
+				"Sí, siempre que el vehículo solo circule por vías urbanas y travesías."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 2,
+			"statement": "Respecto al uso del cinturón de seguridad, como norma general, el ocupante de un turismo distinto del conductor está obligado a...",
+			"options": [
+				"llevarlo puesto y sin abrochar, excepto si viaja en la plaza delantera.",
+				"llevarlo puesto y abrochado solo en vías interurbanas.",
+				"llevarlo puesto y correctamente abrochado."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 15,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 3,
+			"statement": "En vías interurbanas con tres carriles para el mismo sentido, ¿le está permitido circular por el carril izquierdo a un turismo con remolque?",
+			"options": [
+				"Sí, cuando la longitud del conjunto no supere los 7 metros.",
+				"Sí, pero solo para adelantar a otros vehículos.",
+				"No, en ningún caso."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 9,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 4,
+			"statement": "El conductor de este vehículo está indicando que va a...",
+			"options": [
+				"desplazarse a la derecha.",
+				"desplazarse a la izquierda.",
+				"frenar."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 5,
+			"statement": "Cuando se adelante a vehículos de tracción animal, fuera de poblado, la separación lateral...",
+			"options": [
+				"no debe ser inferior a 1,5 metros.",
+				"debe ser inferior a 1,5 metros, en todos los casos.",
+				"debe ser siempre proporcional a la anchura y características de la vía."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 6,
+			"statement": "¿Qué alumbrado deberá dejar encendido, como norma general, el conductor de un vehículo inmovilizado entre la puesta y la salida del sol en el arcén de una travesía insuficientemente iluminada?",
+			"options": [
+				"Ninguno.",
+				"Las luces de emergencia.",
+				"Las luces de posición."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 7,
+			"statement": "¿De qué peligro advierte esta señal?",
+			"options": [
+				"Proximidad de un escalón lateral o desnivel a lo largo de un tramo de vía.",
+				"Proximidad de pavimento deslizante por hielo o nieve.",
+				"Proximidad de una zona de la calzada cuyo pavimento puede resultar muy deslizante."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 8,
+			"statement": "Esta señal, ¿prohíbe proseguir la marcha si no dispone de cadenas para nieve?",
+			"options": [
+				"Sí, en cualquier caso.",
+				"No, ya que esta señal solo recomienda la utilización de cadenas.",
+				"Sí, a no ser que disponga de otros dispositivos autorizados, igual de eficaces."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 9,
+			"statement": "¿Qué alteración provoca con mayor frecuencia el consumo de alcohol en el comportamiento del conductor?",
+			"options": [
+				"Respuestas impulsivas y agresivas ante los demás conductores.",
+				"Disminución del tiempo de reacción.",
+				"Mayor facilidad para percibir los semáforos y las señales luminosas."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 4,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 10,
+			"statement": "¿Qué indica esta señal situada en la parte posterior de un vehículo?",
+			"options": [
+				"Que transporta mercancías peligrosas.",
+				"Que es un vehículo especial y está realizando trabajos en la vía.",
+				"Que es un vehículo lento y no puede superar la velocidad de 40 km/h."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 11,
+			"statement": "Si ha dormido mal o no ha dormido lo suficiente debe tener en cuenta que...",
+			"options": [
+				"conducir por una autovía durante horas impide la aparición del sueño.",
+				"no se encuentra en perfectas condiciones para conducir.",
+				"una taza de café elimina la fatiga y le ayuda a concentrarse."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 12,
+			"statement": "¿Con qué dos factores suelen relacionarse muchos de los accidentes más graves que sufren los jóvenes conductores?",
+			"options": [
+				"Con el consumo de alcohol y drogas y una actitud prudente al volante.",
+				"Con la falta de experiencia al volante y el consumo de alcohol y drogas.",
+				"Con la velocidad excesiva y una adecuada percepción del riesgo."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 13,
+			"statement": "¿Cuál de las siguientes circunstancias hace que aumente el consumo de combustible?",
+			"options": [
+				"Circular con las ventanillas del vehículo subidas.",
+				"Circular con el vehículo muy cargado.",
+				"Circular con unos neumáticos que carezcan de dibujo."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 14,
+			"statement": "¿Cuál de las siguientes razones puede explicar que el vehículo sea el factor de riesgo que aparece en un grado menor como causa principal de los accidentes de tráfico?",
+			"options": [
+				"A las importantes mejoras técnicas introducidas en su diseño y construcción.",
+				"A que la edad media de los vehículos es cada vez mayor.",
+				"A que en los últimos 20 años, los kilómetros recorridos han disminuido año tras año."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		},
+		{
+			"number": 15,
+			"statement": "Para mantener la seguridad, ¿qué elementos se deben revisar periódicamente y con mayor frecuencia que el resto de componentes del vehículo?",
+			"options": [
+				"Los neumáticos, el sistema de frenado y los amortiguadores.",
+				"Las luces, la batería y las llantas.",
+				"El filtro del aire, la dirección y los retrovisores."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 273,
+				"url": "https://revista.dgt.es/es/test/Test-num-273.shtml"
+			}
+		}
+	]
+}

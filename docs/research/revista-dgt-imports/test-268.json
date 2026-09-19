@@ -1,0 +1,231 @@
+{
+	"testNumber": 268,
+	"url": "https://revista.dgt.es/es/test/Test-num-268.shtml",
+	"importedAt": "2026-09-19T17:42:00.414Z",
+	"questions": [
+		{
+			"number": 1,
+			"statement": "¿Qué indica esta señal?",
+			"options": [
+				"Proximidad a un cruce con una línea de tranvía.",
+				"La cercanía de un paso a nivel, puente móvil o muelle.",
+				"La cercanía de un paso a nivel al lado derecho."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 2,
+			"statement": "En idénticas situaciones de tráfico, el tiempo de reacción…",
+			"options": [
+				"puede variar en función del estado psicofísico del conductor.",
+				"es siempre el mismo, no influye el estado psicofísico del conductor.",
+				"es el mismo para todos los conductores."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 4,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 3,
+			"statement": "El color del casco de protección de un motorista, ¿puede influir en su seguridad?",
+			"options": [
+				"No.",
+				"Sí; los de colores claros o brillantes hacen más visible al motorista.",
+				"Sí; los de colores oscuros absorben mejor los impactos."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 15,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 4,
+			"statement": "La señal que se observa en la fotografía prohíbe…",
+			"options": [
+				"cambiar el sentido de la marcha y girar a la izquierda.",
+				"girar a la izquierda.",
+				"cambiar el sentido de la marcha."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 5,
+			"statement": "Antes de abrir las puertas para bajar de un vehículo, debe cerciorarse siempre de que…",
+			"options": [
+				"no se ocasiona peligro a otros usuarios.",
+				"las luces de emergencia del vehículo están encendidas.",
+				"se ha puesto el chaleco reflectante."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 6,
+			"statement": "En las intersecciones señalizadas, ¿cuál es la norma general que prevalece?",
+			"options": [
+				"Cumplir lo que la señal indica.",
+				"Ceder el paso siempre a la derecha.",
+				"Abstenerse del cumplimiento de la señalización."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 7,
+			"statement": "Si toma analgésicos narcóticos para tratar algún dolor intenso, lo más aconsejable es…",
+			"options": [
+				"conducir con normalidad, ya que no tienen efectos secundarios.",
+				"conducir sólo de noche, ya que sus efectos secundarios son menores.",
+				"no conducir durante el tratamiento."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 8,
+			"statement": "Respecto a la velocidad anormalmente reducida, ¿a qué velocidad mínima, salvo causa justificada, deberá circular una pick-up por una autovía?",
+			"options": [
+				"60 km/h.",
+				"55 km/h.",
+				"70 km/h."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 9,
+			"statement": "Al circular marcha atrás debe tener en cuenta que…",
+			"options": [
+				"no debe recorrer más de 10 metros.",
+				"debe hacerlo con precaución, ya que pueden pasar personas por detrás del vehículo.",
+				"tiene prioridad sobre los peatones."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 10,
+			"statement": "Si un conductor se niega a realizar las pruebas de detección alcohólica, los agentes de tráfico, ¿pueden inmovilizar su vehículo?",
+			"options": [
+				"Solo si presenta síntomas evidentes de haber consumido alcohol.",
+				"No.",
+				"Sí, y además está cometiendo un delito."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 11,
+			"statement": "¿Puede trasportar una carga indivisible que por sus dimensiones sobresalga lateralmente de la proyección en planta de una motocicleta?",
+			"options": [
+				"Sí, ya que, aunque sobresalga más de 1 metro no compromete su estabilidad.",
+				"No, ya que dicha carga solamente puede sobresalir por la parte anterior y posterior.",
+				"Sí, siempre que no sobresalga más de 0,50 metros por cada lado de su eje longitudinal."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 12,
+			"statement": "Si conduce una motocicleta y hay niebla ligera, ¿qué alumbrado debe utilizar, además del de posición?",
+			"options": [
+				"La luz antiniebla delantera, si la lleva, o la luz de corto o largo alcance.",
+				"La luz antiniebla delantera y trasera, si las lleva, y la luz de corto alcance.",
+				"La luz antiniebla trasera, si la lleva, y la luz de largo alcance."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 6,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 13,
+			"statement": "La línea discontinua, ¿qué indica?",
+			"options": [
+				"Un carril especial.",
+				"La cercanía a una línea longitudinal continua.",
+				"Un carril reversible."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		},
+		{
+			"number": 14,
+			"statement": "Buscar una dirección en el navegador GPS durante la conducción, ¿puede ser peligroso?",
+			"options": [
+				"Solo si el navegador GPS se encuentra muy alejado del asiento del conductor.",
+				"No, porque ayuda a conducir con mayor seguridad.",
+				"Sí, porque el conductor se distrae."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 268,
+				"url": "https://revista.dgt.es/es/test/Test-num-268.shtml"
+			}
+		}
+	]
+}

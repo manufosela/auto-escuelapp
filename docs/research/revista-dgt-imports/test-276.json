@@ -1,0 +1,247 @@
+{
+	"testNumber": 276,
+	"url": "https://revista.dgt.es/es/test/Test-num-276.shtml",
+	"importedAt": "2026-09-19T17:42:11.216Z",
+	"questions": [
+		{
+			"number": 1,
+			"statement": "A un turismo, ¿le está permitido circular si tiene roto el espejo retrovisor exterior izquierdo?",
+			"options": [
+				"Sí, porque el retrovisor exterior izquierdo no es obligatorio.",
+				"Sólo si el vehículo tiene espejo retrovisor interior.",
+				"No, cuando el conductor no pueda ver la circulación por detrás del vehículo."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 2,
+			"statement": "¿Qué es un microsueño?",
+			"options": [
+				"Un periodo de unos segundos durante el cual el conductor sueña mientras conduce.",
+				"Un periodo de unos segundos durante el cual el conductor queda ligeramente dormido sin darse cuenta.",
+				"Un periodo corto de descanso que el conductor realiza cuando siente fatiga."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 4,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 3,
+			"statement": "En una retención en la que están los vehículos detenidos, ¿está permitido usar el teléfono móvil?",
+			"options": [
+				"No, excepto en vías urbanas.",
+				"Únicamente con un dispositivo de manos libres y sin usar auriculares.",
+				"Sí, porque el vehículo no está en movimiento."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 4,
+			"statement": "Una luz verde en forma de flecha apuntando hacia abajo en un semáforo de carril...",
+			"options": [
+				"obliga a no abandonar el carril sobre el que está colocada.",
+				"exime de la obligación de detenerse ante una luz roja circular.",
+				"No exime de tener que cumplir las normas generales sobre prioridad de paso."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 5,
+			"statement": "Entre la puesta y la salida del sol, ¿puede encender la luz de largo alcance en caso de niebla?",
+			"options": [
+				"Sí, procurando no deslumbrar a otros usuarios de la vía.",
+				"Sólo en carreteras con un carril para cada sentido de la circulación.",
+				"No, está prohibido."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 6,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 6,
+			"statement": "En este paso para peatones, si no funciona el semáforo, ¿es obligatorio ceder el paso a los peatones que intenten cruzar?",
+			"options": [
+				"Sí, porque los peatones tienen prioridad de paso.",
+				"No, porque los vehículos tienen prioridad de paso.",
+				"Sólo si quien intenta cruzar es una fila de escolares."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 8,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 7,
+			"statement": "En la ficha de inspección técnica de esta motocicleta figura que tiene estructura de autoprotección y cinturón de seguridad. ¿Puede conducirla sin utilizar el casco de protección?",
+			"options": [
+				"Sólo cuando circule por vías urbanas.",
+				"Sí.",
+				"No."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 15,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 8,
+			"statement": "Si quiere abandonar una autovía, ¿en qué momento debe entrar en el carril de deceleración?",
+			"options": [
+				"Lo antes posible.",
+				"Es indiferente, en cualquier momento mientras la línea sea discontinua.",
+				"Lo más tarde posible."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 9,
+			"statement": "¿Está permitido estacionar en doble fila?",
+			"options": [
+				"Sí, siempre que el conductor no abandone el vehículo.",
+				"No, en ningún caso.",
+				"Sólo cuando la duración del estacionamiento sea inferior a dos minutos."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 10,
+			"statement": "En una vía fuera de poblado en la que no exista zona peatonal ni arcén practicable, ¿está permitido que un peatón circule por la calzada?",
+			"options": [
+				"Sí, siempre que tome las debidas precauciones.",
+				"Sólo si arrastra un vehículo de reducidas dimensiones que no sea de motor.",
+				"No."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 8,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 11,
+			"statement": "¿Cuál es uno de los problemas que, debido al deterioro de las aptitudes psicofísicas, encuentran muchas personas mayores como peatones en las vías públicas?",
+			"options": [
+				"Tienen mayor capacidad de orientación, sobre todo en calles que no conocen bien.",
+				"No aprecian bien la velocidad a la que se acercan los vehículos.",
+				"Los bordillos de las aceras están al mismo nivel que la calzada."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 8,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 12,
+			"statement": "Acaba de comprar un turismo nuevo; ¿cuándo debe presentarlo a la primera inspección técnica reglamentaria?",
+			"options": [
+				"A los cuatro años, a contar desde la fecha de compra.",
+				"A los dos años, a contar desde la fecha de matriculación.",
+				"A los cuatro años, a contar desde la fecha de matriculación."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 13,
+			"statement": "En las proximidades de vías de uso exclusivo de ciclos, ¿qué precauciones se deben tomar?",
+			"options": [
+				"Hacer señales acústicas para indicar nuestra presencia.",
+				"Moderar la velocidad y, si fuera preciso, detener el vehículo.",
+				"Mantener la velocidad y estar atento al cumplimiento de la señalización vertical."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 14,
+			"statement": "¿Está permitido circular con un turismo por una vía en cuyo acceso está situada esta señal?",
+			"options": [
+				"No, porque es una vía reservada para todos los vehículos de dos ruedas.",
+				"No, porque es una vía reservada para ciclos.",
+				"Sí, porque es una vía permitida para todos los vehículos, excepto ciclos."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		},
+		{
+			"number": 15,
+			"statement": "Un turismo con el distintivo ambiental de la imagen, clasificado como ECO, ¿está autorizado a circular por el carril VAO si su único ocupante es el conductor?",
+			"options": [
+				"Sí, siempre que lleve el distintivo adhesivo en el parabrisas.",
+				"No, salvo que por los paneles de mensaje variable se autorice su acceso.",
+				"Sí, aunque no lleve el distintivo adhesivo en el parabrisas."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 276,
+				"url": "https://revista.dgt.es/es/test/Test-num-276.shtml"
+			}
+		}
+	]
+}

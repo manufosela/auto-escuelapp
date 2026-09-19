@@ -1,0 +1,231 @@
+{
+	"testNumber": 270,
+	"url": "https://revista.dgt.es/es/test/Test-num-270.shtml",
+	"importedAt": "2026-09-19T17:42:01.946Z",
+	"questions": [
+		{
+			"number": 1,
+			"statement": "El consumo de alcohol, aunque sea en pequeñas cantidades...",
+			"options": [
+				"no deteriora la capacidad para conducir.",
+				"deteriora la capacidad para conducir.",
+				"deteriora la capacidad para conducir sólo si se mezcla con alguna droga ilegal."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 4,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 2,
+			"statement": "Una persona mayor de edad, ¿puede transportar a un pasajero en una bicicleta que, por construcción, no pueda ser ocupada por más de una persona?",
+			"options": [
+				"Sólo si el conductor pedalea levantado y el pasajero va sentado en el sillín.",
+				"Sí, a un menor de hasta siete años en un asiento adicional homologado.",
+				"No, está prohibido."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 3,
+			"statement": "Delante de un vado, esta señal prohíbe…",
+			"options": [
+				"la parada y el estacionamiento.",
+				"únicamente la parada.",
+				"solamente el estacionamiento."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 4,
+			"statement": "A falta de señalización, ¿cuál es la velocidad máxima permitida para una furgoneta cuando circule por una autovía que discurra dentro de poblado?",
+			"options": [
+				"80 km/h.",
+				"100 km/h.",
+				"90 km/h."
+			],
+			"correctIndex": 0,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 5,
+			"statement": "Los menores de edad de estatura igual o inferior a 135 centímetros deberán utilizar sistemas de retención infantil homologados debidamente adaptados a...",
+			"options": [
+				"su talla y edad.",
+				"su edad y peso.",
+				"su talla y peso."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 6,
+			"statement": "En un carril reservado para uso exclusivo del transporte público urbano, ¿se puede estacionar?",
+			"options": [
+				"Sólo fuera del horario de servicio.",
+				"No.",
+				"Sí, se puede parar y estacionar."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 7,
+			"statement": "Para los conductores y pasajeros de motocicletas, ¿tiene importancia el vestuario a utilizar?",
+			"options": [
+				"No, es indiferente siempre que lleven el casco.",
+				"No, porque no aporta nada a la seguridad.",
+				"Sí, es fundamental porque el cuerpo está directamente expuesto a las inclemencias del tiempo."
+			],
+			"correctIndex": 2,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 8,
+			"statement": "¿Es posible ahorrar combustible evitando cambios de marcha innecesarios?",
+			"options": [
+				"Sí.",
+				"No, en ningún vaso.",
+				"Depende de si el vehículo tiene motor diésel o de gasolina."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 9,
+			"statement": "¿Qué debe hacer el conductor del vehículo ante las indicaciones que le realiza el agente del vehículo policial con la señal V-1 encendida?",
+			"options": [
+				"Reducir la marcha.",
+				"Detenerse en el lado derecho, delante del vehículo policial.",
+				"Detenerse en el lado izquierdo, detrás del vehículo policial."
+			],
+			"correctIndex": 1,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 10,
+			"statement": "En un accidente de tráfico se produce el efecto submarino cuando...",
+			"options": [
+				"el cuerpo del ocupante del vehículo se desliza por debajo del cinturón de seguridad.",
+				"el reposacabezas está mal regulado y el cuello sufre un violento movimiento de vaivén.",
+				"el conductor recibe un impacto directo y fuerte del airbag en la cara."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 11,
+			"statement": "En condiciones meteorológicas especialmente desfavorables, como en caso de fuerte granizada, ¿qué precauciones, entre otras, debe tomar?",
+			"options": [
+				"Disminuir la velocidad, evitando pisar el freno, y aumentar la distancia de seguridad.",
+				"Acercarse al vehículo de delante y encender el dispositivo de preseñalización de peligro.",
+				"Circular con cambios frecuentes de dirección para evitar que se produzca “aquaplaning”."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 12,
+			"statement": "¿Qué indica el panel situado bajo la señal?",
+			"options": [
+				"La distancia al final de un tramo con curvas peligrosas.",
+				"La longitud de un tramo con curvas peligrosas.",
+				"La distancia al inicio de un tramo con curvas peligrosas."
+			],
+			"correctIndex": 2,
+			"subjectGuess": 1,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 13,
+			"statement": "Si conducimos de noche para evitar los atascos debemos tener en cuenta que...",
+			"options": [
+				"el sueño o la somnolencia al volante aparecen con mayor facilidad.",
+				"no es necesario descansar en trayectos largos, ya que durante la noche no aparece la fatiga.",
+				"la oscuridad impide la aparición del sueño, pero favorece la aparición de la fatiga."
+			],
+			"correctIndex": 0,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		},
+		{
+			"number": 14,
+			"statement": "Siempre que sea posible, ¿cómo debe inmovilizar un vehículo que se ha visto implicado en un accidente?",
+			"options": [
+				"Con unos calzos o con cualquier elemento que sirva como tal.",
+				"Cortando el contacto y echando el freno de mano.",
+				"Desconectando los bornes de la batería."
+			],
+			"correctIndex": 1,
+			"subjectGuess": null,
+			"source": {
+				"type": "revista-dgt",
+				"testNumber": 270,
+				"url": "https://revista.dgt.es/es/test/Test-num-270.shtml"
+			}
+		}
+	]
+}
