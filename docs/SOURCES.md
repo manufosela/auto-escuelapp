@@ -12,15 +12,14 @@ de qué fuente y bajo qué condición. El razonamiento completo está en
 | Preguntas de la revista DGT | Borrador en `docs/research/revista-dgt-imports/` (`scripts/import-revista-dgt.mjs`), publicadas una a una en `src/content/questions/*.json` tras revisión (AUT-TSK-0008) | `revista.dgt.es/es/test/` (solo texto) | Copiable con cita de la revista; sin imágenes |
 | Preguntas propias | `src/content/questions/*.json` (5 preguntas semilla en AUT-TSK-0013, banco completo en AUT-TSK-0009) | Redacción propia, estilo documentado en `docs/research/formato-examen-y-preguntas.md` | MIT (redacción propia) |
 | Fichas de repaso | `src/content/flashcards/` (AUT-TSK-0016) | Redacción propia | MIT (redacción propia) |
+| Tablas resumen y huecos del catálogo de señales | `src/content/questions/*.json` / `src/content/topics/*.md` (transcripción manual) | `~/Downloads/Documentos/PDF_Otros/autoescuela_san_cristobal-LIBRO.pdf` (Ediciones Matfer, personalizado) | Ver `CONTENT-LICENSE.md` §6 — repo privado, uso personal, no redistribuible |
 
 ## Explícitamente excluido de este repositorio
 
-- `~/Downloads/Documentos/PDF_Otros/autoescuela_san_cristobal-LIBRO.pdf`
-  (Ediciones Matfer, con copyright) y cualquier texto o imagen derivada de él.
-  Se usa solo en local, bajo `private/` (gitignored), para contrastar huecos
-  de contenido — ver AUT-TSK-0010. Nunca entra en el repo público.
 - Cualquier extracción del simulador oficial de examen de la DGT.
-- Contenido de webs o manuales comerciales de autoescuela.
+- Contenido de webs o manuales comerciales de autoescuela distintos del
+  citado arriba (ver `CONTENT-LICENSE.md` §6 para la única excepción y sus
+  condiciones).
 
 ## Schema del contenido
 

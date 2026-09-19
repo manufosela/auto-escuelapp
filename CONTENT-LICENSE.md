@@ -51,11 +51,28 @@ código.
 - Preguntas o imágenes del simulador oficial de examen de la DGT
   (sedeweb.dgt.gob.es): su aviso legal limita el uso a personal y privado.
 - Contenido de manuales, tests o imágenes de autoescuelas o editoriales
-  comerciales (p. ej. Ediciones Matfer, ETRASA, AEOL, CNAE, Pons): tienen
-  copyright activo, gestionado en muchos casos por CEDRO.
+  comerciales (p. ej. ETRASA, AEOL, CNAE, Pons): tienen copyright activo,
+  gestionado en muchos casos por CEDRO. Excepción: ver §6 sobre el libro de
+  Ediciones Matfer usado exclusivamente en el contexto descrito ahí.
 - Cualquier dato personal (emails, nombres completos, teléfonos) de personas
   usuarias de la app. El progreso de cada persona vive en su cuenta de
   Firestore, nunca en este repositorio — ver `firestore.rules`.
+
+## 6. Libro "Autoescuela San Cristóbal" (Ediciones Matfer), repo privado
+
+**Este repositorio es privado y de uso personal desde el 2026-09-19**
+(AUT-TSK-0010), precisamente para poder usar como fuente el catálogo de
+señales y las tablas resumen de un libro editado por Ediciones Matfer y
+personalizado para Autoescuela San Cristóbal (Cuenca). El propietario del
+repositorio asume el riesgo de copyright de esta decisión de forma explícita
+e informada; no es contenido MIT ni redistribuible, y nunca debe pasar a un
+repositorio o despliegue públicos. El sitio desplegado tampoco es público de
+facto: vive en una URL de Firebase Hosting no anunciada (ver `firebase.json`,
+targets `app`/`decoy`), con la URL previsible (`auto-escuelapp.web.app`)
+sirviendo solo una página 404 genérica, y el login de la app restringido a
+una única cuenta (`src/lib/firebase-client.js`). El contenido se transcribe
+a mano (nunca con OCR automatizado ni scripts que reproduzcan el libro
+completo) y cita el libro como fuente en el campo `source` de cada pregunta.
 
 ## Aviso de no afiliación
 
