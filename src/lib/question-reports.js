@@ -2,7 +2,10 @@
 // (con o sin sesión) y, si hay sesión, se guarda en Firestore para revisión.
 // Sin sesión, el reporte en Firestore no tendría a quién atribuirse, así que
 // se ofrece en su lugar un enlace a un issue de GitHub prerrellenado.
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
+//
+// firebase/firestore se importa con import() dinámico: se reporta como
+// mucho una vez por sesión de práctica/examen, así que no debe entrar en el
+// chunk inicial de cada página (AUT-TSK-0025, mismo motivo que history-store.js).
 import { auth } from './firebase-client.js';
 import { hideQuestion } from './hidden-questions.js';
 
@@ -42,6 +45,7 @@ export async function reportQuestion(questionId, reason, statement = '') {
 		// sin sesión: no hay a quién atribuir el reporte en Firestore
 		return { savedToFirestore: false, githubIssueUrl: buildGithubIssueUrl(questionId, reason, statement) };
 	}
+	const { addDoc, collection, getFirestore } = await import('firebase/firestore');
 	await addDoc(collection(getFirestore(), 'users', user.uid, 'questionReports'), {
 		questionId,
 		reason,
