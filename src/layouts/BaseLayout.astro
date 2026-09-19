@@ -29,6 +29,9 @@ const currentPath = Astro.url.pathname.endsWith('/')
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#154082" />
+		<!-- Uso personal (AUT-TSK-0010): la URL de este sitio no se comparte
+		     públicamente; evitar que buscadores la indexen si se descubre. -->
+		<meta name="robots" content="noindex, nofollow" />
 		<link rel="manifest" href="/manifest.webmanifest" />
 		<link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
 		<link rel="apple-touch-icon" href="/icons/icon-180.png" />
