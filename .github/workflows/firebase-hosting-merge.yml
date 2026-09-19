@@ -20,3 +20,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AUTO_ESCUELAPP }}'
           channelId: live
           projectId: auto-escuelapp
+          target: app

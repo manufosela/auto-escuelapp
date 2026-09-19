@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "auto-escuelapp"
-  }
+  },
+  "targets": {
+    "auto-escuelapp": {
+      "hosting": {
+        "app": [
+          "autoescuela-08e1743fac6b"
+        ],
+        "decoy": [
+          "auto-escuelapp"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
