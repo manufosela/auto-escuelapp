@@ -51,6 +51,13 @@ const questions = defineCollection({
 				testNumber: z.number().int().min(1),
 				url: z.url(),
 			}),
+			// Libro personalizado de Ediciones Matfer para Autoescuela San
+			// Cristóbal: solo válido en este repo privado de uso personal
+			// (CONTENT-LICENSE.md §6), transcrito a mano, nunca redistribuible.
+			z.object({
+				type: z.literal('own-book'),
+				page: z.number().int().min(1).max(40),
+			}),
 		]),
 		// Vigencia de la pregunta: deja de usarse en tests generados si
 		// `validUntil` ya ha pasado (p. ej. tras un cambio normativo).

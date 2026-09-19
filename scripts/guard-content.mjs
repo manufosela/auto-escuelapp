@@ -33,9 +33,14 @@ function getStagedPaths() {
 
 // El propio guard y su test contienen emails de ejemplo a propósito
 // (fixtures), así que quedan excluidos del escaneo de su propio diff.
+// firebase-client.js/test.js también: desde que este repo es privado y de
+// uso personal (AUT-TSK-0010), restringen el login a una única cuenta real
+// a propósito — ver CONTENT-LICENSE.md §6.
 const SELF_EXCLUDED_PATHS = [
   'scripts/guard-content.mjs',
   'scripts/guard-content.test.mjs',
+  'src/lib/firebase-client.js',
+  'src/lib/firebase-client.test.js',
 ];
 
 function getStagedAddedLines() {
