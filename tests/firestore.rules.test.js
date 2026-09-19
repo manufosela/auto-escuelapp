@@ -32,6 +32,15 @@ function validAttempt(overrides = {}) {
 	};
 }
 
+function validQuestionReport(overrides = {}) {
+	return {
+		questionId: 'velocidad-autovia',
+		reason: 'wrong_answer',
+		createdAt: '2026-09-19T10:00:00.000Z',
+		...overrides,
+	};
+}
+
 beforeAll(async () => {
 	testEnv = await initializeTestEnvironment({
 		projectId: PROJECT_ID,
@@ -116,5 +125,65 @@ describe('users/{userId}/attempts', () => {
 		const db = testEnv.authenticatedContext('alice').firestore();
 		await assertFails(db.doc('users/alice/attempts/fixed-id').update({ passed: false }));
 		await assertFails(db.doc('users/alice/attempts/fixed-id').delete());
+	});
+});
+
+describe('users/{userId}/questionReports', () => {
+	it('permite a un usuario crear un reporte válido bajo su propio uid', async () => {
+		const db = testEnv.authenticatedContext('alice').firestore();
+		await assertSucceeds(
+			db.collection('users/alice/questionReports').add(validQuestionReport()),
+		);
+	});
+
+	it('deniega crear un reporte bajo el uid de otra persona', async () => {
+		const db = testEnv.authenticatedContext('alice').firestore();
+		await assertFails(
+			db.collection('users/bob/questionReports').add(validQuestionReport()),
+		);
+	});
+
+	it('deniega crear o leer sin autenticación', async () => {
+		const db = testEnv.unauthenticatedContext().firestore();
+		await assertFails(
+			db.collection('users/alice/questionReports').add(validQuestionReport()),
+		);
+		await assertFails(db.collection('users/alice/questionReports').get());
+	});
+
+	it('deniega un motivo que no esté en la lista permitida', async () => {
+		const db = testEnv.authenticatedContext('alice').firestore();
+		await assertFails(
+			db
+				.collection('users/alice/questionReports')
+				.add(validQuestionReport({ reason: 'porque sí' })),
+		);
+	});
+
+	it('permite leer los propios reportes pero no los de otra persona', async () => {
+		await testEnv.withSecurityRulesDisabled(async (context) => {
+			await context
+				.firestore()
+				.collection('users/alice/questionReports')
+				.add(validQuestionReport());
+		});
+		const aliceDb = testEnv.authenticatedContext('alice').firestore();
+		await assertSucceeds(aliceDb.collection('users/alice/questionReports').get());
+		const bobDb = testEnv.authenticatedContext('bob').firestore();
+		await assertFails(bobDb.collection('users/alice/questionReports').get());
+	});
+
+	it('deniega modificar o borrar un reporte ya creado', async () => {
+		await testEnv.withSecurityRulesDisabled(async (context) => {
+			await context
+				.firestore()
+				.doc('users/alice/questionReports/fixed-id')
+				.set(validQuestionReport());
+		});
+		const db = testEnv.authenticatedContext('alice').firestore();
+		await assertFails(
+			db.doc('users/alice/questionReports/fixed-id').update({ reason: 'other' }),
+		);
+		await assertFails(db.doc('users/alice/questionReports/fixed-id').delete());
 	});
 });
