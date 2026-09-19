@@ -1,10 +1,39 @@
 rules_version = '2';
 
-// Deny-all por defecto. Las reglas por colección (historial de usuario,
-// reportes de preguntas) se añaden en las tareas AUT-TSK-0019/AUT-TSK-0021,
-// siempre restringidas por request.auth.uid.
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    // Un intento (examen o práctica) es un documento de solo creación:
+    // nunca se actualiza ni se borra, para que el historial no se pueda
+    // falsificar después de guardado. Solo guarda id de pregunta + acierto,
+    // nunca el enunciado (eso vive en la colección pública de contenido).
+    function isValidAttempt(data) {
+      return data.keys().hasAll(
+          ['mode', 'topicId', 'startedAt', 'finishedAt', 'total', 'correct', 'failures', 'passed', 'answers']
+        )
+        && data.mode in ['exam', 'practice']
+        && (data.topicId == null || data.topicId is string)
+        && data.startedAt is string
+        && data.finishedAt is string
+        && data.total is int && data.total >= 0
+        && data.correct is int && data.correct >= 0
+        && data.failures is int && data.failures >= 0
+        && data.correct + data.failures == data.total
+        && (data.passed == null || data.passed is bool)
+        && data.answers is list
+        && data.answers.size() == data.total;
+    }
+
+    match /users/{userId}/attempts/{attemptId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidAttempt(request.resource.data);
+      allow update, delete: if false;
+    }
+
+    // Deny-all para todo lo demás (AUT-TSK-0020 añadirá reportes de preguntas).
     match /{document=**} {
       allow read, write: if false;
     }
