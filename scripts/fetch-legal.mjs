@@ -64,7 +64,7 @@ export function boeDateToISO(boeDate) {
 /**
  * @param {{ normId: string, blockId: string }} params
  */
-async function fetchBlock({ normId, blockId }) {
+export async function fetchBlock({ normId, blockId }) {
 	const url = `${BOE_API_BASE}/id/${normId}/texto/bloque/${blockId}`;
 	const response = await fetch(url, {
 		headers: { Accept: 'application/xml' },
