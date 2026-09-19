@@ -23,6 +23,18 @@ export function filterValidQuestions(questions, atDate) {
 }
 
 /**
+ * Excluye las preguntas reportadas/ocultas por el usuario (AUT-TSK-0020).
+ * @template {{ id: string }} T
+ * @param {T[]} questions
+ * @param {Set<string>} hiddenIds
+ * @returns {T[]}
+ */
+export function excludeHidden(questions, hiddenIds) {
+	if (hiddenIds.size === 0) return questions;
+	return questions.filter((q) => !hiddenIds.has(q.id));
+}
+
+/**
  * Baraja un array sin mutar el original (Fisher-Yates).
  * @template T
  * @param {T[]} items
@@ -47,9 +59,16 @@ export function shuffle(items, random = Math.random) {
  * @param {number} count
  * @param {Date} atDate
  * @param {() => number} random
+ * @param {Set<string>} hiddenIds preguntas reportadas por el usuario (AUT-TSK-0020)
  * @returns {T[]}
  */
-export function selectExamQuestions(questions, count, atDate, random = Math.random) {
-	const valid = filterValidQuestions(questions, atDate);
+export function selectExamQuestions(
+	questions,
+	count,
+	atDate,
+	random = Math.random,
+	hiddenIds = new Set(),
+) {
+	const valid = excludeHidden(filterValidQuestions(questions, atDate), hiddenIds);
 	return shuffle(valid, random).slice(0, count);
 }

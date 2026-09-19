@@ -31,4 +31,10 @@ describe('selectTopicQuestions', () => {
 		const selected = selectTopicQuestions(questions, [1], 10, NOW, () => 0.1);
 		expect(selected).toHaveLength(1);
 	});
+
+	it('excluye las preguntas ocultas por el usuario', () => {
+		const questions = [q('a', 1), q('b', 1)];
+		const selected = selectTopicQuestions(questions, [1], 10, NOW, () => 0.1, new Set(['a']));
+		expect(selected.map((x) => x.id)).toEqual(['b']);
+	});
 });

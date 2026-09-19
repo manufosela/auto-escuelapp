@@ -1,5 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { filterValidQuestions, selectExamQuestions, shuffle } from './exam-selection.js';
+import {
+	excludeHidden,
+	filterValidQuestions,
+	selectExamQuestions,
+	shuffle,
+} from './exam-selection.js';
 
 const NOW = new Date('2026-09-19');
 
@@ -38,7 +43,26 @@ describe('shuffle', () => {
 	});
 });
 
+describe('excludeHidden', () => {
+	it('quita las preguntas ocultas', () => {
+		const questions = [q('a', '2020-01-01'), q('b', '2020-01-01')];
+		expect(excludeHidden(questions, new Set(['a'])).map((x) => x.id)).toEqual(['b']);
+	});
+
+	it('sin ocultas devuelve el mismo array', () => {
+		const questions = [q('a', '2020-01-01')];
+		expect(excludeHidden(questions, new Set())).toBe(questions);
+	});
+});
+
 describe('selectExamQuestions', () => {
+	it('excluye las preguntas ocultas por el usuario', () => {
+		const questions = [q('a', '2020-01-01'), q('b', '2020-01-01')];
+		const selected = selectExamQuestions(questions, 30, NOW, () => 0.1, new Set(['a']));
+		expect(selected.map((x) => x.id)).toEqual(['b']);
+	});
+
+
 	it('nunca supera el número de preguntas vigentes disponibles', () => {
 		const questions = [q('a', '2020-01-01'), q('b', '2020-01-01')];
 		const selected = selectExamQuestions(questions, 30, NOW, () => 0.1);
