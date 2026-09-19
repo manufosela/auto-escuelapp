@@ -1,10 +1,13 @@
 // Práctica por tema: corrección inmediata tras cada respuesta (a diferencia
 // del examen, que corrige solo al final) y opción de repetir solo lo fallado.
 import { css, html, LitElement } from 'lit';
+import './report-modal.js';
 import { buildAttempt } from '../lib/attempt.js';
 import { shuffle } from '../lib/exam-selection.js';
+import { getHiddenQuestionIds } from '../lib/hidden-questions.js';
 import { saveAttempt } from '../lib/history-store.js';
 import { selectTopicQuestions } from '../lib/practice-selection.js';
+import { reportQuestion } from '../lib/question-reports.js';
 
 const SIZE_OPTIONS = [10, 20, 30];
 
@@ -27,6 +30,9 @@ export class PracticeRunner extends LitElement {
 		_results: { state: true },
 		_startedAt: { state: true },
 		_phase: { state: true }, // 'picker' | 'running' | 'summary'
+		_reportModalOpen: { state: true },
+		_reportedIds: { state: true },
+		_reportGithubUrls: { state: true },
 	};
 
 	static styles = css`
@@ -102,6 +108,15 @@ export class PracticeRunner extends LitElement {
 		.next:disabled {
 			opacity: 0.5;
 		}
+		.report {
+			background: none;
+			border: none;
+			color: inherit;
+			text-decoration: underline;
+			font-size: 0.9rem;
+			min-height: 44px;
+			padding: 0 0.25rem;
+		}
 	`;
 
 	constructor() {
@@ -123,17 +138,34 @@ export class PracticeRunner extends LitElement {
 		this._correctCount = 0;
 		this._results = [];
 		this._startedAt = null;
+		this._reportModalOpen = false;
+		this._reportedIds = new Set();
+		this._reportGithubUrls = new Map();
 	}
 
 	_availableCount() {
 		if (this.orderedQuestions) return this.orderedQuestions.length;
-		return selectTopicQuestions(this.questions, this.subjects, Infinity, new Date()).length;
+		return selectTopicQuestions(
+			this.questions,
+			this.subjects,
+			Infinity,
+			new Date(),
+			Math.random,
+			getHiddenQuestionIds(),
+		).length;
 	}
 
 	_start(size) {
 		this._current = this.orderedQuestions
 			? this.orderedQuestions.slice(0, size)
-			: selectTopicQuestions(this.questions, this.subjects, size, new Date());
+			: selectTopicQuestions(
+					this.questions,
+					this.subjects,
+					size,
+					new Date(),
+					Math.random,
+					getHiddenQuestionIds(),
+				);
 		this._index = 0;
 		this._selectedOption = null;
 		this._failed = [];
@@ -165,6 +197,22 @@ export class PracticeRunner extends LitElement {
 		} else {
 			this._failed = [...this._failed, question];
 		}
+	}
+
+	_openReportModal() {
+		this._reportModalOpen = true;
+	}
+
+	_handleReportSubmit(event) {
+		const question = this._current[this._index];
+		reportQuestion(question.id, event.detail.reason, question.statement)
+			.then(({ githubIssueUrl }) => {
+				if (!githubIssueUrl) return;
+				this._reportGithubUrls = new Map(this._reportGithubUrls).set(question.id, githubIssueUrl);
+			})
+			.catch((error) => console.error('practice-runner: fallo al enviar el reporte', error));
+		this._reportedIds = new Set(this._reportedIds).add(question.id);
+		this._reportModalOpen = false;
 	}
 
 	_next() {
@@ -238,11 +286,32 @@ export class PracticeRunner extends LitElement {
 							</p>
 							<p>${question.explanation}</p>
 						</div>
+						${this._reportedIds.has(question.id)
+							? html`<p>
+									Gracias, hemos registrado tu reporte.
+									${this._reportGithubUrls.has(question.id)
+										? html`Sin sesión no queda guardado; si quieres, repórtalo también
+												<a
+													href=${this._reportGithubUrls.get(question.id)}
+													target="_blank"
+													rel="noopener"
+													>en GitHub</a
+												>.`
+										: null}
+								</p>`
+							: html`<button class="report" @click=${() => this._openReportModal()}>
+									Reportar esta pregunta
+								</button>`}
 					`
 				: null}
 			<button class="next" ?disabled=${!answered} @click=${() => this._next()}>
 				${this._index + 1 >= this._current.length ? 'Ver resumen' : 'Siguiente'}
 			</button>
+			<report-modal
+				.open=${this._reportModalOpen}
+				@report-submit=${(event) => this._handleReportSubmit(event)}
+				@report-cancel=${() => (this._reportModalOpen = false)}
+			></report-modal>
 		`;
 	}
 

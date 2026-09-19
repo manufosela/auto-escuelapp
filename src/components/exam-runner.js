@@ -2,6 +2,7 @@
 // rejilla 01-30 con solo dos estados (contestada/no contestada), cuenta
 // atrás y corrección al finalizar. Ver docs/research/formato-examen-y-preguntas.md.
 import { css, html, LitElement } from 'lit';
+import './report-modal.js';
 import { buildAttempt } from '../lib/attempt.js';
 import { EXAM_RULES, isPassingResult } from '../lib/exam-rules.js';
 import { selectExamQuestions } from '../lib/exam-selection.js';
@@ -12,7 +13,9 @@ import {
 	createExamSession,
 	goToQuestion,
 } from '../lib/exam-session.js';
+import { getHiddenQuestionIds } from '../lib/hidden-questions.js';
 import { saveAttempt } from '../lib/history-store.js';
+import { reportQuestion } from '../lib/question-reports.js';
 
 const STORAGE_KEY = 'auto-escuelapp:exam-session:v1';
 
@@ -49,6 +52,10 @@ export class ExamRunner extends LitElement {
 		_session: { state: true },
 		_secondsLeft: { state: true },
 		_finished: { state: true },
+		_reportModalOpen: { state: true },
+		_reportingId: { state: true },
+		_reportedIds: { state: true },
+		_reportGithubUrls: { state: true },
 	};
 
 	static styles = css`
@@ -163,6 +170,15 @@ export class ExamRunner extends LitElement {
 		.tag-incorrect {
 			color: var(--color-danger, #b3261e);
 		}
+		.report {
+			background: none;
+			border: none;
+			color: inherit;
+			text-decoration: underline;
+			font-size: 0.9rem;
+			min-height: 44px;
+			padding: 0 0.25rem;
+		}
 		.visually-hidden {
 			position: absolute;
 			width: 1px;
@@ -181,6 +197,10 @@ export class ExamRunner extends LitElement {
 		this._session = null;
 		this._secondsLeft = 0;
 		this._finished = false;
+		this._reportModalOpen = false;
+		this._reportingId = null;
+		this._reportedIds = new Set();
+		this._reportGithubUrls = new Map();
 		/** @type {number|undefined} */
 		this._timerId = undefined;
 	}
@@ -213,7 +233,13 @@ export class ExamRunner extends LitElement {
 		this._session = isResumable
 			? stored
 			: createExamSession(
-					selectExamQuestions(this.questions, EXAM_RULES[this.licence].questionCount, new Date()),
+					selectExamQuestions(
+						this.questions,
+						EXAM_RULES[this.licence].questionCount,
+						new Date(),
+						Math.random,
+						getHiddenQuestionIds(),
+					),
 				);
 		if (!isResumable) saveSession(this._session);
 		this._tick();
@@ -254,11 +280,35 @@ export class ExamRunner extends LitElement {
 		clearStoredSession();
 	}
 
+	_openReportModal(questionId) {
+		this._reportingId = questionId;
+		this._reportModalOpen = true;
+	}
+
+	_handleReportSubmit(event) {
+		const questionId = this._reportingId;
+		const statement = this._session.questions.find((q) => q.id === questionId)?.statement;
+		reportQuestion(questionId, event.detail.reason, statement)
+			.then(({ githubIssueUrl }) => {
+				if (!githubIssueUrl) return;
+				this._reportGithubUrls = new Map(this._reportGithubUrls).set(questionId, githubIssueUrl);
+			})
+			.catch((error) => console.error('exam-runner: fallo al enviar el reporte', error));
+		this._reportedIds = new Set(this._reportedIds).add(questionId);
+		this._reportModalOpen = false;
+	}
+
 	_restart() {
 		clearStoredSession();
 		this._finished = false;
 		this._session = createExamSession(
-			selectExamQuestions(this.questions, EXAM_RULES[this.licence].questionCount, new Date()),
+			selectExamQuestions(
+				this.questions,
+				EXAM_RULES[this.licence].questionCount,
+				new Date(),
+				Math.random,
+				getHiddenQuestionIds(),
+			),
 		);
 		saveSession(this._session);
 		this._tick();
@@ -360,12 +410,36 @@ export class ExamRunner extends LitElement {
 						</p>
 						<p>Respuesta correcta: ${result.question.options[result.question.correctIndex]}</p>
 						<p>${result.question.explanation}</p>
+						${this._reportedIds.has(result.question.id)
+							? html`<p>
+									Gracias, hemos registrado tu reporte.
+									${this._reportGithubUrls.has(result.question.id)
+										? html`Sin sesión no queda guardado; si quieres, repórtalo también
+												<a
+													href=${this._reportGithubUrls.get(result.question.id)}
+													target="_blank"
+													rel="noopener"
+													>en GitHub</a
+												>.`
+										: null}
+								</p>`
+							: html`<button
+									class="report"
+									@click=${() => this._openReportModal(result.question.id)}
+								>
+									Reportar esta pregunta
+								</button>`}
 					</details>
 				`,
 			)}
 			<div class="controls">
 				<button class="finish" @click=${() => this._restart()}>Nuevo examen</button>
 			</div>
+			<report-modal
+				.open=${this._reportModalOpen}
+				@report-submit=${(event) => this._handleReportSubmit(event)}
+				@report-cancel=${() => (this._reportModalOpen = false)}
+			></report-modal>
 		`;
 	}
 }

@@ -48,6 +48,8 @@ export default [
         setTimeout: 'readonly',
         clearTimeout: 'readonly',
         window: 'readonly',
+        URL: 'readonly',
+        URLSearchParams: 'readonly',
       },
     },
   },
