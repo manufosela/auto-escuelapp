@@ -38,6 +38,7 @@ export default [
       globals: {
         console: 'readonly',
         customElements: 'readonly',
+        CustomEvent: 'readonly',
         document: 'readonly',
         fetch: 'readonly',
         localStorage: 'readonly',
