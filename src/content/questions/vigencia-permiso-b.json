@@ -1,0 +1,17 @@
+{
+	"statement": "¿Cuál es el período de vigencia del permiso de conducción de la clase B para un conductor de 40 años?",
+	"options": ["Diez años.", "Cinco años.", "Quince años."],
+	"correctIndex": 0,
+	"explanation": "El art. 12.2 del Reglamento General de Conductores fija en diez años la vigencia del permiso de las clases distintas de C1, C1+E, C, C+E, D1, D1+E, D y D+E (entre ellas la B) mientras su titular no cumpla los sesenta y cinco años; a partir de esa edad pasa a cinco años.",
+	"subject": 10,
+	"legalReference": {
+		"norm": "BOE-A-2009-9481",
+		"article": "art. 12.2",
+		"asOfDate": "2009-12-08"
+	},
+	"source": {
+		"type": "own-book",
+		"page": 38
+	},
+	"validFrom": "2026-09-19"
+}

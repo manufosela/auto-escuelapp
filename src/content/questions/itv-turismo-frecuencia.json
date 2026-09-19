@@ -1,0 +1,17 @@
+{
+	"statement": "Un turismo (categoría M1) tiene 6 años de antigüedad. ¿Con qué frecuencia debe pasar la inspección técnica de vehículos?",
+	"options": ["Cada dos años.", "Cada año.", "Está exento hasta los 10 años."],
+	"correctIndex": 0,
+	"explanation": "El art. 6.1 del Reglamento de inspección técnica de vehículos fija para los vehículos M1 (turismos) inspección bienal entre los 4 y los 10 años de antigüedad; a partir de los 10 años pasa a ser anual, y están exentos solo hasta los 4 años.",
+	"subject": 10,
+	"legalReference": {
+		"norm": "BOE-A-2017-12841",
+		"article": "art. 6.1",
+		"asOfDate": "2018-05-20"
+	},
+	"source": {
+		"type": "own-book",
+		"page": 38
+	},
+	"validFrom": "2026-09-19"
+}
