@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const entries = await getCollection('questions');
 const questions = entries.map((entry) => ({
+	id: entry.id,
 	statement: entry.data.statement,
 	options: entry.data.options,
 	correctIndex: entry.data.correctIndex,

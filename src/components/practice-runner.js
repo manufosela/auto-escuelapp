@@ -1,8 +1,10 @@
 // Práctica por tema: corrección inmediata tras cada respuesta (a diferencia
 // del examen, que corrige solo al final) y opción de repetir solo lo fallado.
 import { css, html, LitElement } from 'lit';
-import { selectTopicQuestions } from '../lib/practice-selection.js';
+import { buildAttempt } from '../lib/attempt.js';
 import { shuffle } from '../lib/exam-selection.js';
+import { saveAttempt } from '../lib/history-store.js';
+import { selectTopicQuestions } from '../lib/practice-selection.js';
 
 const SIZE_OPTIONS = [10, 20, 30];
 
@@ -10,12 +12,17 @@ export class PracticeRunner extends LitElement {
 	static properties = {
 		questions: { attribute: false },
 		subjects: { attribute: false },
+		// Lit no convierte topicId <-> topic-id sola: hay que indicar el
+		// nombre de atributo explícitamente (si no, se buscaría "topicid").
+		topicId: { type: String, attribute: 'topic-id' },
 		_pool: { state: true },
 		_current: { state: true },
 		_index: { state: true },
 		_selectedOption: { state: true },
 		_failed: { state: true },
 		_correctCount: { state: true },
+		_results: { state: true },
+		_startedAt: { state: true },
 		_phase: { state: true }, // 'picker' | 'running' | 'summary'
 	};
 
@@ -100,6 +107,8 @@ export class PracticeRunner extends LitElement {
 		this.questions = [];
 		/** @type {number[]} */
 		this.subjects = [];
+		/** @type {string|null} */
+		this.topicId = null;
 		this._phase = 'picker';
 		this._pool = [];
 		this._current = [];
@@ -107,6 +116,8 @@ export class PracticeRunner extends LitElement {
 		this._selectedOption = null;
 		this._failed = [];
 		this._correctCount = 0;
+		this._results = [];
+		this._startedAt = null;
 	}
 
 	_availableCount() {
@@ -119,6 +130,8 @@ export class PracticeRunner extends LitElement {
 		this._selectedOption = null;
 		this._failed = [];
 		this._correctCount = 0;
+		this._results = [];
+		this._startedAt = new Date().toISOString();
 		this._phase = 'running';
 	}
 
@@ -128,6 +141,8 @@ export class PracticeRunner extends LitElement {
 		this._selectedOption = null;
 		this._failed = [];
 		this._correctCount = 0;
+		this._results = [];
+		this._startedAt = new Date().toISOString();
 		this._phase = 'running';
 	}
 
@@ -135,7 +150,9 @@ export class PracticeRunner extends LitElement {
 		if (this._selectedOption !== null) return; // ya respondida, ver explicación
 		this._selectedOption = optionIndex;
 		const question = this._current[this._index];
-		if (optionIndex === question.correctIndex) {
+		const isCorrect = optionIndex === question.correctIndex;
+		this._results = [...this._results, { question, isCorrect }];
+		if (isCorrect) {
 			this._correctCount += 1;
 		} else {
 			this._failed = [...this._failed, question];
@@ -145,6 +162,15 @@ export class PracticeRunner extends LitElement {
 	_next() {
 		if (this._index + 1 >= this._current.length) {
 			this._phase = 'summary';
+			const attempt = buildAttempt({
+				mode: 'practice',
+				topicId: this.topicId,
+				startedAt: this._startedAt,
+				results: this._results,
+			});
+			saveAttempt(attempt).catch((error) =>
+				console.error('practice-runner: fallo guardando el intento', error),
+			);
 			return;
 		}
 		this._index += 1;

@@ -60,6 +60,9 @@ const currentPath = Astro.url.pathname.endsWith('/')
 		</nav>
 		<script>
 			import '../components/auth-status.js';
+			import { watchAndMigrateLocalAttempts } from '../lib/history-store.js';
+
+			watchAndMigrateLocalAttempts();
 		</script>
 		<script>
 			// Registro del service worker generado por src/integrations/pwa.mjs.
