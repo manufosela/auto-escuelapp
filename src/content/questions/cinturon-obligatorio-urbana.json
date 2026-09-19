@@ -1,0 +1,20 @@
+{
+	"statement": "¿Es obligatorio para el conductor y los ocupantes llevar abrochado el cinturón de seguridad al circular por una vía urbana?",
+	"options": [
+		"Sí, tanto en vías urbanas como interurbanas.",
+		"No, la obligación solo existe en vías interurbanas.",
+		"Solo si el vehículo circula a más de 50 kilómetros por hora."
+	],
+	"correctIndex": 0,
+	"explanation": "El art. 117.1 del Reglamento General de Circulación obliga al conductor y a los ocupantes a utilizar el cinturón de seguridad debidamente abrochado tanto en vías urbanas como interurbanas, salvo en vehículos que no lo tengan instalado.",
+	"subject": 15,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 117.1",
+		"asOfDate": "2015-10-01"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-19"
+}

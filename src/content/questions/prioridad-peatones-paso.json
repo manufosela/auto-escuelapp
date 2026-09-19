@@ -1,0 +1,16 @@
+{
+	"statement": "Se aproxima a un paso de peatones debidamente señalizado, sin semáforo, y un peatón se dispone a cruzar. ¿Quién tiene prioridad?",
+	"options": ["El peatón.", "El conductor, si ya circulaba antes de que el peatón se acercara.", "El vehículo que llegue primero al paso."],
+	"correctIndex": 0,
+	"explanation": "El art. 65.1.a) del Reglamento General de Circulación da prioridad al peatón en los pasos para peatones debidamente señalizados, como excepción a la prioridad general del vehículo en la calzada.",
+	"subject": 8,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 65.1.a)",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-19"
+}
