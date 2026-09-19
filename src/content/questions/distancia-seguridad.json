@@ -1,0 +1,18 @@
+{
+	"statement": "¿Qué debe garantizar la distancia que se deja con el vehículo que circula delante?",
+	"options": [
+		"Poder detenerse sin colisionar si ese vehículo frena bruscamente",
+		"Una separación fija de 100 metros en cualquier circunstancia",
+		"No es necesario guardar ninguna distancia si se circula despacio"
+	],
+	"correctIndex": 0,
+	"explanation": "El art. 54 del Reglamento General de Circulación exige dejar un espacio que permita detenerse sin colisionar en caso de frenazo brusco, según la velocidad y las condiciones de adherencia y frenado; solo fija una cifra concreta (50 m) para vehículos pesados o largos que no vayan a adelantar.",
+	"subject": 5,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 54",
+		"asOfDate": "2004-01-23"
+	},
+	"source": { "type": "own" },
+	"validFrom": "2026-09-19"
+}

@@ -1,0 +1,14 @@
+{
+	"statement": "En una vía urbana de dos o más carriles por sentido de circulación, ¿cuál es la velocidad máxima genérica?",
+	"options": ["30 km/h", "50 km/h", "20 km/h"],
+	"correctIndex": 1,
+	"explanation": "El art. 50 del Reglamento General de Circulación fija en 50 km/h el límite genérico en vías urbanas de dos o más carriles por sentido; en vías de un único carril por sentido es 30 km/h, y en las de plataforma única de calzada y acera, 20 km/h.",
+	"subject": 1,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 50",
+		"asOfDate": "2021-05-11"
+	},
+	"source": { "type": "own" },
+	"validFrom": "2026-09-19"
+}
