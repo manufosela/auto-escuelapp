@@ -52,6 +52,9 @@ export class ExamRunner extends LitElement {
 	static styles = css`
 		:host {
 			display: block;
+			/* Reserva espacio mientras llegan questions/subjects (se asignan
+			   tras el primer render): evita un salto de layout grande. */
+			min-height: 50vh;
 		}
 		.timer {
 			font-weight: 600;
