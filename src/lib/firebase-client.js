@@ -25,6 +25,11 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
+// Uso personal (AUT-TSK-0010): solo esta cuenta puede quedar autenticada en
+// la app. Cualquier otra que inicie sesión se cierra al momento; nunca llega
+// a verse como "con sesión" en el resto de la app.
+const ALLOWED_EMAIL = 'mjfosela@gmail.com';
+
 /**
  * Inicia sesión con Google. Usa una ventana emergente y, si el navegador la
  * bloquea, recurre a una redirección de página completa.
@@ -52,5 +57,14 @@ export function signOutUser() {
  * @returns {() => void} función para cancelar la suscripción
  */
 export function onAuthChange(callback) {
-	return onAuthStateChanged(auth, callback);
+	return onAuthStateChanged(auth, (user) => {
+		if (user && user.email !== ALLOWED_EMAIL) {
+			signOut(auth).catch((error) =>
+				console.error('firebase-client: fallo cerrando una sesión no autorizada', error),
+			);
+			callback(null);
+			return;
+		}
+		callback(user);
+	});
 }
