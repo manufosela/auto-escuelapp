@@ -82,6 +82,8 @@ const currentPath = Astro.url.pathname.endsWith('/')
 		--color-surface: #f3f5f8;
 		--color-border: #dde2e8;
 		--color-accent: #154082;
+		--color-success: #1a7f37;
+		--color-danger: #b3261e;
 		--bottom-nav-height: 64px;
 	}
 
@@ -92,6 +94,10 @@ const currentPath = Astro.url.pathname.endsWith('/')
 			--color-surface: #1a2230;
 			--color-border: #2a3444;
 			--color-accent: #6fa3ff;
+			/* Verdes/rojos oscuros no cumplen contraste (4.5:1) como texto
+			   normal sobre --color-bg oscuro; verificado con Lighthouse. */
+			--color-success: #3fb950;
+			--color-danger: #f85149;
 		}
 	}
 
@@ -121,6 +127,19 @@ const currentPath = Astro.url.pathname.endsWith('/')
 	   navegador no cumple contraste sobre --color-bg en modo oscuro. */
 	:global(a) {
 		color: var(--color-accent);
+	}
+
+	/* Reserva de altura en el DOM ligero para los componentes Lit (exam,
+	   práctica, fichas) ANTES de que se definan como custom element: sin
+	   esto, el elemento no tiene tamaño hasta que su módulo se ejecuta
+	   (siempre diferido, por ser type="module"), lo que provoca un salto de
+	   layout grande en el primer pintado. El :host de cada componente
+	   mantiene su propio min-height como red de seguridad una vez definido. */
+	:global(exam-runner),
+	:global(practice-runner),
+	:global(flashcard-deck) {
+		display: block;
+		min-height: 50vh;
 	}
 
 	.app-header {

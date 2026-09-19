@@ -61,7 +61,7 @@ export class ExamRunner extends LitElement {
 			font-variant-numeric: tabular-nums;
 		}
 		.timer.low {
-			color: #b3261e;
+			color: var(--color-danger, #b3261e);
 		}
 		.statement {
 			font-size: 1.1rem;
@@ -141,10 +141,10 @@ export class ExamRunner extends LitElement {
 			font-weight: 700;
 		}
 		.result-header.pass {
-			color: #1a7f37;
+			color: var(--color-success, #1a7f37);
 		}
 		.result-header.fail {
-			color: #b3261e;
+			color: var(--color-danger, #b3261e);
 		}
 		details {
 			border: 1px solid var(--color-border, #dde2e8);
@@ -156,10 +156,10 @@ export class ExamRunner extends LitElement {
 			margin-bottom: 0.5rem;
 		}
 		.tag-correct {
-			color: #1a7f37;
+			color: var(--color-success, #1a7f37);
 		}
 		.tag-incorrect {
-			color: #b3261e;
+			color: var(--color-danger, #b3261e);
 		}
 		.visually-hidden {
 			position: absolute;

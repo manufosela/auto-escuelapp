@@ -62,12 +62,12 @@ export class PracticeRunner extends LitElement {
 			font-size: 1rem;
 		}
 		.options button.correct {
-			border-color: #1a7f37;
-			outline: 2px solid #1a7f37;
+			border-color: var(--color-success, #1a7f37);
+			outline: 2px solid var(--color-success, #1a7f37);
 		}
 		.options button.incorrect {
-			border-color: #b3261e;
-			outline: 2px solid #b3261e;
+			border-color: var(--color-danger, #b3261e);
+			outline: 2px solid var(--color-danger, #b3261e);
 		}
 		.feedback {
 			padding: 0.75rem;
