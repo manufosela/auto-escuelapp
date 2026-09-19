@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const entries = await getCollection('questions');
+const questions = entries.map((entry) => ({
+	statement: entry.data.statement,
+	options: entry.data.options,
+	correctIndex: entry.data.correctIndex,
+	explanation: entry.data.explanation,
+	validFrom: entry.data.validFrom.toISOString(),
+	validUntil: entry.data.validUntil?.toISOString(),
+}));
+---
+
+<BaseLayout
+	title="Examen — auto-escuelapp"
+	description="Simulacro del examen teórico del permiso B: 30 preguntas, 30 minutos, máximo 3 fallos."
+>
+	<h1>Examen</h1>
+	<exam-runner id="exam-runner" licence="B"></exam-runner>
+</BaseLayout>
+
+<script>
+	import '../../components/exam-runner.js';
+</script>
+<script define:vars={{ questions }}>
+	document.getElementById('exam-runner').questions = questions;
+</script>
