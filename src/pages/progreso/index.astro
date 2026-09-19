@@ -1,5 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const questions = await getCollection('questions');
+const subjectPairs = questions.map((entry) => [entry.id, entry.data.subject]);
 ---
 
 <BaseLayout
@@ -7,5 +11,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	description="Historial de tests y estadísticas de acierto por tema."
 >
 	<h1>Progreso</h1>
-	<p>En construcción — llega en AUT-TSK-0018.</p>
+	<progress-view id="progress-view"></progress-view>
 </BaseLayout>
+
+<script>
+	import '../../components/progress-view.js';
+</script>
+<script define:vars={{ subjectPairs }}>
+	document.getElementById('progress-view').subjectByQuestionId = new Map(subjectPairs);
+</script>
