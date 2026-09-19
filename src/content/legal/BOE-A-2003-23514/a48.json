@@ -221,6 +221,10 @@
 				{
 					"class": "parrafo_2",
 					"text": "2. Las infracciones a las normas de este precepto tendrán la consideración de graves o muy graves, según corresponda por el exceso de velocidad, conforme se prevé en los artículos 76.a) y 77.a), ambos del texto refundido de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial."
+				},
+				{
+					"class": "tabla",
+					"text": "Turismos, motocicletas, autocaravanas de masa máxima autorizada igual o inferior a 3.500 kg, Pick-up | Camiones, tractocamiones, furgonetas, autocaravanas de masa máxima autorizada superior a 3.500 kg, vehículos articulados, automóviles con remolque y resto de vehículos | Autobuses, vehículos derivados de turismo y vehículos mixtos adaptables\nAutopista y autovía | 120 | 90 | 100\nConvencional | 90 | 80 | 90"
 				}
 			]
 		},
@@ -292,6 +296,10 @@
 				{
 					"class": "parrafo_2",
 					"text": "2. Las infracciones a las normas de este precepto tendrán la consideración de graves o muy graves, según corresponda por el exceso de velocidad, conforme se prevé en los artículos 76.a) y 77.a), ambos del texto refundido de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial."
+				},
+				{
+					"class": "tabla",
+					"text": "Turismos, motocicletas, autocaravanas de masa máxima autorizada igual o inferior a 3.500 kg, Pick-up | Camiones, tractocamiones, furgonetas, autocaravanas de masa máxima autorizada superior a 3.500 kg, vehículos articulados, automóviles con remolque y resto de vehículos | Autobuses, vehículos derivados de turismo y vehículos mixtos adaptables\nAutopista y autovía | 120 | 90 | 100\nConvencional | 90 | 80 | 90"
 				}
 			]
 		}
