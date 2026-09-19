@@ -1,5 +1,8 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const topics = (await getCollection('topics')).toSorted((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout
@@ -7,5 +10,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	description="Temario del permiso B por temas, con referencia legal."
 >
 	<h1>Temario</h1>
-	<p>En construcción — llega en AUT-TSK-0015.</p>
+	<p><a href="/temario/senales/">Catálogo de señales</a></p>
+	<ol class="topics">
+		{
+			topics.map((topic) => (
+				<li>
+					<a href={`/temario/${topic.id}/`}>{topic.data.title}</a>
+					<p>{topic.data.summary}</p>
+				</li>
+			))
+		}
+	</ol>
 </BaseLayout>
+
+<style>
+	.topics {
+		padding-left: 1.25rem;
+	}
+	.topics li {
+		margin-bottom: 1rem;
+	}
+	.topics a {
+		font-weight: 600;
+	}
+</style>

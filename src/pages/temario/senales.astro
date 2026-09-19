@@ -1,0 +1,152 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const signs = (await getCollection('signs')).toSorted((a, b) => a.data.id.localeCompare(b.data.id));
+const groups = [...new Set(signs.map((s) => s.data.group))].toSorted();
+
+const GROUP_LABELS = {
+	warning: 'Peligro',
+	priority: 'Prioridad',
+	prohibitory: 'Prohibición',
+	mandatory: 'Obligación',
+	indication: 'Indicación',
+	service: 'Servicio',
+	temporary: 'Circunstancial',
+	additional: 'Panel adicional',
+};
+---
+
+<BaseLayout
+	title="Catálogo de señales — auto-escuelapp"
+	description="Catálogo de señales de tráfico verificadas, con licencia y autor por fichero."
+>
+	<h1>Catálogo de señales</h1>
+	<p>
+		<a href="/temario/">← Volver al temario</a> ·
+		<a href="https://github.com/manufosela/auto-escuelapp/blob/main/docs/research/senales-pendientes.md"
+			>Señales pendientes</a
+		>
+	</p>
+
+	<div class="filters">
+		<input
+			id="sign-search"
+			type="search"
+			placeholder="Buscar por código o nombre…"
+			aria-label="Buscar señal por código o nombre"
+		/>
+		<select id="sign-group" aria-label="Filtrar por grupo">
+			<option value="">Todos los grupos</option>
+			{groups.map((group) => <option value={group}>{GROUP_LABELS[group] ?? group}</option>)}
+		</select>
+	</div>
+
+	<p id="sign-empty" hidden>Ninguna señal coincide con la búsqueda.</p>
+
+	<ul class="signs">
+		{
+			signs.map((sign) => (
+				<li
+					class="sign"
+					data-group={sign.data.group}
+					data-search={`${sign.data.id} ${sign.data.name}`.toLowerCase()}
+				>
+					<img
+						src={`/${sign.data.svg.replace(/^public\//, '')}`}
+						alt=""
+						width="64"
+						height="64"
+					/>
+					<div>
+						<p class="code">
+							{sign.data.id} — {sign.data.name}
+						</p>
+						<p class="meaning">{sign.data.meaning}</p>
+						<p class="licence">
+							{sign.data.licence} · {sign.data.author}
+						</p>
+					</div>
+				</li>
+			))
+		}
+	</ul>
+</BaseLayout>
+
+<script>
+	const search = document.getElementById('sign-search') as HTMLInputElement;
+	const groupSelect = document.getElementById('sign-group') as HTMLSelectElement;
+	const items = [...document.querySelectorAll<HTMLLIElement>('.sign')];
+	const emptyState = document.getElementById('sign-empty') as HTMLParagraphElement;
+
+	function applyFilter() {
+		const query = search.value.trim().toLowerCase();
+		const group = groupSelect.value;
+		let visibleCount = 0;
+		for (const item of items) {
+			const matchesGroup = !group || item.dataset.group === group;
+			const matchesQuery = !query || item.dataset.search?.includes(query);
+			const visible = matchesGroup && matchesQuery;
+			item.hidden = !visible;
+			if (visible) visibleCount += 1;
+		}
+		emptyState.hidden = visibleCount > 0;
+	}
+
+	search.addEventListener('input', applyFilter);
+	groupSelect.addEventListener('change', applyFilter);
+</script>
+
+<style>
+	.filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+	.filters input,
+	.filters select {
+		flex: 1;
+		min-width: 140px;
+		min-height: 44px;
+		padding: 0 0.5rem;
+		border-radius: 0.5rem;
+		border: 1px solid var(--color-border, #dde2e8);
+		background: var(--color-bg, #fff);
+		color: inherit;
+		font-size: 1rem;
+	}
+	.signs {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.sign {
+		display: flex;
+		gap: 0.75rem;
+		align-items: flex-start;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid var(--color-border, #dde2e8);
+	}
+	/* Sin esto, `display:flex` de arriba pisa el `display:none` por defecto
+	   del atributo hidden (misma especificidad, mi regla va después en la
+	   cascada) y los elementos ocultados por el filtro seguían viéndose. */
+	.sign[hidden] {
+		display: none;
+	}
+	.sign img {
+		flex-shrink: 0;
+	}
+	.code {
+		font-weight: 600;
+		margin: 0 0 0.25rem;
+	}
+	.meaning {
+		margin: 0 0 0.25rem;
+	}
+	.licence {
+		margin: 0;
+		font-size: 0.8rem;
+		opacity: 0.7;
+	}
+</style>
