@@ -12,6 +12,9 @@ export class PracticeRunner extends LitElement {
 	static properties = {
 		questions: { attribute: false },
 		subjects: { attribute: false },
+		// Lista ya priorizada (repaso, AUT-TSK-0019): si se da, sustituye a
+		// questions+subjects, no se baraja y marca el número de preguntas.
+		orderedQuestions: { attribute: false },
 		// Lit no convierte topicId <-> topic-id sola: hay que indicar el
 		// nombre de atributo explícitamente (si no, se buscaría "topicid").
 		topicId: { type: String, attribute: 'topic-id' },
@@ -107,6 +110,8 @@ export class PracticeRunner extends LitElement {
 		this.questions = [];
 		/** @type {number[]} */
 		this.subjects = [];
+		/** @type {Array<Record<string, unknown>>|null} */
+		this.orderedQuestions = null;
 		/** @type {string|null} */
 		this.topicId = null;
 		this._phase = 'picker';
@@ -121,11 +126,14 @@ export class PracticeRunner extends LitElement {
 	}
 
 	_availableCount() {
+		if (this.orderedQuestions) return this.orderedQuestions.length;
 		return selectTopicQuestions(this.questions, this.subjects, Infinity, new Date()).length;
 	}
 
 	_start(size) {
-		this._current = selectTopicQuestions(this.questions, this.subjects, size, new Date());
+		this._current = this.orderedQuestions
+			? this.orderedQuestions.slice(0, size)
+			: selectTopicQuestions(this.questions, this.subjects, size, new Date());
 		this._index = 0;
 		this._selectedOption = null;
 		this._failed = [];
@@ -186,7 +194,10 @@ export class PracticeRunner extends LitElement {
 	_renderPicker() {
 		const available = this._availableCount();
 		if (available === 0) {
-			return html`<p role="alert">No hay preguntas vigentes para este tema todavía.</p>`;
+			const message = this.orderedQuestions
+				? 'No tienes ninguna pregunta pendiente de repasar.'
+				: 'No hay preguntas vigentes para este tema todavía.';
+			return html`<p role="alert">${message}</p>`;
 		}
 		// Sin duplicar botones cuando el tema tiene menos preguntas que el
 		// tamaño más pequeño ofrecido (p. ej. solo 3 disponibles: un botón).
