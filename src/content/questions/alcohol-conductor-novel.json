@@ -1,0 +1,14 @@
+{
+	"statement": "Durante los dos años siguientes a obtener el permiso de conducir, ¿qué tasa máxima de alcohol en sangre no se puede superar?",
+	"options": ["0,3 gramos por litro", "0,5 gramos por litro", "0,0 gramos por litro"],
+	"correctIndex": 0,
+	"explanation": "El art. 20 del Reglamento General de Circulación limita a 0,3 gramos por litro en sangre (0,15 mg/l en aire espirado) a quienes llevan menos de dos años con el permiso, igual que a los conductores profesionales.",
+	"subject": 4,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 20",
+		"asOfDate": "2004-01-23"
+	},
+	"source": { "type": "own" },
+	"validFrom": "2026-09-19"
+}

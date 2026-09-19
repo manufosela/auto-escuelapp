@@ -1,0 +1,34 @@
+{
+	"normId": "BOE-A-2003-23514",
+	"blockId": "a20",
+	"title": "Artículo 20",
+	"versions": [
+		{
+			"sourceNormId": "BOE-A-2003-23514",
+			"publicationDate": "2003-12-23",
+			"effectiveDate": "2004-01-23",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 20. Tasas de alcohol en sangre y aire espirado."
+				},
+				{
+					"class": "parrafo",
+					"text": "No podrán circular por las vías objeto de la legislación sobre tráfico, circulación de vehículos a motor y seguridad vial los conductores de vehículos ni los conductores de bicicletas con una tasa de alcohol en sangre superior a 0,5 gramos por litro, o de alcohol en aire espirado superior a 0,25 miligramos por litro."
+				},
+				{
+					"class": "parrafo",
+					"text": "Cuando se trate de vehículos destinados al transporte de mercancías con una masa máxima autorizada superior a 3.500 kilogramos, vehículos destinados al transporte de viajeros de más de nueve plazas, o de servicio público, al transporte escolar y de menores, al de mercancías peligrosas o de servicio de urgencia o transportes especiales, los conductores no podrán hacerlo con una tasa de alcohol en sangre superior a 0,3 gramos por litro, o de alcohol en aire espirado superior a 0,15 miligramos por litro."
+				},
+				{
+					"class": "parrafo",
+					"text": "Los conductores de cualquier vehículo no podrán superar la tasa de alcohol en sangre de 0,3 gramos por litro ni de alcohol en aire espirado de 0,15 miligramos por litro durante los dos años siguientes a la obtención del permiso o licencia que les habilita para conducir."
+				},
+				{
+					"class": "parrafo",
+					"text": "A estos efectos, sólo se computará la antigüedad de la licencia de conducción cuando se trate de la conducción de vehículos para los que sea suficiente dicha licencia."
+				}
+			]
+		}
+	]
+}

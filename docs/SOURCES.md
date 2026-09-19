@@ -10,7 +10,7 @@ de qué fuente y bajo qué condición. El razonamiento completo está en
 | Catálogo de señales (imágenes) | `public/signs/` (`scripts/fetch-signs.mjs`) | Wikimedia Commons, `Category:SVG road signs in Spain` | Licencia por fichero, ver `ATTRIBUTIONS.md`. Cobertura parcial y verificada manualmente; pendientes en `docs/research/senales-pendientes.md` |
 | Temario (texto) | `src/content/topics/` (AUT-TSK-0005) | Redacción propia sobre el Anexo V.B.1 del RD 818/2009 | MIT (redacción propia) |
 | Preguntas de la revista DGT | `src/content/questions/revista-dgt.json` (AUT-TSK-0007) | `revista.dgt.es/es/test/` (solo texto) | Copiable con cita de la revista; sin imágenes |
-| Preguntas propias | `src/content/questions/propias.json` (AUT-TSK-0009) | Redacción propia, estilo documentado en `docs/research/formato-examen-y-preguntas.md` | MIT (redacción propia) |
+| Preguntas propias | `src/content/questions/*.json` (5 preguntas semilla en AUT-TSK-0013, banco completo en AUT-TSK-0009) | Redacción propia, estilo documentado en `docs/research/formato-examen-y-preguntas.md` | MIT (redacción propia) |
 | Fichas de repaso | `src/content/flashcards/` (AUT-TSK-0016) | Redacción propia | MIT (redacción propia) |
 
 ## Explícitamente excluido de este repositorio
