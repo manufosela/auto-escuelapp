@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+	const topics = await getCollection('topics');
+	return topics.map((topic) => ({ params: { slug: topic.id }, props: { topic } }));
+}
+
+const { topic } = Astro.props;
+const allQuestions = await getCollection('questions');
+const questions = allQuestions.map((entry) => ({
+	statement: entry.data.statement,
+	options: entry.data.options,
+	correctIndex: entry.data.correctIndex,
+	explanation: entry.data.explanation,
+	subject: entry.data.subject,
+	validFrom: entry.data.validFrom.toISOString(),
+	validUntil: entry.data.validUntil?.toISOString(),
+}));
+---
+
+<BaseLayout
+	title={`${topic.data.title} — Práctica — auto-escuelapp`}
+	description={`Práctica del tema ${topic.data.title} con corrección inmediata.`}
+>
+	<h1>{topic.data.title}</h1>
+	<practice-runner id="practice-runner"></practice-runner>
+</BaseLayout>
+
+<script>
+	import '../../../components/practice-runner.js';
+</script>
+<script define:vars={{ questions, subjects: topic.data.subjects }}>
+	const el = document.getElementById('practice-runner');
+	el.questions = questions;
+	el.subjects = subjects;
+</script>
