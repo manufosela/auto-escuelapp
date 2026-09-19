@@ -33,7 +33,7 @@ const parser = new XMLParser({
 	ignoreAttributes: false,
 	attributeNamePrefix: '@_',
 	textNodeName: '#text',
-	isArray: (name) => name === 'p' || name === 'version',
+	isArray: (name) => name === 'p' || name === 'version' || name === 'table' || name === 'tr',
 });
 
 /**
@@ -53,6 +53,39 @@ export function flattenText(node) {
 			.trim();
 	}
 	return '';
+}
+
+/**
+ * Aplana las celdas de una fila (<tr>) a texto, una por elemento. El
+ * parser separa <td> y <th> en propiedades distintas del mismo objeto
+ * (pierde su orden real si estuvieran intercalados), pero en las tablas
+ * del BOE cada fila usa un único tipo de celda (cabecera → th, cuerpo →
+ * td) salvo la celda de esquina en blanco, que queda vacía y se descarta.
+ * @param {unknown} row
+ * @returns {string[]}
+ */
+function cellTexts(row) {
+	if (!row || typeof row !== 'object') return [];
+	const cells = [].concat(row.td ?? [], row.th ?? []);
+	return cells.map(flattenText).map((text) => text.trim()).filter(Boolean);
+}
+
+/**
+ * Aplana una tabla del BOE (<table>) a texto plano, fila a fila. Las
+ * preguntas/temario deben leer estas filas para redactar su propio texto,
+ * nunca copiar la tabla tal cual.
+ * @param {unknown} table
+ * @returns {string}
+ */
+export function flattenTable(table) {
+	const rows = [
+		...[].concat(table?.thead?.tr ?? []),
+		...[].concat(table?.tbody?.tr ?? []),
+	];
+	return rows
+		.map((row) => cellTexts(row).join(' | '))
+		.filter(Boolean)
+		.join('\n');
 }
 
 /**
@@ -93,10 +126,19 @@ export async function fetchBlock({ normId, blockId }) {
 		sourceNormId: version['@_id_norma'],
 		publicationDate: boeDateToISO(version['@_fecha_publicacion']),
 		effectiveDate: boeDateToISO(version['@_fecha_vigencia']),
-		paragraphs: (version.p ?? []).map((p) => ({
-			class: p['@_class'] ?? null,
-			text: flattenText(p),
-		})),
+		// Las tablas (<table>) del BOE no van dentro de <p>: se aplanan
+		// aparte y se añaden al final. No conservan su posición exacta
+		// entre los párrafos, pero antes se perdían por completo.
+		paragraphs: [
+			...(version.p ?? []).map((p) => ({
+				class: p['@_class'] ?? null,
+				text: flattenText(p),
+			})),
+			...[].concat(version.table ?? []).map((table) => ({
+				class: 'tabla',
+				text: flattenTable(table),
+			})),
+		],
 	}));
 
 	return {
