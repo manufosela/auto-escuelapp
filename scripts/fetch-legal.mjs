@@ -23,6 +23,8 @@ const BLOCKS = [
 	{ normId: 'BOE-A-2003-23514', blockId: 'a54' },
 	{ normId: 'BOE-A-2003-23514', blockId: 'a101' },
 	{ normId: 'BOE-A-2003-23514', blockId: 'a41' },
+	{ normId: 'BOE-A-2003-23514', blockId: 'a65' },
+	{ normId: 'BOE-A-2003-23514', blockId: 'a117' },
 	{ normId: 'BOE-A-2009-9481', blockId: 'a12' },
 	{ normId: 'BOE-A-2017-12841', blockId: 'a6' },
 ];
