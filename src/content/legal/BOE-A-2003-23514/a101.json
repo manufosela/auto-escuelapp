@@ -1,0 +1,46 @@
+{
+	"normId": "BOE-A-2003-23514",
+	"blockId": "a101",
+	"title": "Artículo 101",
+	"versions": [
+		{
+			"sourceNormId": "BOE-A-2003-23514",
+			"publicationDate": "2003-12-23",
+			"effectiveDate": "2004-01-23",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 101. Alumbrado de corto alcance o de cruce."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. Todo vehículo de motor y ciclomotor que circule entre el ocaso y la salida del sol por vías urbanas o interurbanas suficientemente iluminadas, o a cualquier hora del día por túneles, pasos inferiores y tramos de vías afectados por la señal «Túnel» (S-5) suficientemente iluminados, llevará encendido, además del alumbrado de posición, el alumbrado de corto alcance o de cruce."
+				},
+				{
+					"class": "parrafo",
+					"text": "Igualmente, llevará encendido dicho alumbrado en los poblados, cuando la vía esté insuficientemente iluminada."
+				},
+				{
+					"class": "parrafo",
+					"text": "2. Todo vehículo de motor y ciclomotor debe llevar encendido el alumbrado de corto alcance o de cruce al circular entre el ocaso y la salida del sol por vías interurbanas insuficientemente iluminadas o a cualquier hora del día por túneles, pasos inferiores y demás tramos afectados por la señal de «Túnel» insuficientemente iluminados, cuando concurra alguna de las siguientes circunstancias:"
+				},
+				{
+					"class": "parrafo_2",
+					"text": "a) No disponer de alumbrado de largo alcance."
+				},
+				{
+					"class": "parrafo",
+					"text": "b) Circular a velocidad no superior a 40 kilómetros por hora y no estar utilizando el alumbrado de largo alcance."
+				},
+				{
+					"class": "parrafo",
+					"text": "c) Posibilidad de producir deslumbramiento a otros usuarios de la vía pública."
+				},
+				{
+					"class": "parrafo_2",
+					"text": "3. Los supuestos de circulación en los que se produzca deslumbramiento al resto de los usuarios de la vía y de circulación sin alumbrado en situación de falta o disminución de visibilidad tendrán la consideración de infracciones graves, conforme se prevé en el artículo 65.4.e) del texto articulado."
+				}
+			]
+		}
+	]
+}

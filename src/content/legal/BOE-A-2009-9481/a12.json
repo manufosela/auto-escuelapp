@@ -1,0 +1,77 @@
+{
+	"normId": "BOE-A-2009-9481",
+	"blockId": "a12",
+	"title": "Artículo 12",
+	"versions": [
+		{
+			"sourceNormId": "BOE-A-2009-9481",
+			"publicationDate": "2009-06-08",
+			"effectiveDate": "2009-12-08",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 12. Vigencia del permiso y de la licencia de conducción."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. El permiso de conducción de las clases BTP, C1, C1 + E, C, C + E, D1, D1 + E, D y D + E tendrá un período de vigencia de cinco años mientras su titular no cumpla los sesenta y cinco años y de tres años a partir de esa edad."
+				},
+				{
+					"class": "parrafo",
+					"text": "2. El permiso de las clases restantes y la licencia de conducción, cualquiera que sea su clase, tendrán un período de vigencia de diez años mientras su titular no cumpla los sesenta y cinco años y de cinco años a partir de esa edad."
+				},
+				{
+					"class": "parrafo",
+					"text": "3. El período de vigencia de las diversas clases de permiso y licencia de conducción señalado en los apartados anteriores podrá reducirse si, al tiempo de su concesión o de la prórroga de su vigencia, se comprueba que su titular padece enfermedad o deficiencia que, si bien de momento no impide aquélla, es susceptible de agravarse."
+				},
+				{
+					"class": "parrafo",
+					"text": "4. El permiso o licencia de conducción cuya vigencia hubiese vencido no autoriza a su titular a conducir y su utilización dará lugar a su intervención inmediata por la autoridad o sus agentes, que lo remitirán a la Jefatura Provincial de Tráfico correspondiente."
+				},
+				{
+					"class": "parrafo",
+					"text": "5. La vigencia del permiso y de la licencia de conducción, además, estará condicionada a que su titular no haya perdido totalmente la asignación inicial de puntos."
+				},
+				{
+					"class": "parrafo",
+					"text": "6. Asimismo, con independencia de lo dispuesto en los apartados anteriores, la vigencia de los permisos y las licencias de conducción estará subordinada a que su titular mantenga los requisitos exigidos para su otorgamiento."
+				}
+			]
+		},
+		{
+			"sourceNormId": "BOE-A-2015-12572",
+			"publicationDate": "2015-11-21",
+			"effectiveDate": "2015-12-31",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 12. Vigencia del permiso y de la licencia de conducción."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. El permiso de conducción de las clases C1, C1 + E, C, C + E, D1, D1 + E, D y D + E tendrá un período de vigencia de cinco años mientras su titular no cumpla los sesenta y cinco años y de tres años a partir de esa edad."
+				},
+				{
+					"class": "parrafo",
+					"text": "2. El permiso de las clases restantes y la licencia de conducción, cualquiera que sea su clase, tendrán un período de vigencia de diez años mientras su titular no cumpla los sesenta y cinco años y de cinco años a partir de esa edad."
+				},
+				{
+					"class": "parrafo",
+					"text": "3. El período de vigencia de las diversas clases de permiso y licencia de conducción señalado en los apartados anteriores podrá reducirse si, al tiempo de su concesión o de la prórroga de su vigencia, se comprueba que su titular padece enfermedad o deficiencia que, si bien de momento no impide aquélla, es susceptible de agravarse."
+				},
+				{
+					"class": "parrafo",
+					"text": "4. El permiso o licencia de conducción cuya vigencia hubiese vencido no autoriza a su titular a conducir y su utilización dará lugar a su intervención inmediata por la autoridad o sus agentes, que lo remitirán a la Jefatura Provincial de Tráfico correspondiente."
+				},
+				{
+					"class": "parrafo",
+					"text": "5. La vigencia del permiso y de la licencia de conducción, además, estará condicionada a que su titular no haya perdido totalmente la asignación inicial de puntos."
+				},
+				{
+					"class": "parrafo",
+					"text": "6. Asimismo, con independencia de lo dispuesto en los apartados anteriores, la vigencia de los permisos y las licencias de conducción estará subordinada a que su titular mantenga los requisitos exigidos para su otorgamiento."
+				}
+			]
+		}
+	]
+}
