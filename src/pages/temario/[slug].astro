@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+	const topics = await getCollection('topics');
+	return topics.map((topic) => ({ params: { slug: topic.id }, props: { topic } }));
+}
+
+const { topic } = Astro.props;
+const { Content } = await render(topic);
+---
+
+<BaseLayout
+	title={`${topic.data.title} — Temario — auto-escuelapp`}
+	description={topic.data.summary}
+>
+	<h1>{topic.data.title}</h1>
+	<p class="summary">{topic.data.summary}</p>
+	<ul class="key-points">
+		{topic.data.keyPoints.map((point) => <li>{point}</li>)}
+	</ul>
+	<Content />
+	<p class="legal-refs">
+		Referencias:{' '}
+		{topic.data.legalReferences
+			.map((ref) => `${ref.norm} ${ref.article}`)
+			.join(', ')}
+	</p>
+	<p><a href={`/practica/tema/${topic.id}/`}>Practicar este tema</a></p>
+</BaseLayout>
+
+<style>
+	.summary {
+		font-size: 1.1rem;
+	}
+	.key-points {
+		background: var(--color-surface, #f3f5f8);
+		border-radius: 0.5rem;
+		padding: 0.75rem 1.25rem;
+	}
+	.legal-refs {
+		font-size: 0.85rem;
+		opacity: 0.8;
+	}
+</style>
