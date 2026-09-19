@@ -1,20 +1,8 @@
 ---
-import SiteFooter from '../components/SiteFooter.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="es">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Página no encontrada — auto-escuelapp</title>
-	</head>
-	<body>
-		<main>
-			<h1>Página no encontrada</h1>
-			<p><a href="/">Volver al inicio</a></p>
-		</main>
-		<SiteFooter />
-	</body>
-</html>
+<BaseLayout title="Página no encontrada — auto-escuelapp" description="Página no encontrada.">
+	<h1>Página no encontrada</h1>
+	<p><a href="/">Volver al inicio</a></p>
+</BaseLayout>
