@@ -1,0 +1,21 @@
+{
+	"statement": "Circula por un carril habilitado en sentido contrario al habitual por razones de fluidez de la circulación. ¿Qué vehículos pueden utilizarlo?",
+	"options": [
+		"Motocicletas y turismos, sin remolque.",
+		"Cualquier vehículo, incluidos los turismos con remolque.",
+		"Solo autobuses y camiones."
+	],
+	"correctIndex": 0,
+	"explanation": "El art. 41.1 del Reglamento General de Circulación limita el uso de estos carriles a motocicletas y turismos, y lo prohíbe expresamente al resto de vehículos, incluidos los turismos con remolque.",
+	"subject": 1,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 41.1",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own-book",
+		"page": 38
+	},
+	"validFrom": "2026-09-19"
+}
