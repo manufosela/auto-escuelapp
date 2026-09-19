@@ -37,6 +37,7 @@ const currentPath = Astro.url.pathname.endsWith('/')
 	<body>
 		<header class="app-header">
 			<p class="brand">auto-escuelapp</p>
+			<auth-status></auth-status>
 		</header>
 		<main>
 			<slot />
@@ -57,6 +58,9 @@ const currentPath = Astro.url.pathname.endsWith('/')
 				))
 			}
 		</nav>
+		<script>
+			import '../components/auth-status.js';
+		</script>
 		<script>
 			// Registro del service worker generado por src/integrations/pwa.mjs.
 			// Se genera con skipWaiting + clientsClaim, así que una versión
@@ -142,9 +146,18 @@ const currentPath = Astro.url.pathname.endsWith('/')
 		min-height: 50vh;
 	}
 
+	:global(auth-status) {
+		display: block;
+		min-height: 36px;
+	}
+
 	.app-header {
 		padding: 0.75rem 1rem;
 		border-bottom: 1px solid var(--color-border);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
 	}
 
 	.brand {
