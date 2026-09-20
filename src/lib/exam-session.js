@@ -4,7 +4,7 @@
 
 /**
  * @typedef {{ statement: string, options: string[], correctIndex: number }} ExamQuestion
- * @typedef {{ questions: ExamQuestion[], answers: (number|null)[], currentIndex: number, startedAt: string }} ExamSession
+ * @typedef {{ questions: ExamQuestion[], answers: (number|null)[], currentIndex: number, startedAt: string, extraSeconds: number, videoWatchedIndices: number[] }} ExamSession
  */
 
 /**
@@ -18,6 +18,28 @@ export function createExamSession(questions, startedAt = new Date()) {
 		answers: questions.map(() => null),
 		currentIndex: 0,
 		startedAt: startedAt.toISOString(),
+		// Preguntas con vídeo de percepción de riesgo (AUT-TSK-0022): tiempo
+		// extra concedido por haberlas visto y en qué preguntas ya se concedió
+		// (para no duplicarlo si se vuelve a ver el vídeo o se navega atrás).
+		extraSeconds: 0,
+		videoWatchedIndices: [],
+	};
+}
+
+/**
+ * Concede tiempo extra por ver el vídeo de una pregunta, una sola vez por
+ * pregunta (llamadas repetidas para el mismo índice no sirven de nada).
+ * @param {ExamSession} session
+ * @param {number} index
+ * @param {number} seconds
+ * @returns {ExamSession}
+ */
+export function grantVideoTime(session, index, seconds) {
+	if (session.videoWatchedIndices.includes(index)) return session;
+	return {
+		...session,
+		extraSeconds: session.extraSeconds + seconds,
+		videoWatchedIndices: [...session.videoWatchedIndices, index],
 	};
 }
 
