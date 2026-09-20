@@ -1,0 +1,20 @@
+{
+	"statement": "Un peatón presencia un accidente de tráfico en el que no se ve implicado. ¿Está obligado a someterse a las pruebas de detección de alcohol?",
+	"options": [
+		"No, solo si se ve implicado en el accidente.",
+		"Sí, siempre que se lo requiera un agente de la autoridad.",
+		"Sí, igual que cualquier conductor de vehículo."
+	],
+	"correctIndex": 0,
+	"explanation": "El art. 21 del Reglamento General de Circulación obliga a todos los conductores de vehículos y bicicletas a someterse a estas pruebas; el resto de usuarios de la vía solo están obligados si se ven implicados en un accidente de circulación.",
+	"subject": 4,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 21",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-19"
+}
