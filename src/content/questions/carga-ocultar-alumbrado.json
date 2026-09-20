@@ -1,0 +1,16 @@
+{
+	"statement": "¿Puede la carga de un vehículo ocultar los dispositivos de alumbrado o la placa de matrícula?",
+	"options": ["No, en ningún caso.", "Sí, si no supera la mitad de su superficie.", "Sí, siempre que se circule de día."],
+	"correctIndex": 0,
+	"explanation": "El art. 14.1.d) del Reglamento General de Circulación prohíbe que la carga oculte los dispositivos de alumbrado o señalización luminosa, las placas o distintivos obligatorios y las advertencias manuales del conductor, sin ninguna excepción por porcentaje o momento del día.",
+	"subject": 12,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 14.1.d)",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
