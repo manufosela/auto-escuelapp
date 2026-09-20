@@ -1,0 +1,16 @@
+{
+	"statement": "¿Cuál es la profundidad mínima que deben tener las ranuras principales de los neumáticos de un turismo para poder circular por vías públicas?",
+	"options": ["1,6 milímetros.", "3 milímetros.", "0,5 milímetros."],
+	"correctIndex": 0,
+	"explanation": "El Anexo VII del Reglamento General de Vehículos exige a los turismos (categoría M1) una profundidad mínima de 1,6 mm en las ranuras principales de la banda de rodadura durante toda su utilización en vías públicas.",
+	"subject": 14,
+	"legalReference": {
+		"norm": "BOE-A-1999-1826",
+		"article": "Anexo VII, apartado 2",
+		"asOfDate": "1999-07-26"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
