@@ -3,6 +3,7 @@
 // atrás y corrección al finalizar. Ver docs/research/formato-examen-y-preguntas.md.
 import { css, html, LitElement } from 'lit';
 import './report-modal.js';
+import './risk-video.js';
 import { buildAttempt } from '../lib/attempt.js';
 import { EXAM_RULES, isPassingResult } from '../lib/exam-rules.js';
 import { selectExamQuestions } from '../lib/exam-selection.js';
@@ -12,6 +13,7 @@ import {
 	countUnanswered,
 	createExamSession,
 	goToQuestion,
+	grantVideoTime,
 } from '../lib/exam-session.js';
 import { getHiddenQuestionIds } from '../lib/hidden-questions.js';
 import { saveAttempt } from '../lib/history-store.js';
@@ -56,6 +58,7 @@ export class ExamRunner extends LitElement {
 		_reportingId: { state: true },
 		_reportedIds: { state: true },
 		_reportGithubUrls: { state: true },
+		_videoContinuedIndices: { state: true },
 	};
 
 	static styles = css`
@@ -201,6 +204,8 @@ export class ExamRunner extends LitElement {
 		this._reportingId = null;
 		this._reportedIds = new Set();
 		this._reportGithubUrls = new Map();
+		/** @type {Set<number>} índices ya "continuados" tras ver su vídeo (AUT-TSK-0022) */
+		this._videoContinuedIndices = new Set();
 		/** @type {number|undefined} */
 		this._timerId = undefined;
 	}
@@ -242,6 +247,9 @@ export class ExamRunner extends LitElement {
 					),
 				);
 		if (!isResumable) saveSession(this._session);
+		// Un vídeo ya visto en una sesión anterior (tiempo ya concedido) no
+		// debe volver a mostrarse como pendiente tras recargar la página.
+		this._videoContinuedIndices = new Set(this._session.videoWatchedIndices);
 		this._tick();
 		this._timerId = setInterval(() => this._tick(), 1000);
 	}
@@ -249,9 +257,27 @@ export class ExamRunner extends LitElement {
 	_tick() {
 		const rules = EXAM_RULES[this.licence];
 		const elapsedMs = Date.now() - new Date(this._session.startedAt).getTime();
-		const secondsLeft = Math.max(0, rules.minutes * 60 - Math.floor(elapsedMs / 1000));
+		// Math.floor: video.duration trae decimales (p. ej. 5.055 s) y un
+		// cronómetro de minutos:segundos no necesita esa precisión.
+		const totalSeconds = Math.floor(rules.minutes * 60 + this._session.extraSeconds);
+		const secondsLeft = Math.max(0, totalSeconds - Math.floor(elapsedMs / 1000));
 		this._secondsLeft = secondsLeft;
 		if (secondsLeft === 0 && !this._finished) this._finish();
+	}
+
+	_handleVideoWatched(event) {
+		this._session = grantVideoTime(
+			this._session,
+			this._session.currentIndex,
+			event.detail.durationSeconds,
+		);
+		saveSession(this._session);
+	}
+
+	_handleVideoContinue() {
+		this._videoContinuedIndices = new Set(this._videoContinuedIndices).add(
+			this._session.currentIndex,
+		);
 	}
 
 	_answer(optionIndex) {
@@ -310,6 +336,7 @@ export class ExamRunner extends LitElement {
 				getHiddenQuestionIds(),
 			),
 		);
+		this._videoContinuedIndices = new Set();
 		saveSession(this._session);
 		this._tick();
 		this._timerId = setInterval(() => this._tick(), 1000);
@@ -337,21 +364,31 @@ export class ExamRunner extends LitElement {
 		const question = session.questions[session.currentIndex];
 		const total = session.questions.length;
 		const given = session.answers[session.currentIndex];
+		const videoPending = question.video && !this._videoContinuedIndices.has(session.currentIndex);
 
 		return html`
 			<p class="timer ${this._secondsLeft <= 60 ? 'low' : ''}" aria-live="polite">
 				Tiempo restante: ${this._formatTime()}
 			</p>
-			<p class="statement">${session.currentIndex + 1}. ${question.statement}</p>
-			<div class="options" role="radiogroup" aria-label="Opciones de respuesta">
-				${question.options.map(
-					(option, i) => html`
-						<button role="radio" aria-checked=${given === i} @click=${() => this._answer(i)}>
-							${option}
-						</button>
-					`,
-				)}
-			</div>
+			${videoPending
+				? html`<risk-video
+						video-url=${question.video.url}
+						max-views=${question.video.maxViews}
+						@video-watched=${(event) => this._handleVideoWatched(event)}
+						@video-continue=${() => this._handleVideoContinue()}
+					></risk-video>`
+				: html`
+						<p class="statement">${session.currentIndex + 1}. ${question.statement}</p>
+						<div class="options" role="radiogroup" aria-label="Opciones de respuesta">
+							${question.options.map(
+								(option, i) => html`
+									<button role="radio" aria-checked=${given === i} @click=${() => this._answer(i)}>
+										${option}
+									</button>
+								`,
+							)}
+						</div>
+					`}
 			<nav class="grid" aria-label="Preguntas del examen">
 				${session.questions.map(
 					(_, i) => html`
