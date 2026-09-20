@@ -5,6 +5,7 @@ import {
 	countUnanswered,
 	createExamSession,
 	goToQuestion,
+	grantVideoTime,
 	isAnswered,
 } from './exam-session.js';
 
@@ -20,6 +21,34 @@ describe('createExamSession', () => {
 		expect(session.answers).toEqual([null, null, null]);
 		expect(session.currentIndex).toBe(0);
 		expect(session.startedAt).toBe('2026-09-19T10:00:00.000Z');
+	});
+
+	it('empieza sin tiempo extra ni vídeos vistos (AUT-TSK-0022)', () => {
+		const session = createExamSession(QUESTIONS);
+		expect(session.extraSeconds).toBe(0);
+		expect(session.videoWatchedIndices).toEqual([]);
+	});
+});
+
+describe('grantVideoTime', () => {
+	it('añade la duración del vídeo al tiempo extra', () => {
+		const session = grantVideoTime(createExamSession(QUESTIONS), 1, 25);
+		expect(session.extraSeconds).toBe(25);
+		expect(session.videoWatchedIndices).toEqual([1]);
+	});
+
+	it('no concede tiempo dos veces por la misma pregunta', () => {
+		let session = grantVideoTime(createExamSession(QUESTIONS), 1, 25);
+		session = grantVideoTime(session, 1, 25);
+		expect(session.extraSeconds).toBe(25);
+		expect(session.videoWatchedIndices).toEqual([1]);
+	});
+
+	it('acumula el tiempo de vídeos de preguntas distintas', () => {
+		let session = grantVideoTime(createExamSession(QUESTIONS), 0, 20);
+		session = grantVideoTime(session, 2, 15);
+		expect(session.extraSeconds).toBe(35);
+		expect(session.videoWatchedIndices).toEqual([0, 2]);
 	});
 });
 
