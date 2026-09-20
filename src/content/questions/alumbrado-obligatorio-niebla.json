@@ -1,0 +1,16 @@
+{
+	"statement": "Circula con niebla que reduce sensiblemente la visibilidad. ¿Es obligatorio utilizar el alumbrado?",
+	"options": ["Sí, siempre que la visibilidad se reduzca de forma sensible.", "No, solo si ya ha anochecido.", "Solo si circulan otros vehículos en sentido contrario."],
+	"correctIndex": 0,
+	"explanation": "El art. 106.1 del Reglamento General de Circulación obliga a utilizar el alumbrado cuando existan condiciones meteorológicas o ambientales que disminuyan sensiblemente la visibilidad: niebla, lluvia intensa, nevada, nubes de humo o de polvo, u otra circunstancia análoga.",
+	"subject": 6,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 106.1",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
