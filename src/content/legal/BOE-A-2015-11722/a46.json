@@ -1,0 +1,22 @@
+{
+	"normId": "BOE-A-2015-11722",
+	"blockId": "a46",
+	"title": "Artículo 46",
+	"versions": [
+		{
+			"sourceNormId": "BOE-A-2015-11722",
+			"publicationDate": "2015-10-31",
+			"effectiveDate": "2016-01-31",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 46. Apagado de motor."
+				},
+				{
+					"class": "parrafo",
+					"text": "Aun cuando el conductor no abandone su puesto, deberá parar el motor siempre que el vehículo se encuentre detenido en el interior de un túnel, en un lugar cerrado o durante la carga de combustible."
+				}
+			]
+		}
+	]
+}
