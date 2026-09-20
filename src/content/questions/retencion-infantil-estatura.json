@@ -1,0 +1,16 @@
+{
+	"statement": "¿Hasta qué estatura es obligatorio que un menor de edad utilice un sistema de retención infantil homologado en el vehículo?",
+	"options": ["Hasta 135 centímetros.", "Hasta 150 centímetros.", "Hasta los 12 años, sea cual sea su estatura."],
+	"correctIndex": 0,
+	"explanation": "El art. 117.1 del Reglamento General de Circulación exige a los menores de edad de estatura igual o inferior a 135 centímetros utilizar sistemas de retención infantil homologados, adaptados a su talla y peso.",
+	"subject": 15,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 117.1",
+		"asOfDate": "2015-10-01"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}

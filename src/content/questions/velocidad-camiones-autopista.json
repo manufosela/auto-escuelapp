@@ -1,0 +1,16 @@
+{
+	"statement": "¿A qué velocidad máxima puede circular un camión por una autopista o autovía?",
+	"options": ["90 kilómetros por hora.", "120 kilómetros por hora.", "100 kilómetros por hora."],
+	"correctIndex": 0,
+	"explanation": "La tabla del art. 48.1.a) del Reglamento General de Circulación fija en 90 km/h el límite en autopista y autovía para camiones, tractocamiones, furgonetas, autocaravanas de más de 3.500 kg, vehículos articulados y automóviles con remolque; los 120 km/h son el límite para turismos y motocicletas, y los 100 km/h para autobuses.",
+	"subject": 1,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 48.1.a)",
+		"asOfDate": "2019-01-29"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
