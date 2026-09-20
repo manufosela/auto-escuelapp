@@ -1,0 +1,20 @@
+{
+	"statement": "¿Está permitido conducir utilizando cascos o auriculares conectados a un reproductor de sonido?",
+	"options": [
+		"No, salvo en la enseñanza o las pruebas de aptitud para el permiso de motocicleta cuando lo exija el Reglamento General de Conductores.",
+		"Sí, siempre que el volumen sea bajo.",
+		"Sí, si se lleva solo en un oído."
+	],
+	"correctIndex": 0,
+	"explanation": "El art. 18.2 del Reglamento General de Circulación prohíbe conducir utilizando cascos o auriculares conectados a aparatos receptores o reproductores de sonido, con la única excepción de la enseñanza y las pruebas de aptitud para el permiso de motocicleta cuando así lo exija el Reglamento General de Conductores.",
+	"subject": 3,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 18.2",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
