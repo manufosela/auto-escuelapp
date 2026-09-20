@@ -1,0 +1,16 @@
+{
+	"statement": "Va a adelantar a un ciclista en una vía interurbana. ¿Qué separación lateral mínima debe guardar?",
+	"options": ["Al menos 1,5 metros.", "Al menos 0,5 metros.", "La que le permita no invadir el carril contrario."],
+	"correctIndex": 0,
+	"explanation": "El art. 85.4 del Reglamento General de Circulación exige una separación lateral no inferior a 1,50 metros al adelantar a ciclistas, y prohíbe expresamente poner en peligro o entorpecer a los que circulen en sentido contrario.",
+	"subject": 8,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 85.4",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
