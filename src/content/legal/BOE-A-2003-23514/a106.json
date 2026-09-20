@@ -1,0 +1,77 @@
+{
+	"normId": "BOE-A-2003-23514",
+	"blockId": "a106",
+	"title": "Artículo 106",
+	"versions": [
+		{
+			"sourceNormId": "BOE-A-2003-23514",
+			"publicationDate": "2003-12-23",
+			"effectiveDate": "2004-01-23",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 106. Condiciones que disminuyen la visibilidad."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. También será obligatorio utilizar el alumbrado cuando existan condiciones meteorológicas o ambientales que disminuyan sensiblemente la visibilidad, como en caso de niebla, lluvia intensa, nevada, nubes de humo o de polvo o cualquier otra circunstancia análoga (artículo 43 del texto articulado)."
+				},
+				{
+					"class": "parrafo",
+					"text": "2. En los casos a que se refiere el apartado anterior deberá utilizarse la luz antiniebla delantera o la luz de corto o largo alcance."
+				},
+				{
+					"class": "parrafo",
+					"text": "La luz antiniebla delantera puede utilizarse aislada o simultáneamente con la de corto alcance o, incluso, con la de largo alcance."
+				},
+				{
+					"class": "parrafo",
+					"text": "La luz antiniebla delantera sólo podrá utilizarse en dichos casos o en tramos de vías estrechas con muchas curvas, entendiéndose por tales las que, teniendo una calzada de 6,50 metros de anchura o inferior, estén señalizadas con señales que indiquen una sucesión de curvas próximas entre sí, reguladas en el artículo 149."
+				},
+				{
+					"class": "parrafo",
+					"text": "La luz antiniebla trasera solamente deberá llevarse encendida cuando las condiciones meteorológicas o ambientales sean especialmente desfavorables, como en caso de niebla espesa, lluvia muy intensa, fuerte nevada o nubes densas de polvo o humo."
+				},
+				{
+					"class": "parrafo",
+					"text": "3. El hecho de circular sin alumbrado en situaciones de falta o disminución de la visibilidad tendrá la consideración de infracción grave, conforme se prevé en el artículo 65.4.e) del texto articulado."
+				}
+			]
+		},
+		{
+			"sourceNormId": "BOE-A-2025-12199",
+			"publicationDate": "2025-06-17",
+			"effectiveDate": "2025-07-01",
+			"paragraphs": [
+				{
+					"class": "articulo",
+					"text": "Artículo 106. Condiciones que disminuyen la visibilidad."
+				},
+				{
+					"class": "parrafo",
+					"text": "1. También será obligatorio utilizar el alumbrado cuando existan condiciones meteorológicas o ambientales que disminuyan sensiblemente la visibilidad, como en caso de niebla, lluvia intensa, nevada, nubes de humo o de polvo o cualquier otra circunstancia análoga."
+				},
+				{
+					"class": "parrafo",
+					"text": "2. En los casos a que se refiere el apartado anterior deberá utilizarse la luz antiniebla delantera o la luz de corto o largo alcance."
+				},
+				{
+					"class": "parrafo",
+					"text": "La luz antiniebla delantera puede utilizarse aislada o simultáneamente con la de corto alcance o, incluso, con la de largo alcance."
+				},
+				{
+					"class": "parrafo",
+					"text": "La luz antiniebla delantera solo podrá utilizarse en dichos casos o en tramos de vías estrechas con muchas curvas, entendiéndose por tales las que, teniendo una calzada de 6,50 metros de anchura o inferior, estén señalizadas con señales que indiquen una sucesión de curvas próximas entre sí, reguladas en el artículo 144."
+				},
+				{
+					"class": "parrafo",
+					"text": "La luz antiniebla trasera solamente deberá llevarse encendida cuando las condiciones meteorológicas o ambientales sean especialmente desfavorables, como en caso de niebla espesa, lluvia muy intensa, fuerte nevada o nubes densas de polvo o humo."
+				},
+				{
+					"class": "parrafo",
+					"text": "3. El hecho de circular sin alumbrado en situaciones de falta o disminución de la visibilidad tendrá la consideración de infracción grave, conforme se prevé en el artículo 76.e) del texto refundido."
+				}
+			]
+		}
+	]
+}
