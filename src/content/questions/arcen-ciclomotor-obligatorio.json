@@ -1,0 +1,16 @@
+{
+	"statement": "Un ciclomotor circula por una vía con arcén transitable y suficiente, sin ningún carril específico destinado a él. ¿Por dónde debe circular?",
+	"options": ["Por el arcén de su derecha.", "Por el centro de la calzada.", "Por cualquier carril, a su elección."],
+	"correctIndex": 0,
+	"explanation": "El art. 36.1 del Reglamento General de Circulación obliga a ciclomotores, ciclos, vehículos de tracción animal y otros vehículos sin vía propia destinada a circular por el arcén de su derecha, siempre que sea transitable y suficiente; si no lo fuera, usarán la parte imprescindible de la calzada.",
+	"subject": 7,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 36.1",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
