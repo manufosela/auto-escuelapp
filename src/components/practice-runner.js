@@ -2,6 +2,7 @@
 // del examen, que corrige solo al final) y opción de repetir solo lo fallado.
 import { css, html, LitElement } from 'lit';
 import './report-modal.js';
+import './risk-video.js';
 import { buildAttempt } from '../lib/attempt.js';
 import { shuffle } from '../lib/exam-selection.js';
 import { getHiddenQuestionIds } from '../lib/hidden-questions.js';
@@ -33,6 +34,7 @@ export class PracticeRunner extends LitElement {
 		_reportModalOpen: { state: true },
 		_reportedIds: { state: true },
 		_reportGithubUrls: { state: true },
+		_videoContinuedIndices: { state: true },
 	};
 
 	static styles = css`
@@ -141,6 +143,7 @@ export class PracticeRunner extends LitElement {
 		this._reportModalOpen = false;
 		this._reportedIds = new Set();
 		this._reportGithubUrls = new Map();
+		this._videoContinuedIndices = new Set();
 	}
 
 	_availableCount() {
@@ -173,6 +176,7 @@ export class PracticeRunner extends LitElement {
 		this._results = [];
 		this._startedAt = new Date().toISOString();
 		this._phase = 'running';
+		this._videoContinuedIndices = new Set();
 	}
 
 	_retryFailed() {
@@ -184,6 +188,7 @@ export class PracticeRunner extends LitElement {
 		this._results = [];
 		this._startedAt = new Date().toISOString();
 		this._phase = 'running';
+		this._videoContinuedIndices = new Set();
 	}
 
 	_answer(optionIndex) {
@@ -258,9 +263,20 @@ export class PracticeRunner extends LitElement {
 		`;
 	}
 
+	_handleVideoContinue() {
+		this._videoContinuedIndices = new Set(this._videoContinuedIndices).add(this._index);
+	}
+
 	_renderQuestion() {
 		const question = this._current[this._index];
 		const answered = this._selectedOption !== null;
+		if (question.video && !this._videoContinuedIndices.has(this._index)) {
+			return html`<risk-video
+				video-url=${question.video.url}
+				max-views=${question.video.maxViews}
+				@video-continue=${() => this._handleVideoContinue()}
+			></risk-video>`;
+		}
 		return html`
 			<p class="statement">${this._index + 1} / ${this._current.length}. ${question.statement}</p>
 			<div class="options">

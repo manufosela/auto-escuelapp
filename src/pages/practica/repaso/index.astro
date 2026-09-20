@@ -12,6 +12,7 @@ const questions = entries.map((entry) => ({
 	subject: entry.data.subject,
 	validFrom: entry.data.validFrom.toISOString(),
 	validUntil: entry.data.validUntil?.toISOString(),
+	video: entry.data.video,
 }));
 ---
 
