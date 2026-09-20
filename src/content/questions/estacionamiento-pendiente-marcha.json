@@ -1,0 +1,16 @@
+{
+	"statement": "Va a estacionar su turismo con caja de cambios manual en una calle con pendiente descendente. Además del freno de estacionamiento, ¿qué marcha debe dejar puesta?",
+	"options": ["La marcha atrás.", "La primera velocidad.", "El punto muerto."],
+	"correctIndex": 0,
+	"explanation": "El art. 92.3.c) del Reglamento General de Circulación obliga a dejar puesta la marcha atrás en pendiente descendente, y la primera velocidad en pendiente ascendente, además de accionar el freno de estacionamiento.",
+	"subject": 13,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 92.3.c)",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
