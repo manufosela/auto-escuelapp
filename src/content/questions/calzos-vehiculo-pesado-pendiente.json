@@ -1,0 +1,20 @@
+{
+	"statement": "Estaciona un autobús en una calle con pendiente pronunciada. Además del freno de estacionamiento, ¿qué más debe hacer según el Reglamento General de Circulación?",
+	"options": [
+		"Calzarlo con calzos destinados expresamente a esa función.",
+		"Nada más, con el freno de estacionamiento es suficiente.",
+		"Calzarlo con piedras u otros objetos que encuentre a mano."
+	],
+	"correctIndex": 0,
+	"explanation": "El art. 92.3.d) del Reglamento General de Circulación obliga a calzar los vehículos de más de 3.500 kg, autobuses y conjuntos de vehículos cuando estacionen en una pendiente sensible, usando calzos destinados expresamente a esa función — nunca piedras u otros objetos improvisados — y retirándolos al reanudar la marcha.",
+	"subject": 13,
+	"legalReference": {
+		"norm": "BOE-A-2003-23514",
+		"article": "art. 92.3.d)",
+		"asOfDate": "2004-01-23"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
