@@ -1,0 +1,20 @@
+{
+	"statement": "Presencia un accidente de tráfico en el que no está implicado. ¿Está obligado a auxiliar o a solicitar auxilio para las víctimas?",
+	"options": [
+		"Sí, la ley obliga a auxiliar o solicitar auxilio a quien presencie un accidente, aunque no esté implicado.",
+		"No, esa obligación solo alcanza al conductor causante.",
+		"No, solo están obligados los profesionales sanitarios."
+	],
+	"correctIndex": 0,
+	"explanation": "El art. 51.1 de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial obliga a auxiliar o solicitar auxilio a cualquier usuario de la vía que se vea implicado en un accidente, lo presencie o tenga conocimiento de él.",
+	"subject": 11,
+	"legalReference": {
+		"norm": "BOE-A-2015-11722",
+		"article": "art. 51.1",
+		"asOfDate": "2016-01-31"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
