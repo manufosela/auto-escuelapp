@@ -1,0 +1,20 @@
+{
+	"statement": "Su vehículo está detenido dentro de un túnel, aunque usted no abandone el puesto de conductor. ¿Debe parar el motor?",
+	"options": [
+		"Sí, siempre que esté detenido dentro de un túnel.",
+		"No, solo si va a tardar más de dos minutos.",
+		"No, nunca es obligatorio dentro de un túnel."
+	],
+	"correctIndex": 0,
+	"explanation": "El art. 46 de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial obliga a parar el motor siempre que el vehículo esté detenido dentro de un túnel, en un lugar cerrado o durante la carga de combustible, aunque el conductor no abandone su puesto.",
+	"subject": 16,
+	"legalReference": {
+		"norm": "BOE-A-2015-11722",
+		"article": "art. 46",
+		"asOfDate": "2016-01-31"
+	},
+	"source": {
+		"type": "own"
+	},
+	"validFrom": "2026-09-20"
+}
