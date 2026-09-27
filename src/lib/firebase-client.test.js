@@ -1,7 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
 
 const signOutMock = vi.fn().mockResolvedValue(undefined);
-/** @type {(user: unknown) => void} */
+const getDocMock = vi.fn();
+/** @type {(user: unknown) => Promise<void>} */
 let authStateCallback;
 
 vi.mock('firebase/app', () => ({
@@ -20,32 +21,48 @@ vi.mock('firebase/auth', () => ({
 	signOut: signOutMock,
 }));
 
+vi.mock('firebase/firestore', () => ({
+	doc: vi.fn(() => ({})),
+	getDoc: getDocMock,
+	getFirestore: vi.fn(() => ({})),
+}));
+
 const { onAuthChange } = await import('./firebase-client.js');
 
 describe('onAuthChange', () => {
-	it('pasa el usuario si su email coincide con el permitido (uso personal, AUT-TSK-0010)', () => {
+	it('pasa el usuario si Firestore permite la lectura de sondeo (cuenta autorizada por firestore.rules)', async () => {
+		getDocMock.mockResolvedValueOnce({ exists: () => false });
 		const received = [];
 		onAuthChange((user) => received.push(user));
-		authStateCallback({ email: 'owner@example.com' });
-		expect(received).toEqual([{ email: 'owner@example.com' }]);
+		await authStateCallback({ uid: 'alice' });
+		expect(received).toEqual([{ uid: 'alice' }]);
 		expect(signOutMock).not.toHaveBeenCalled();
 	});
 
-	it('cierra la sesión y pasa null si el email no coincide', () => {
+	it('cierra la sesión y pasa null si Firestore deniega la lectura de sondeo (permission-denied)', async () => {
 		signOutMock.mockClear();
+		getDocMock.mockRejectedValueOnce({ code: 'permission-denied' });
 		const received = [];
 		onAuthChange((user) => received.push(user));
-		authStateCallback({ email: 'otra-cuenta@gmail.com' });
+		await authStateCallback({ uid: 'mallory' });
 		expect(received).toEqual([null]);
 		expect(signOutMock).toHaveBeenCalledTimes(1);
 	});
 
-	it('pasa null tal cual cuando no hay usuario', () => {
+	it('pasa null tal cual cuando no hay usuario', async () => {
 		signOutMock.mockClear();
 		const received = [];
 		onAuthChange((user) => received.push(user));
-		authStateCallback(null);
+		await authStateCallback(null);
 		expect(received).toEqual([null]);
 		expect(signOutMock).not.toHaveBeenCalled();
+	});
+
+	it('relanza errores de Firestore que no sean permission-denied', async () => {
+		getDocMock.mockRejectedValueOnce(new Error('network down'));
+		const received = [];
+		onAuthChange((user) => received.push(user));
+		await expect(authStateCallback({ uid: 'alice' })).rejects.toThrow('network down');
+		expect(received).toEqual([]);
 	});
 });

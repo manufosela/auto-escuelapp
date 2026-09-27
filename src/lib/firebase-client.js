@@ -25,10 +25,24 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-// Uso personal (AUT-TSK-0010): solo esta cuenta puede quedar autenticada en
-// la app. Cualquier otra que inicie sesión se cierra al momento; nunca llega
-// a verse como "con sesión" en el resto de la app.
-const ALLOWED_EMAIL = 'owner@example.com';
+/**
+ * Uso personal (AUT-TSK-0010): solo la cuenta permitida en firestore.rules
+ * puede quedar autenticada en la app. La autorización real vive ahí -no
+ * aquí- para no enviar el email al bundle público; esta lectura de sondeo
+ * solo detecta el permission-denied para poder cerrar la sesión al momento.
+ * @param {import('firebase/auth').User} user
+ * @returns {Promise<boolean>}
+ */
+async function hasFirestoreAccess(user) {
+	const { doc, getDoc, getFirestore } = await import('firebase/firestore');
+	try {
+		await getDoc(doc(getFirestore(), 'users', user.uid, 'attempts', '__auth_probe__'));
+		return true;
+	} catch (error) {
+		if (error?.code === 'permission-denied') return false;
+		throw error;
+	}
+}
 
 /**
  * Inicia sesión con Google. Usa una ventana emergente y, si el navegador la
@@ -57,8 +71,13 @@ export function signOutUser() {
  * @returns {() => void} función para cancelar la suscripción
  */
 export function onAuthChange(callback) {
-	return onAuthStateChanged(auth, (user) => {
-		if (user && user.email !== ALLOWED_EMAIL) {
+	return onAuthStateChanged(auth, async (user) => {
+		if (!user) {
+			callback(null);
+			return;
+		}
+		const allowed = await hasFirestoreAccess(user);
+		if (!allowed) {
 			signOut(auth).catch((error) =>
 				console.error('firebase-client: fallo cerrando una sesión no autorizada', error),
 			);
