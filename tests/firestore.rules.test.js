@@ -10,9 +10,15 @@ import {
 import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest';
 
 const PROJECT_ID = 'auto-escuelapp-rules-test';
+const ALLOWED_EMAIL = 'mjfosela@gmail.com';
 
 /** @type {import('@firebase/rules-unit-testing').RulesTestEnvironment} */
 let testEnv;
+
+/** Contexto autenticado con la cuenta permitida (ver firestore.rules). */
+function allowedContext(uid) {
+	return testEnv.authenticatedContext(uid, { email: ALLOWED_EMAIL });
+}
 
 function validAttempt(overrides = {}) {
 	return {
@@ -62,14 +68,14 @@ beforeEach(async () => {
 
 describe('users/{userId}/attempts', () => {
 	it('permite a un usuario crear un intento válido bajo su propio uid', async () => {
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		await assertSucceeds(
 			db.collection('users/alice/attempts').add(validAttempt()),
 		);
 	});
 
 	it('deniega crear un intento bajo el uid de otra persona', async () => {
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		await assertFails(db.collection('users/bob/attempts').add(validAttempt()));
 	});
 
@@ -86,28 +92,28 @@ describe('users/{userId}/attempts', () => {
 				.collection('users/alice/attempts')
 				.add(validAttempt());
 		});
-		const aliceDb = testEnv.authenticatedContext('alice').firestore();
+		const aliceDb = allowedContext('alice').firestore();
 		await assertSucceeds(aliceDb.collection('users/alice/attempts').get());
-		const bobDb = testEnv.authenticatedContext('bob').firestore();
+		const bobDb = allowedContext('bob').firestore();
 		await assertFails(bobDb.collection('users/alice/attempts').get());
 	});
 
 	it('deniega un intento con forma inválida (correct + failures != total)', async () => {
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		await assertFails(
 			db.collection('users/alice/attempts').add(validAttempt({ total: 5 })),
 		);
 	});
 
 	it('deniega un intento con un campo requerido ausente', async () => {
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		const withoutMode = validAttempt();
 		delete withoutMode.mode;
 		await assertFails(db.collection('users/alice/attempts').add(withoutMode));
 	});
 
 	it('deniega un modo que no sea exam o practice', async () => {
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		await assertFails(
 			db.collection('users/alice/attempts').add(validAttempt({ mode: 'nope' })),
 		);
@@ -122,22 +128,30 @@ describe('users/{userId}/attempts', () => {
 				.doc('users/alice/attempts/fixed-id')
 				.set(validAttempt());
 		});
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		await assertFails(db.doc('users/alice/attempts/fixed-id').update({ passed: false }));
 		await assertFails(db.doc('users/alice/attempts/fixed-id').delete());
+	});
+
+	it('deniega el acceso a quien sea propietario del uid pero no tenga el email permitido', async () => {
+		const db = testEnv
+			.authenticatedContext('mallory', { email: 'mallory@example.com' })
+			.firestore();
+		await assertFails(db.collection('users/mallory/attempts').add(validAttempt()));
+		await assertFails(db.collection('users/mallory/attempts').get());
 	});
 });
 
 describe('users/{userId}/questionReports', () => {
 	it('permite a un usuario crear un reporte válido bajo su propio uid', async () => {
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		await assertSucceeds(
 			db.collection('users/alice/questionReports').add(validQuestionReport()),
 		);
 	});
 
 	it('deniega crear un reporte bajo el uid de otra persona', async () => {
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		await assertFails(
 			db.collection('users/bob/questionReports').add(validQuestionReport()),
 		);
@@ -152,7 +166,7 @@ describe('users/{userId}/questionReports', () => {
 	});
 
 	it('deniega un motivo que no esté en la lista permitida', async () => {
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		await assertFails(
 			db
 				.collection('users/alice/questionReports')
@@ -167,9 +181,9 @@ describe('users/{userId}/questionReports', () => {
 				.collection('users/alice/questionReports')
 				.add(validQuestionReport());
 		});
-		const aliceDb = testEnv.authenticatedContext('alice').firestore();
+		const aliceDb = allowedContext('alice').firestore();
 		await assertSucceeds(aliceDb.collection('users/alice/questionReports').get());
-		const bobDb = testEnv.authenticatedContext('bob').firestore();
+		const bobDb = allowedContext('bob').firestore();
 		await assertFails(bobDb.collection('users/alice/questionReports').get());
 	});
 
@@ -180,7 +194,7 @@ describe('users/{userId}/questionReports', () => {
 				.doc('users/alice/questionReports/fixed-id')
 				.set(validQuestionReport());
 		});
-		const db = testEnv.authenticatedContext('alice').firestore();
+		const db = allowedContext('alice').firestore();
 		await assertFails(
 			db.doc('users/alice/questionReports/fixed-id').update({ reason: 'other' }),
 		);
