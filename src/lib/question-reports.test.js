@@ -1,5 +1,18 @@
-import { describe, expect, it } from 'vitest';
-import { buildGithubIssueUrl } from './question-reports.js';
+import { describe, expect, it, vi } from 'vitest';
+
+vi.mock('firebase/app', () => ({
+	initializeApp: vi.fn(() => ({})),
+}));
+vi.mock('firebase/auth', () => ({
+	GoogleAuthProvider: vi.fn(),
+	getAuth: vi.fn(() => ({})),
+	onAuthStateChanged: vi.fn(() => () => {}),
+	signInWithPopup: vi.fn(),
+	signInWithRedirect: vi.fn(),
+	signOut: vi.fn(),
+}));
+
+const { buildGithubIssueUrl } = await import('./question-reports.js');
 
 describe('buildGithubIssueUrl', () => {
 	it('incluye el id de la pregunta y el motivo en el título y el cuerpo', () => {

@@ -2,6 +2,8 @@
 // app web (apiKey incluida): no es un secreto, está pensada para ir en el
 // cliente y protegida por las reglas de seguridad de Firebase, no por
 // mantenerla oculta. Nunca añadir aquí una clave de servicio (Admin SDK).
+// Los valores viven en PUBLIC_FIREBASE_* (.env, nunca commiteado) en vez de
+// hardcodeados: ver .env.example y AUT-TSK-0026.
 import { initializeApp } from 'firebase/app';
 import {
 	GoogleAuthProvider,
@@ -13,12 +15,12 @@ import {
 } from 'firebase/auth';
 
 const firebaseConfig = {
-	projectId: 'auto-escuelapp',
-	appId: '1:74657355837:web:554f6da7ecdeb68d19f254',
-	storageBucket: 'auto-escuelapp.firebasestorage.app',
-	apiKey: 'AIzaSyBocWdqpQWyeMwY6NAQhH3d6c1RSwilWQA',
-	authDomain: 'auto-escuelapp.firebaseapp.com',
-	messagingSenderId: '74657355837',
+	projectId: import.meta.env.PUBLIC_FIREBASE_PROJECT_ID,
+	appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
+	storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
+	apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
+	authDomain: import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN,
+	messagingSenderId: import.meta.env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
 };
 
 const app = initializeApp(firebaseConfig);
