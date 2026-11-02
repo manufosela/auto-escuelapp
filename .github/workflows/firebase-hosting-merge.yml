@@ -13,6 +13,16 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Fetch Firebase web config (AUT-TSK-0026, nunca commiteada)
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_AUTO_ESCUELAPP }}
+        run: |
+          echo "$GOOGLE_APPLICATION_CREDENTIALS_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/firebase-sa.json"
+          npx firebase-tools apps:sdkconfig WEB 1:74657355837:web:554f6da7ecdeb68d19f254 \
+            --project auto-escuelapp -o "$RUNNER_TEMP/firebase-config.json"
+          node scripts/write-firebase-env.mjs "$RUNNER_TEMP/firebase-config.json" .env
+          rm "$RUNNER_TEMP/firebase-sa.json"
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@500ac625ca2dd40cbd15f7659af953801858032a # v0.11.0
         with:
