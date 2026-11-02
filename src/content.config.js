@@ -52,8 +52,8 @@ const questions = defineCollection({
 				url: z.url(),
 			}),
 			// Libro personalizado de Ediciones Matfer para Autoescuela San
-			// Cristóbal: solo válido en este repo privado de uso personal
-			// (CONTENT-LICENSE.md §6), transcrito a mano, nunca redistribuible.
+			// Cristóbal (CONTENT-LICENSE.md §6), transcrito a mano, nunca
+			// redistribuible.
 			z.object({
 				type: z.literal('own-book'),
 				page: z.number().int().min(1).max(40),

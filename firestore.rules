@@ -3,11 +3,12 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     // La restricción a una única cuenta (AUT-TSK-0010) vive aquí, no en el
-    // cliente: las rules no se sirven al navegador, así que este email no
-    // llega al bundle público (a diferencia de tenerlo en firebase-client.js).
+    // cliente. Se identifica por UID de Firebase Auth y no por email
+    // (AUT-TSK-0027): el UID es opaco, así que el repo puede ser público sin
+    // exponer datos personales.
     function isOwner(userId) {
       return request.auth != null && request.auth.uid == userId
-        && request.auth.token.email == 'owner@example.com';
+        && userId == 'qC7bqJkuxfZ6eHPe4Au0JGXLvHn1';
     }
 
     // Un intento (examen o práctica) es un documento de solo creación:

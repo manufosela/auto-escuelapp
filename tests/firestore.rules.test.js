@@ -10,14 +10,15 @@ import {
 import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest';
 
 const PROJECT_ID = 'auto-escuelapp-rules-test';
-const ALLOWED_EMAIL = 'owner@example.com';
+// Debe coincidir con el UID de isOwner() en firestore.rules.
+const OWNER_UID = 'qC7bqJkuxfZ6eHPe4Au0JGXLvHn1';
 
 /** @type {import('@firebase/rules-unit-testing').RulesTestEnvironment} */
 let testEnv;
 
 /** Contexto autenticado con la cuenta permitida (ver firestore.rules). */
-function allowedContext(uid) {
-	return testEnv.authenticatedContext(uid, { email: ALLOWED_EMAIL });
+function ownerContext() {
+	return testEnv.authenticatedContext(OWNER_UID);
 }
 
 function validAttempt(overrides = {}) {
@@ -68,54 +69,54 @@ beforeEach(async () => {
 
 describe('users/{userId}/attempts', () => {
 	it('permite a un usuario crear un intento válido bajo su propio uid', async () => {
-		const db = allowedContext('alice').firestore();
+		const db = ownerContext().firestore();
 		await assertSucceeds(
-			db.collection('users/alice/attempts').add(validAttempt()),
+			db.collection(`users/${OWNER_UID}/attempts`).add(validAttempt()),
 		);
 	});
 
 	it('deniega crear un intento bajo el uid de otra persona', async () => {
-		const db = allowedContext('alice').firestore();
+		const db = ownerContext().firestore();
 		await assertFails(db.collection('users/bob/attempts').add(validAttempt()));
 	});
 
 	it('deniega crear o leer sin autenticación', async () => {
 		const db = testEnv.unauthenticatedContext().firestore();
-		await assertFails(db.collection('users/alice/attempts').add(validAttempt()));
-		await assertFails(db.collection('users/alice/attempts').get());
+		await assertFails(db.collection(`users/${OWNER_UID}/attempts`).add(validAttempt()));
+		await assertFails(db.collection(`users/${OWNER_UID}/attempts`).get());
 	});
 
 	it('permite leer los propios intentos pero no los de otra persona', async () => {
 		await testEnv.withSecurityRulesDisabled(async (context) => {
 			await context
 				.firestore()
-				.collection('users/alice/attempts')
+				.collection(`users/${OWNER_UID}/attempts`)
 				.add(validAttempt());
 		});
-		const aliceDb = allowedContext('alice').firestore();
-		await assertSucceeds(aliceDb.collection('users/alice/attempts').get());
-		const bobDb = allowedContext('bob').firestore();
-		await assertFails(bobDb.collection('users/alice/attempts').get());
+		const ownerDb = ownerContext().firestore();
+		await assertSucceeds(ownerDb.collection(`users/${OWNER_UID}/attempts`).get());
+		const bobDb = testEnv.authenticatedContext('bob').firestore();
+		await assertFails(bobDb.collection(`users/${OWNER_UID}/attempts`).get());
 	});
 
 	it('deniega un intento con forma inválida (correct + failures != total)', async () => {
-		const db = allowedContext('alice').firestore();
+		const db = ownerContext().firestore();
 		await assertFails(
-			db.collection('users/alice/attempts').add(validAttempt({ total: 5 })),
+			db.collection(`users/${OWNER_UID}/attempts`).add(validAttempt({ total: 5 })),
 		);
 	});
 
 	it('deniega un intento con un campo requerido ausente', async () => {
-		const db = allowedContext('alice').firestore();
+		const db = ownerContext().firestore();
 		const withoutMode = validAttempt();
 		delete withoutMode.mode;
-		await assertFails(db.collection('users/alice/attempts').add(withoutMode));
+		await assertFails(db.collection(`users/${OWNER_UID}/attempts`).add(withoutMode));
 	});
 
 	it('deniega un modo que no sea exam o practice', async () => {
-		const db = allowedContext('alice').firestore();
+		const db = ownerContext().firestore();
 		await assertFails(
-			db.collection('users/alice/attempts').add(validAttempt({ mode: 'nope' })),
+			db.collection(`users/${OWNER_UID}/attempts`).add(validAttempt({ mode: 'nope' })),
 		);
 	});
 
@@ -125,18 +126,16 @@ describe('users/{userId}/attempts', () => {
 		await testEnv.withSecurityRulesDisabled(async (context) => {
 			await context
 				.firestore()
-				.doc('users/alice/attempts/fixed-id')
+				.doc(`users/${OWNER_UID}/attempts/fixed-id`)
 				.set(validAttempt());
 		});
-		const db = allowedContext('alice').firestore();
-		await assertFails(db.doc('users/alice/attempts/fixed-id').update({ passed: false }));
-		await assertFails(db.doc('users/alice/attempts/fixed-id').delete());
+		const db = ownerContext().firestore();
+		await assertFails(db.doc(`users/${OWNER_UID}/attempts/fixed-id`).update({ passed: false }));
+		await assertFails(db.doc(`users/${OWNER_UID}/attempts/fixed-id`).delete());
 	});
 
-	it('deniega el acceso a quien sea propietario del uid pero no tenga el email permitido', async () => {
-		const db = testEnv
-			.authenticatedContext('mallory', { email: 'mallory@example.com' })
-			.firestore();
+	it('deniega el acceso a quien sea propietario de su uid pero no sea la cuenta permitida', async () => {
+		const db = testEnv.authenticatedContext('mallory').firestore();
 		await assertFails(db.collection('users/mallory/attempts').add(validAttempt()));
 		await assertFails(db.collection('users/mallory/attempts').get());
 	});
@@ -144,14 +143,14 @@ describe('users/{userId}/attempts', () => {
 
 describe('users/{userId}/questionReports', () => {
 	it('permite a un usuario crear un reporte válido bajo su propio uid', async () => {
-		const db = allowedContext('alice').firestore();
+		const db = ownerContext().firestore();
 		await assertSucceeds(
-			db.collection('users/alice/questionReports').add(validQuestionReport()),
+			db.collection(`users/${OWNER_UID}/questionReports`).add(validQuestionReport()),
 		);
 	});
 
 	it('deniega crear un reporte bajo el uid de otra persona', async () => {
-		const db = allowedContext('alice').firestore();
+		const db = ownerContext().firestore();
 		await assertFails(
 			db.collection('users/bob/questionReports').add(validQuestionReport()),
 		);
@@ -160,16 +159,16 @@ describe('users/{userId}/questionReports', () => {
 	it('deniega crear o leer sin autenticación', async () => {
 		const db = testEnv.unauthenticatedContext().firestore();
 		await assertFails(
-			db.collection('users/alice/questionReports').add(validQuestionReport()),
+			db.collection(`users/${OWNER_UID}/questionReports`).add(validQuestionReport()),
 		);
-		await assertFails(db.collection('users/alice/questionReports').get());
+		await assertFails(db.collection(`users/${OWNER_UID}/questionReports`).get());
 	});
 
 	it('deniega un motivo que no esté en la lista permitida', async () => {
-		const db = allowedContext('alice').firestore();
+		const db = ownerContext().firestore();
 		await assertFails(
 			db
-				.collection('users/alice/questionReports')
+				.collection(`users/${OWNER_UID}/questionReports`)
 				.add(validQuestionReport({ reason: 'porque sí' })),
 		);
 	});
@@ -178,26 +177,26 @@ describe('users/{userId}/questionReports', () => {
 		await testEnv.withSecurityRulesDisabled(async (context) => {
 			await context
 				.firestore()
-				.collection('users/alice/questionReports')
+				.collection(`users/${OWNER_UID}/questionReports`)
 				.add(validQuestionReport());
 		});
-		const aliceDb = allowedContext('alice').firestore();
-		await assertSucceeds(aliceDb.collection('users/alice/questionReports').get());
-		const bobDb = allowedContext('bob').firestore();
-		await assertFails(bobDb.collection('users/alice/questionReports').get());
+		const ownerDb = ownerContext().firestore();
+		await assertSucceeds(ownerDb.collection(`users/${OWNER_UID}/questionReports`).get());
+		const bobDb = testEnv.authenticatedContext('bob').firestore();
+		await assertFails(bobDb.collection(`users/${OWNER_UID}/questionReports`).get());
 	});
 
 	it('deniega modificar o borrar un reporte ya creado', async () => {
 		await testEnv.withSecurityRulesDisabled(async (context) => {
 			await context
 				.firestore()
-				.doc('users/alice/questionReports/fixed-id')
+				.doc(`users/${OWNER_UID}/questionReports/fixed-id`)
 				.set(validQuestionReport());
 		});
-		const db = allowedContext('alice').firestore();
+		const db = ownerContext().firestore();
 		await assertFails(
-			db.doc('users/alice/questionReports/fixed-id').update({ reason: 'other' }),
+			db.doc(`users/${OWNER_UID}/questionReports/fixed-id`).update({ reason: 'other' }),
 		);
-		await assertFails(db.doc('users/alice/questionReports/fixed-id').delete());
+		await assertFails(db.doc(`users/${OWNER_UID}/questionReports/fixed-id`).delete());
 	});
 });

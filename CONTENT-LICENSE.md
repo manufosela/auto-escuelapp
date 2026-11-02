@@ -58,19 +58,15 @@ código.
   usuarias de la app. El progreso de cada persona vive en su cuenta de
   Firestore, nunca en este repositorio — ver `firestore.rules`.
 
-## 6. Libro "Autoescuela San Cristóbal" (Ediciones Matfer), repo privado
+## 6. Libro "Autoescuela San Cristóbal" (Ediciones Matfer)
 
-**Este repositorio es privado y de uso personal desde el 2026-09-19**
-(AUT-TSK-0010), precisamente para poder usar como fuente el catálogo de
-señales y las tablas resumen de un libro editado por Ediciones Matfer y
-personalizado para Autoescuela San Cristóbal (Cuenca). El propietario del
-repositorio asume el riesgo de copyright de esta decisión de forma explícita
-e informada; no es contenido MIT ni redistribuible, y nunca debe pasar a un
-repositorio o despliegue públicos. El sitio desplegado tampoco es público de
-facto: vive en una URL de Firebase Hosting no anunciada (ver `firebase.json`,
-targets `app`/`decoy`), con la URL previsible (`auto-escuelapp.web.app`)
-sirviendo solo una página 404 genérica, y el login de la app restringido a
-una única cuenta (`src/lib/firebase-client.js`). El contenido se transcribe
+Este repositorio usa como fuente el catálogo de señales y las tablas resumen
+de un libro editado por Ediciones Matfer y personalizado para Autoescuela San
+Cristóbal (Cuenca). Ese contenido no es MIT ni redistribuible. El repositorio
+es público desde el 2026-10-31 (AUT-TSK-0027) con ese contenido dentro: el
+propietario asume el riesgo de copyright de forma explícita e informada. El
+guardado de progreso está restringido a una única cuenta en
+`firestore.rules`. El contenido se transcribe
 a mano (nunca con OCR automatizado ni scripts que reproduzcan el libro
 completo) y cita el libro como fuente en el campo `source` de cada pregunta.
 
