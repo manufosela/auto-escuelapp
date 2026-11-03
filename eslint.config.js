@@ -50,6 +50,7 @@ export default [
         window: 'readonly',
         URL: 'readonly',
         URLSearchParams: 'readonly',
+        Request: 'readonly',
       },
     },
   },
