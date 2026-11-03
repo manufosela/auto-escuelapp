@@ -6,9 +6,6 @@
     "auto-escuelapp": {
       "hosting": {
         "app": [
-          "autoescuela-08e1743fac6b"
-        ],
-        "decoy": [
           "auto-escuelapp"
         ]
       }
