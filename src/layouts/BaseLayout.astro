@@ -39,28 +39,30 @@ const currentPath = Astro.url.pathname.endsWith('/')
 	</head>
 	<body>
 		<header class="app-header">
-			<p class="brand">auto-escuelapp</p>
-			<auth-status></auth-status>
+			<div class="header-bar">
+				<p class="brand">auto-escuelapp</p>
+				<auth-status></auth-status>
+			</div>
+			<nav class="main-nav" aria-label="Navegación principal">
+				{
+					NAV_ITEMS.map((item) => (
+						<a
+							href={item.href}
+							aria-current={currentPath === item.href ? 'page' : undefined}
+						>
+							<span class="icon" aria-hidden="true">
+								{item.icon}
+							</span>
+							<span class="label">{item.label}</span>
+						</a>
+					))
+				}
+			</nav>
 		</header>
 		<main>
 			<slot />
 			<SiteFooter />
 		</main>
-		<nav class="bottom-nav" aria-label="Navegación principal">
-			{
-				NAV_ITEMS.map((item) => (
-					<a
-						href={item.href}
-						aria-current={currentPath === item.href ? 'page' : undefined}
-					>
-						<span class="icon" aria-hidden="true">
-							{item.icon}
-						</span>
-						<span class="label">{item.label}</span>
-					</a>
-				))
-			}
-		</nav>
 		<script>
 			import '../components/auth-status.js';
 			import { watchAndMigrateLocalAttempts } from '../lib/history-store.js';
@@ -94,7 +96,6 @@ const currentPath = Astro.url.pathname.endsWith('/')
 		--color-accent: #154082;
 		--color-success: #1a7f37;
 		--color-danger: #b3261e;
-		--bottom-nav-height: 64px;
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -157,13 +158,23 @@ const currentPath = Astro.url.pathname.endsWith('/')
 		min-height: 36px;
 	}
 
+	/* Cabecera fija arriba con la navegación principal (AUT-TSK-0029). */
 	.app-header {
-		padding: 0.75rem 1rem;
+		position: sticky;
+		inset-block-start: 0;
+		z-index: 10;
+		background: var(--color-surface);
 		border-bottom: 1px solid var(--color-border);
+	}
+
+	.header-bar {
+		padding: 0.5rem 1rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 0.5rem;
+		max-width: 640px;
+		margin: 0 auto;
 	}
 
 	.brand {
@@ -174,23 +185,18 @@ const currentPath = Astro.url.pathname.endsWith('/')
 	}
 
 	main {
-		padding: 1rem 1rem calc(var(--bottom-nav-height) + 1rem);
+		padding: 1rem;
 		max-width: 640px;
 		margin: 0 auto;
 	}
 
-	.bottom-nav {
-		position: fixed;
-		inset-block-end: 0;
-		inset-inline: 0;
+	.main-nav {
 		display: flex;
-		height: var(--bottom-nav-height);
-		padding-bottom: env(safe-area-inset-bottom, 0);
-		background: var(--color-surface);
-		border-top: 1px solid var(--color-border);
+		max-width: 640px;
+		margin: 0 auto;
 	}
 
-	.bottom-nav a {
+	.main-nav a {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
@@ -198,17 +204,20 @@ const currentPath = Astro.url.pathname.endsWith('/')
 		justify-content: center;
 		gap: 0.15rem;
 		min-height: 44px;
+		padding-block: 0.25rem;
 		text-decoration: none;
 		color: var(--color-text);
-		font-size: 0.7rem;
+		font-size: 0.75rem;
+		border-bottom: 3px solid transparent;
 	}
 
-	.bottom-nav a[aria-current='page'] {
+	.main-nav a[aria-current='page'] {
 		color: var(--color-accent);
 		font-weight: 600;
+		border-bottom-color: var(--color-accent);
 	}
 
-	.bottom-nav .icon {
+	.main-nav .icon {
 		font-size: 1.25rem;
 		line-height: 1;
 	}
