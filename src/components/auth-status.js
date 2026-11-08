@@ -1,11 +1,10 @@
-// Estado de sesión en el header: botón de entrar/salir con Google.
+// Sesión en el header: nombre y botón de salir. Entrar lo ofrece auth-gate.
 import { css, html, LitElement } from 'lit';
-import { onAuthChange, signInWithGoogle, signOutUser } from '../lib/firebase-client.js';
+import { onAuthChange, signOutUser } from '../lib/firebase-client.js';
 
 export class AuthStatus extends LitElement {
 	static properties = {
 		_user: { state: true },
-		_error: { state: true },
 	};
 
 	static styles = css`
@@ -34,13 +33,6 @@ export class AuthStatus extends LitElement {
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
-		.error {
-			position: absolute;
-			right: 1rem;
-			margin: 0.25rem 0 0;
-			font-size: 0.75rem;
-			color: var(--color-danger, #b3261e);
-		}
 	`;
 
 	constructor() {
@@ -48,17 +40,6 @@ export class AuthStatus extends LitElement {
 		// undefined: todavía no se sabe. null: sin sesión. objeto: con sesión.
 		this._user = undefined;
 		this._unsubscribe = undefined;
-		this._error = null;
-	}
-
-	async _signIn() {
-		this._error = null;
-		try {
-			await signInWithGoogle();
-		} catch (error) {
-			this._error = 'No se ha podido iniciar sesión. Inténtalo de nuevo.';
-			console.error('auth-status: fallo al iniciar sesión', error);
-		}
 	}
 
 	connectedCallback() {
@@ -74,13 +55,8 @@ export class AuthStatus extends LitElement {
 	}
 
 	render() {
-		if (this._user === undefined) return null;
-		if (this._user === null) {
-			return html`
-				<button @click=${() => this._signIn()}>Entrar con Google</button>
-				${this._error ? html`<p role="alert" class="error">${this._error}</p>` : null}
-			`;
-		}
+		// Sin sesión autorizada la entrada la ofrece auth-gate (AUT-TSK-0032).
+		if (!this._user) return null;
 		return html`
 			<div class="user">
 				<span class="name">${this._user.displayName ?? this._user.email}</span>

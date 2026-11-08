@@ -23,6 +23,13 @@ describe('BaseLayout', () => {
 		expect(html).not.toContain('bottom-nav');
 	});
 
+	it('sirve el contenido y la navegación ocultos hasta confirmar el acceso', async () => {
+		const html = await renderLayout();
+		expect(html).toMatch(/<nav[^>]*data-requires-access[^>]*hidden|<nav[^>]*hidden[^>]*data-requires-access/);
+		expect(html).toMatch(/<main[^>]*data-requires-access[^>]*hidden|<main[^>]*hidden[^>]*data-requires-access/);
+		expect(html).toContain('<auth-gate');
+	});
+
 	it('marca la sección actual', async () => {
 		const html = await renderLayout();
 		expect(html).toMatch(/href="\/temario\/"[^>]*aria-current="page"/);
