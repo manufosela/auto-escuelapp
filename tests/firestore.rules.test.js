@@ -10,13 +10,13 @@ import {
 import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest';
 
 const PROJECT_ID = 'auto-escuelapp-rules-test';
-// Debe coincidir con el UID de isOwner() en firestore.rules.
-const OWNER_UID = 'qC7bqJkuxfZ6eHPe4Au0JGXLvHn1';
+// Cuenta dada de alta en allowedUsers en cada test (ver beforeEach).
+const OWNER_UID = 'owner';
 
 /** @type {import('@firebase/rules-unit-testing').RulesTestEnvironment} */
 let testEnv;
 
-/** Contexto autenticado con la cuenta permitida (ver firestore.rules). */
+/** Contexto autenticado con una cuenta autorizada (ver firestore.rules). */
 function ownerContext() {
 	return testEnv.authenticatedContext(OWNER_UID);
 }
@@ -65,6 +65,37 @@ afterAll(async () => {
 
 beforeEach(async () => {
 	await testEnv.clearFirestore();
+	await testEnv.withSecurityRulesDisabled(async (context) => {
+		await context.firestore().doc(`allowedUsers/${OWNER_UID}`).set({ name: 'owner' });
+	});
+});
+
+describe('allowedUsers/{userId}', () => {
+	it('permite a una cuenta autorizada leer su propio documento', async () => {
+		await assertSucceeds(ownerContext().firestore().doc(`allowedUsers/${OWNER_UID}`).get());
+	});
+
+	it('permite a una cuenta no autorizada comprobar que no tiene documento', async () => {
+		const db = testEnv.authenticatedContext('mallory').firestore();
+		await assertSucceeds(db.doc('allowedUsers/mallory').get());
+	});
+
+	it('deniega leer el documento de otra cuenta o listar la colección', async () => {
+		const db = testEnv.authenticatedContext('mallory').firestore();
+		await assertFails(db.doc(`allowedUsers/${OWNER_UID}`).get());
+		await assertFails(db.collection('allowedUsers').get());
+	});
+
+	it('deniega cualquier escritura desde el cliente, incluso darse de alta a sí mismo', async () => {
+		const db = testEnv.authenticatedContext('mallory').firestore();
+		await assertFails(db.doc('allowedUsers/mallory').set({ name: 'mallory' }));
+		await assertFails(ownerContext().firestore().doc(`allowedUsers/${OWNER_UID}`).delete());
+	});
+
+	it('deniega leerla sin autenticación', async () => {
+		const db = testEnv.unauthenticatedContext().firestore();
+		await assertFails(db.doc(`allowedUsers/${OWNER_UID}`).get());
+	});
 });
 
 describe('users/{userId}/attempts', () => {

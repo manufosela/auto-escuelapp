@@ -2,13 +2,23 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    // La restricción a una única cuenta (AUT-TSK-0010) vive aquí, no en el
-    // cliente. Se identifica por UID de Firebase Auth y no por email
-    // (AUT-TSK-0027): el UID es opaco, así que el repo puede ser público sin
-    // exponer datos personales.
+    // Solo usan la app las cuentas con documento en allowedUsers/{uid}
+    // (AUT-TSK-0031). Las altas y bajas se hacen a mano desde la consola de
+    // Firebase: el cliente nunca escribe en esa colección.
+    function isAllowed() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/allowedUsers/$(request.auth.uid));
+    }
+
     function isOwner(userId) {
-      return request.auth != null && request.auth.uid == userId
-        && userId == 'qC7bqJkuxfZ6eHPe4Au0JGXLvHn1';
+      return isAllowed() && request.auth.uid == userId;
+    }
+
+    // Cada cuenta solo puede leer su propio documento, para que la app sepa
+    // si tiene acceso; nunca listar la colección ni escribir en ella.
+    match /allowedUsers/{userId} {
+      allow get: if request.auth != null && request.auth.uid == userId;
+      allow list, write: if false;
     }
 
     // Un intento (examen o práctica) es un documento de solo creación:
