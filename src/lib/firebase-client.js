@@ -28,18 +28,17 @@ export const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
 /**
- * Uso personal (AUT-TSK-0010): solo la cuenta permitida en firestore.rules
- * puede quedar autenticada en la app. La autorización real vive ahí -no
- * aquí- para no enviar el email al bundle público; esta lectura de sondeo
- * solo detecta el permission-denied para poder cerrar la sesión al momento.
+ * Solo las cuentas con documento en allowedUsers/{uid} usan la app
+ * (AUT-TSK-0031). firestore.rules aplica la misma lista a los datos; esta
+ * lectura sirve para que la interfaz sepa si mostrar la app o cerrar sesión.
  * @param {import('firebase/auth').User} user
  * @returns {Promise<boolean>}
  */
-async function hasFirestoreAccess(user) {
+async function isAllowedUser(user) {
 	const { doc, getDoc, getFirestore } = await import('firebase/firestore');
 	try {
-		await getDoc(doc(getFirestore(), 'users', user.uid, 'attempts', '__auth_probe__'));
-		return true;
+		const snapshot = await getDoc(doc(getFirestore(), 'allowedUsers', user.uid));
+		return snapshot.exists();
 	} catch (error) {
 		if (error?.code === 'permission-denied') return false;
 		throw error;
@@ -69,23 +68,45 @@ export function signOutUser() {
 }
 
 /**
+ * @typedef {{ status: 'checking' } | { status: 'signed-out' } | { status: 'denied' }
+ *   | { status: 'allowed', user: import('firebase/auth').User }} Access
+ */
+
+/**
+ * Estado de acceso a la app. Una cuenta sin documento en allowedUsers queda
+ * en 'denied' y se le cierra la sesión; el cierre de sesión que eso provoca
+ * no la devuelve a 'signed-out', para que la interfaz pueda avisar.
+ * @param {(access: Access) => void} callback
+ * @returns {() => void} función para cancelar la suscripción
+ */
+export function onAccessChange(callback) {
+	let justDenied = false;
+	return onAuthStateChanged(auth, async (user) => {
+		if (!user) {
+			callback(justDenied ? { status: 'denied' } : { status: 'signed-out' });
+			justDenied = false;
+			return;
+		}
+		callback({ status: 'checking' });
+		if (await isAllowedUser(user)) {
+			callback({ status: 'allowed', user });
+			return;
+		}
+		justDenied = true;
+		signOut(auth).catch((error) =>
+			console.error('firebase-client: fallo cerrando una sesión no autorizada', error),
+		);
+		callback({ status: 'denied' });
+	});
+}
+
+/**
  * @param {(user: import('firebase/auth').User | null) => void} callback
  * @returns {() => void} función para cancelar la suscripción
  */
 export function onAuthChange(callback) {
-	return onAuthStateChanged(auth, async (user) => {
-		if (!user) {
-			callback(null);
-			return;
-		}
-		const allowed = await hasFirestoreAccess(user);
-		if (!allowed) {
-			signOut(auth).catch((error) =>
-				console.error('firebase-client: fallo cerrando una sesión no autorizada', error),
-			);
-			callback(null);
-			return;
-		}
-		callback(user);
+	return onAccessChange((access) => {
+		if (access.status === 'checking') return;
+		callback(access.status === 'allowed' ? access.user : null);
 	});
 }
