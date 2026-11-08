@@ -10,7 +10,9 @@ vi.mock('firebase/app', () => ({
 }));
 
 vi.mock('firebase/auth', () => ({
-	GoogleAuthProvider: vi.fn(),
+	GoogleAuthProvider: vi.fn(function GoogleAuthProvider() {
+		this.setCustomParameters = vi.fn();
+	}),
 	getAuth: vi.fn(() => ({})),
 	onAuthStateChanged: vi.fn((_auth, callback) => {
 		authStateCallback = callback;

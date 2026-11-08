@@ -26,6 +26,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+// Pedir siempre elegir cuenta: tras un acceso denegado hay que poder entrar
+// con otra, no con la última usada (AUT-TSK-0032).
+googleProvider.setCustomParameters({ prompt: 'select_account' });
 
 /**
  * Solo las cuentas con documento en allowedUsers/{uid} usan la app

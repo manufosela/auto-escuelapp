@@ -43,7 +43,7 @@ const currentPath = Astro.url.pathname.endsWith('/')
 				<p class="brand">auto-escuelapp</p>
 				<auth-status></auth-status>
 			</div>
-			<nav class="main-nav" aria-label="Navegación principal">
+			<nav class="main-nav" aria-label="Navegación principal" data-requires-access hidden>
 				{
 					NAV_ITEMS.map((item) => (
 						<a
@@ -59,11 +59,13 @@ const currentPath = Astro.url.pathname.endsWith('/')
 				}
 			</nav>
 		</header>
-		<main>
+		<auth-gate></auth-gate>
+		<main data-requires-access hidden>
 			<slot />
 			<SiteFooter />
 		</main>
 		<script>
+			import '../components/auth-gate.js';
 			import '../components/auth-status.js';
 			import { watchAndMigrateLocalAttempts } from '../lib/history-store.js';
 
@@ -188,6 +190,12 @@ const currentPath = Astro.url.pathname.endsWith('/')
 		padding: 1rem;
 		max-width: 640px;
 		margin: 0 auto;
+	}
+
+	/* Lo oculto por la puerta de acceso sigue oculto aunque su clase le dé
+	   display (AUT-TSK-0032). */
+	[data-requires-access][hidden] {
+		display: none;
 	}
 
 	.main-nav {
