@@ -1,5 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { accessView } from './access-view.js';
+import { accessView, deniedMessage } from './access-view.js';
+
+describe('deniedMessage', () => {
+	it('avisa de que la solicitud está pendiente', () => {
+		expect(deniedMessage('pending')).toContain('pendiente de aprobación');
+	});
+
+	it('avisa de que la solicitud fue rechazada', () => {
+		expect(deniedMessage('rejected')).toContain('rechazada');
+	});
+
+	it('avisa de que no se pudo registrar la solicitud', () => {
+		expect(deniedMessage('failed')).toContain('no se ha podido registrar');
+	});
+});
 
 describe('accessView', () => {
 	it('muestra la app solo con acceso permitido', () => {
@@ -14,7 +28,7 @@ describe('accessView', () => {
 	});
 
 	it('muestra el aviso a una cuenta no autorizada', () => {
-		expect(accessView({ status: 'denied' })).toEqual({ showApp: false, screen: 'denied' });
+		expect(accessView({ status: 'denied', request: 'pending' })).toEqual({ showApp: false, screen: 'denied' });
 	});
 
 	it('muestra la espera mientras se comprueba o antes de saber nada', () => {

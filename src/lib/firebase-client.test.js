@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 const signOutMock = vi.fn().mockResolvedValue(undefined);
 const getDocMock = vi.fn();
+const setDocMock = vi.fn().mockResolvedValue(undefined);
 /** @type {(user: unknown) => Promise<void>} */
 let authStateCallback;
 
@@ -27,6 +28,7 @@ vi.mock('firebase/firestore', () => ({
 	doc: vi.fn(() => ({})),
 	getDoc: getDocMock,
 	getFirestore: vi.fn(() => ({})),
+	setDoc: setDocMock,
 }));
 
 const { onAccessChange, onAuthChange } = await import('./firebase-client.js');
@@ -45,23 +47,56 @@ describe('onAccessChange', () => {
 		expect(signOutMock).not.toHaveBeenCalled();
 	});
 
-	it('da denied y cierra la sesión si no tiene documento en allowedUsers', async () => {
+	it('da denied, registra la solicitud pendiente y cierra la sesión si no tiene acceso', async () => {
 		signOutMock.mockClear();
-		getDocMock.mockResolvedValueOnce({ exists: () => false });
+		setDocMock.mockClear();
+		getDocMock
+			.mockResolvedValueOnce({ exists: () => false })
+			.mockResolvedValueOnce({ exists: () => false });
 		const received = [];
 		onAccessChange((access) => received.push(access));
-		await authStateCallback({ uid: 'mallory' });
-		expect(received.at(-1)).toEqual({ status: 'denied' });
+		await authStateCallback({ uid: 'son', displayName: 'Hijo', email: 'hijo@example.com' });
+		expect(received.at(-1)).toEqual({ status: 'denied', request: 'pending' });
+		expect(setDocMock).toHaveBeenCalledWith(
+			expect.anything(),
+			expect.objectContaining({ displayName: 'Hijo', email: 'hijo@example.com', status: 'pending' }),
+		);
 		expect(signOutMock).toHaveBeenCalledTimes(1);
 	});
 
+	it('no repite la solicitud y avisa si ya estaba rechazada', async () => {
+		setDocMock.mockClear();
+		getDocMock
+			.mockResolvedValueOnce({ exists: () => false })
+			.mockResolvedValueOnce({ exists: () => true, data: () => ({ status: 'rejected' }) });
+		const received = [];
+		onAccessChange((access) => received.push(access));
+		await authStateCallback({ uid: 'son' });
+		expect(received.at(-1)).toEqual({ status: 'denied', request: 'rejected' });
+		expect(setDocMock).not.toHaveBeenCalled();
+	});
+
+	it('da denied con la solicitud fallida si no se puede registrar', async () => {
+		const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+		getDocMock.mockResolvedValueOnce({ exists: () => false }).mockResolvedValueOnce({ exists: () => false });
+		setDocMock.mockRejectedValueOnce(new Error('network down'));
+		const received = [];
+		onAccessChange((access) => received.push(access));
+		await authStateCallback({ uid: 'son' });
+		expect(received.at(-1)).toEqual({ status: 'denied', request: 'failed' });
+		expect(consoleError).toHaveBeenCalled();
+		consoleError.mockRestore();
+	});
+
 	it('sigue en denied cuando llega el cierre de sesión que provoca la denegación', async () => {
-		getDocMock.mockResolvedValueOnce({ exists: () => false });
+		getDocMock
+			.mockResolvedValueOnce({ exists: () => false })
+			.mockResolvedValueOnce({ exists: () => true, data: () => ({ status: 'pending' }) });
 		const received = [];
 		onAccessChange((access) => received.push(access));
 		await authStateCallback({ uid: 'mallory' });
 		await authStateCallback(null);
-		expect(received.at(-1)).toEqual({ status: 'denied' });
+		expect(received.at(-1)).toEqual({ status: 'denied', request: 'pending' });
 		await authStateCallback(null);
 		expect(received.at(-1)).toEqual({ status: 'signed-out' });
 	});

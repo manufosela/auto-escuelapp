@@ -9,6 +9,22 @@ const SCREEN_BY_STATUS = {
 	denied: 'denied',
 };
 
+const DENIED_MESSAGES = {
+	pending: 'Esta cuenta aún no tiene acceso. Tu solicitud está pendiente de aprobación.',
+	rejected: 'Esta cuenta no tiene acceso: la solicitud fue rechazada.',
+	failed: 'Esta cuenta no tiene acceso y no se ha podido registrar la solicitud. Inténtalo más tarde.',
+};
+
+/**
+ * Aviso para una cuenta sin acceso según el estado de su solicitud
+ * (AUT-TSK-0035).
+ * @param {'pending' | 'rejected' | 'failed'} request
+ * @returns {string}
+ */
+export function deniedMessage(request) {
+	return DENIED_MESSAGES[request];
+}
+
 /**
  * @param {Access | undefined} access
  * @returns {{ showApp: boolean, screen: 'checking' | 'sign-in' | 'denied' | null }}

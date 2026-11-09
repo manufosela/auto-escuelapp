@@ -3,7 +3,7 @@
 // [data-requires-access] ocultos y esta puerta los muestra al confirmar el
 // acceso.
 import { css, html, LitElement } from 'lit';
-import { accessView } from '../lib/access-view.js';
+import { accessView, deniedMessage } from '../lib/access-view.js';
 import { onAccessChange, signInWithGoogle } from '../lib/firebase-client.js';
 
 export class AuthGate extends LitElement {
@@ -95,7 +95,7 @@ export class AuthGate extends LitElement {
 				<h1>auto-escuelapp</h1>
 				<p role=${denied ? 'alert' : 'status'}>
 					${denied
-						? 'Esta cuenta no tiene acceso a la app.'
+						? deniedMessage(this._access.request)
 						: 'Entra con tu cuenta de Google para usar la app.'}
 				</p>
 				<button @click=${() => this._signIn()}>
