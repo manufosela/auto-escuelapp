@@ -12,6 +12,8 @@ import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest';
 const PROJECT_ID = 'auto-escuelapp-rules-test';
 // Cuenta dada de alta en allowedUsers en cada test (ver beforeEach).
 const OWNER_UID = 'owner';
+// Cuenta con acceso y además en admins (ver beforeEach).
+const ADMIN_UID = 'admin';
 
 /** @type {import('@firebase/rules-unit-testing').RulesTestEnvironment} */
 let testEnv;
@@ -19,6 +21,31 @@ let testEnv;
 /** Contexto autenticado con una cuenta autorizada (ver firestore.rules). */
 function ownerContext() {
 	return testEnv.authenticatedContext(OWNER_UID);
+}
+
+function adminContext() {
+	return testEnv.authenticatedContext(ADMIN_UID);
+}
+
+function validAllowedUser(overrides = {}) {
+	return { name: 'Hijo', approvedAt: '2026-11-09T10:00:00.000Z', ...overrides };
+}
+
+function validAccessRequest(overrides = {}) {
+	return {
+		displayName: 'Hijo',
+		email: 'hijo@example.com',
+		requestedAt: '2026-11-09T09:00:00.000Z',
+		status: 'pending',
+		...overrides,
+	};
+}
+
+/** @param {string} uid */
+async function seedAccessRequest(uid) {
+	await testEnv.withSecurityRulesDisabled(async (context) => {
+		await context.firestore().doc(`accessRequests/${uid}`).set(validAccessRequest());
+	});
 }
 
 function validAttempt(overrides = {}) {
@@ -66,7 +93,66 @@ afterAll(async () => {
 beforeEach(async () => {
 	await testEnv.clearFirestore();
 	await testEnv.withSecurityRulesDisabled(async (context) => {
-		await context.firestore().doc(`allowedUsers/${OWNER_UID}`).set({ name: 'owner' });
+		const db = context.firestore();
+		await db.doc(`allowedUsers/${OWNER_UID}`).set({ name: 'owner' });
+		await db.doc(`allowedUsers/${ADMIN_UID}`).set({ name: 'admin' });
+		await db.doc(`admins/${ADMIN_UID}`).set({ name: 'admin' });
+	});
+});
+
+describe('admins/{userId}', () => {
+	it('permite a cada cuenta comprobar si ella es administradora', async () => {
+		await assertSucceeds(adminContext().firestore().doc(`admins/${ADMIN_UID}`).get());
+		await assertSucceeds(ownerContext().firestore().doc(`admins/${OWNER_UID}`).get());
+	});
+
+	it('deniega leer otros documentos, listar o escribir, incluso al administrador', async () => {
+		await assertFails(ownerContext().firestore().doc(`admins/${ADMIN_UID}`).get());
+		await assertFails(adminContext().firestore().collection('admins').get());
+		await assertFails(ownerContext().firestore().doc(`admins/${OWNER_UID}`).set({ name: 'owner' }));
+		await assertFails(adminContext().firestore().doc('admins/son').set({ name: 'son' }));
+	});
+});
+
+describe('accessRequests/{userId}', () => {
+	it('permite a una cuenta sin acceso crear y leer su propia solicitud pendiente', async () => {
+		const db = testEnv.authenticatedContext('son').firestore();
+		await assertSucceeds(db.doc('accessRequests/son').set(validAccessRequest()));
+		await assertSucceeds(db.doc('accessRequests/son').get());
+	});
+
+	it('deniega crear la solicitud de otra cuenta, sin sesión o con datos inválidos', async () => {
+		const db = testEnv.authenticatedContext('son').firestore();
+		await assertFails(db.doc('accessRequests/mallory').set(validAccessRequest()));
+		await assertFails(db.doc('accessRequests/son').set(validAccessRequest({ status: 'approved' })));
+		await assertFails(db.doc('accessRequests/son').set(validAccessRequest({ extra: true })));
+		await assertFails(db.doc('accessRequests/son').set(validAccessRequest({ email: 42 })));
+		const anonymous = testEnv.unauthenticatedContext().firestore();
+		await assertFails(anonymous.doc('accessRequests/son').set(validAccessRequest()));
+	});
+
+	it('deniega a quien la pide editarla, borrarla o listar las de otros', async () => {
+		await seedAccessRequest('son');
+		const db = testEnv.authenticatedContext('son').firestore();
+		await assertFails(db.doc('accessRequests/son').update({ status: 'pending', displayName: 'x' }));
+		await assertFails(db.doc('accessRequests/son').delete());
+		await assertFails(db.collection('accessRequests').get());
+		await assertFails(ownerContext().firestore().doc('accessRequests/son').get());
+	});
+
+	it('permite al administrador listar, rechazar y borrar solicitudes', async () => {
+		await seedAccessRequest('son');
+		const db = adminContext().firestore();
+		await assertSucceeds(db.collection('accessRequests').get());
+		await assertSucceeds(db.doc('accessRequests/son').update({ status: 'rejected' }));
+		await assertSucceeds(db.doc('accessRequests/son').delete());
+	});
+
+	it('deniega al administrador cambiar algo más que el estado', async () => {
+		await seedAccessRequest('son');
+		const db = adminContext().firestore();
+		await assertFails(db.doc('accessRequests/son').update({ status: 'approved' }));
+		await assertFails(db.doc('accessRequests/son').update({ email: 'otro@example.com' }));
 	});
 });
 
@@ -86,10 +172,24 @@ describe('allowedUsers/{userId}', () => {
 		await assertFails(db.collection('allowedUsers').get());
 	});
 
-	it('deniega cualquier escritura desde el cliente, incluso darse de alta a sí mismo', async () => {
+	it('deniega escribir a quien no es administrador, incluso darse de alta a sí mismo', async () => {
 		const db = testEnv.authenticatedContext('mallory').firestore();
-		await assertFails(db.doc('allowedUsers/mallory').set({ name: 'mallory' }));
+		await assertFails(db.doc('allowedUsers/mallory').set(validAllowedUser()));
 		await assertFails(ownerContext().firestore().doc(`allowedUsers/${OWNER_UID}`).delete());
+	});
+
+	it('permite al administrador listar, dar de alta y quitar acceso', async () => {
+		const db = adminContext().firestore();
+		await assertSucceeds(db.collection('allowedUsers').get());
+		await assertSucceeds(db.doc('allowedUsers/son').set(validAllowedUser()));
+		await assertSucceeds(db.doc(`allowedUsers/${OWNER_UID}`).delete());
+	});
+
+	it('deniega al administrador altas con datos inválidos o ediciones', async () => {
+		const db = adminContext().firestore();
+		await assertFails(db.doc('allowedUsers/son').set({ name: 'son' }));
+		await assertFails(db.doc('allowedUsers/son').set(validAllowedUser({ extra: true })));
+		await assertFails(db.doc(`allowedUsers/${OWNER_UID}`).update({ name: 'otro' }));
 	});
 
 	it('deniega leerla sin autenticación', async () => {
