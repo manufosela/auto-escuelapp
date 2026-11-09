@@ -4,11 +4,13 @@
 import { css, html, LitElement } from 'lit';
 import {
 	approveRequest,
+	deleteRequest,
 	isAdminUser,
 	listAccessRequests,
 	listAllowedUsers,
 	rejectRequest,
 	revokeAccess,
+	splitStaleRequests,
 } from '../lib/access-admin.js';
 import { onAuthChange } from '../lib/firebase-client.js';
 
@@ -120,7 +122,12 @@ export class AccessAdmin extends LitElement {
 	}
 
 	async _reload() {
-		[this._requests, this._users] = await Promise.all([listAccessRequests(), listAllowedUsers()]);
+		const [requests, users] = await Promise.all([listAccessRequests(), listAllowedUsers()]);
+		const { open, stale } = splitStaleRequests(requests, users);
+		this._requests = open;
+		this._users = users;
+		// Solicitudes de cuentas que ya tienen acceso: se limpian (AUT-BUG-0003).
+		await Promise.all(stale.map((request) => deleteRequest(request.uid)));
 	}
 
 	/**

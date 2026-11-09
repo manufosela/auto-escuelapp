@@ -19,8 +19,16 @@ vi.mock('firebase/firestore', () => ({
 	writeBatch: vi.fn(() => ({ set: batchSet, delete: batchDelete, commit: batchCommit })),
 }));
 
-const { approveRequest, isAdminUser, listAccessRequests, listAllowedUsers, rejectRequest, revokeAccess } =
-	await import('./access-admin.js');
+const {
+	approveRequest,
+	deleteRequest,
+	isAdminUser,
+	listAccessRequests,
+	listAllowedUsers,
+	rejectRequest,
+	revokeAccess,
+	splitStaleRequests,
+} = await import('./access-admin.js');
 
 /** @param {Array<[string, object]>} entries */
 function snapshotOf(entries) {
@@ -88,6 +96,24 @@ describe('approveRequest', () => {
 	it('usa el email como nombre si la cuenta no tiene nombre', async () => {
 		await approveRequest({ uid: 'son', displayName: '', email: 'hijo@example.com' });
 		expect(batchSet).toHaveBeenCalledWith(expect.anything(), expect.objectContaining({ name: 'hijo@example.com' }));
+	});
+});
+
+describe('splitStaleRequests', () => {
+	it('separa las solicitudes de cuentas que ya tienen acceso', () => {
+		const requests = [{ uid: 'son' }, { uid: 'friend' }];
+		const users = [{ uid: 'son', name: 'Hijo' }];
+		expect(splitStaleRequests(requests, users)).toEqual({
+			open: [{ uid: 'friend' }],
+			stale: [{ uid: 'son' }],
+		});
+	});
+});
+
+describe('deleteRequest', () => {
+	it('borra la solicitud', async () => {
+		await deleteRequest('son');
+		expect(deleteDocMock).toHaveBeenCalledWith({ path: 'accessRequests/son' });
 	});
 });
 

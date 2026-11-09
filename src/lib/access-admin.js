@@ -64,6 +64,31 @@ export async function approveRequest(request) {
 }
 
 /**
+ * Una cuenta que ya tiene acceso puede volver a dejar una solicitud (p. ej.
+ * si entró con una sesión abierta antes de ser aprobada): esa solicitud ya
+ * no tiene sentido y no se muestra (AUT-BUG-0003).
+ * @template {{ uid: string }} T
+ * @param {T[]} requests
+ * @param {AllowedUser[]} users
+ * @returns {{ open: T[], stale: T[] }}
+ */
+export function splitStaleRequests(requests, users) {
+	const allowedUids = new Set(users.map((user) => user.uid));
+	const { open = [], stale = [] } = Object.groupBy(requests, (request) =>
+		allowedUids.has(request.uid) ? 'stale' : 'open',
+	);
+	return { open, stale };
+}
+
+/**
+ * @param {string} uid
+ * @returns {Promise<void>}
+ */
+export function deleteRequest(uid) {
+	return deleteDoc(doc(getFirestore(), 'accessRequests', uid));
+}
+
+/**
  * @param {string} uid
  * @returns {Promise<void>}
  */
