@@ -49,6 +49,32 @@ async function isAllowedUser(user) {
 }
 
 /**
+ * Deja la solicitud de acceso de una cuenta sin acceso en
+ * accessRequests/{uid}, si no la tenía ya (AUT-TSK-0035). El administrador
+ * la aprueba o la rechaza desde /admin.
+ * @param {import('firebase/auth').User} user
+ * @returns {Promise<'pending' | 'rejected' | 'failed'>}
+ */
+async function requestAccess(user) {
+	try {
+		const { doc, getDoc, getFirestore, setDoc } = await import('firebase/firestore');
+		const requestRef = doc(getFirestore(), 'accessRequests', user.uid);
+		const snapshot = await getDoc(requestRef);
+		if (snapshot.exists()) return snapshot.data().status;
+		await setDoc(requestRef, {
+			displayName: user.displayName ?? '',
+			email: user.email ?? '',
+			requestedAt: new Date().toISOString(),
+			status: 'pending',
+		});
+		return 'pending';
+	} catch (error) {
+		console.error('firebase-client: fallo registrando la solicitud de acceso', error);
+		return 'failed';
+	}
+}
+
+/**
  * Inicia sesión con Google. Usa una ventana emergente y, si el navegador la
  * bloquea, recurre a una redirección de página completa.
  * @returns {Promise<void>}
@@ -71,23 +97,26 @@ export function signOutUser() {
 }
 
 /**
- * @typedef {{ status: 'checking' } | { status: 'signed-out' } | { status: 'denied' }
+ * @typedef {{ status: 'checking' } | { status: 'signed-out' }
+ *   | { status: 'denied', request: 'pending' | 'rejected' | 'failed' }
  *   | { status: 'allowed', user: import('firebase/auth').User }} Access
  */
 
 /**
- * Estado de acceso a la app. Una cuenta sin documento en allowedUsers queda
- * en 'denied' y se le cierra la sesión; el cierre de sesión que eso provoca
- * no la devuelve a 'signed-out', para que la interfaz pueda avisar.
+ * Estado de acceso a la app. Una cuenta sin documento en allowedUsers deja
+ * su solicitud, queda en 'denied' y se le cierra la sesión; el cierre de
+ * sesión que eso provoca no la devuelve a 'signed-out', para que la interfaz
+ * pueda avisar.
  * @param {(access: Access) => void} callback
  * @returns {() => void} función para cancelar la suscripción
  */
 export function onAccessChange(callback) {
-	let justDenied = false;
+	/** @type {Access | null} */
+	let lastDenied = null;
 	return onAuthStateChanged(auth, async (user) => {
 		if (!user) {
-			callback(justDenied ? { status: 'denied' } : { status: 'signed-out' });
-			justDenied = false;
+			callback(lastDenied ?? { status: 'signed-out' });
+			lastDenied = null;
 			return;
 		}
 		callback({ status: 'checking' });
@@ -95,11 +124,13 @@ export function onAccessChange(callback) {
 			callback({ status: 'allowed', user });
 			return;
 		}
-		justDenied = true;
+		// La solicitud se registra antes de cerrar la sesión: hace falta estar
+		// autenticado para escribirla.
+		lastDenied = { status: 'denied', request: await requestAccess(user) };
 		signOut(auth).catch((error) =>
 			console.error('firebase-client: fallo cerrando una sesión no autorizada', error),
 		);
-		callback({ status: 'denied' });
+		callback(lastDenied);
 	});
 }
 
