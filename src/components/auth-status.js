@@ -5,6 +5,7 @@ import { onAuthChange, signOutUser } from '../lib/firebase-client.js';
 export class AuthStatus extends LitElement {
 	static properties = {
 		_user: { state: true },
+		_isAdmin: { state: true },
 	};
 
 	static styles = css`
@@ -27,6 +28,9 @@ export class AuthStatus extends LitElement {
 			gap: 0.5rem;
 			font-size: 0.85rem;
 		}
+		a {
+			color: inherit;
+		}
 		.name {
 			max-width: 10rem;
 			overflow: hidden;
@@ -39,14 +43,23 @@ export class AuthStatus extends LitElement {
 		super();
 		// undefined: todavía no se sabe. null: sin sesión. objeto: con sesión.
 		this._user = undefined;
+		this._isAdmin = false;
 		this._unsubscribe = undefined;
 	}
 
 	connectedCallback() {
 		super.connectedCallback();
-		this._unsubscribe = onAuthChange((user) => {
+		this._unsubscribe = onAuthChange(async (user) => {
 			this._user = user;
+			this._isAdmin = user ? await this._checkAdmin(user) : false;
 		});
+	}
+
+	/** @param {import('firebase/auth').User} user */
+	async _checkAdmin(user) {
+		// Import dinámico: firestore no entra en el bundle inicial (AUT-TSK-0025).
+		const { isAdminUser } = await import('../lib/access-admin.js');
+		return isAdminUser(user);
 	}
 
 	disconnectedCallback() {
@@ -60,6 +73,7 @@ export class AuthStatus extends LitElement {
 		return html`
 			<div class="user">
 				<span class="name">${this._user.displayName ?? this._user.email}</span>
+				${this._isAdmin ? html`<a href="/admin/">Admin</a>` : null}
 				<button @click=${() => signOutUser()}>Salir</button>
 			</div>
 		`;
