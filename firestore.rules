@@ -3,8 +3,8 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     // Solo usan la app las cuentas con documento en allowedUsers/{uid}
-    // (AUT-TSK-0031). Las altas y bajas se hacen a mano desde la consola de
-    // Firebase: el cliente nunca escribe en esa colección.
+    // (AUT-TSK-0031). Las altas y bajas las hace el administrador desde /admin
+    // (AUT-TSK-0033/0034).
     function isAllowed() {
       return request.auth != null
         && exists(/databases/$(database)/documents/allowedUsers/$(request.auth.uid));
@@ -14,11 +14,48 @@ service cloud.firestore {
       return isAllowed() && request.auth.uid == userId;
     }
 
-    // Cada cuenta solo puede leer su propio documento, para que la app sepa
-    // si tiene acceso; nunca listar la colección ni escribir en ella.
-    match /allowedUsers/{userId} {
-      allow get: if request.auth != null && request.auth.uid == userId;
+    function isSelf(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    // Administradores: documento en admins/{uid}, que se da de alta a mano en
+    // la consola de Firebase. El cliente nunca escribe en esa colección.
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    match /admins/{userId} {
+      allow get: if isSelf(userId);
       allow list, write: if false;
+    }
+
+    // Cada cuenta puede leer su propio documento, para que la app sepa si
+    // tiene acceso. El administrador lista, da de alta y quita acceso.
+    match /allowedUsers/{userId} {
+      allow get: if isSelf(userId) || isAdmin();
+      allow list, delete: if isAdmin();
+      allow create: if isAdmin()
+        && request.resource.data.keys().hasOnly(['name', 'approvedAt'])
+        && request.resource.data.name is string
+        && request.resource.data.approvedAt is string;
+      allow update: if false;
+    }
+
+    // Solicitud de acceso: la deja la propia cuenta al entrar sin acceso.
+    // Solo el administrador la ve y la rechaza (status) o la borra al aprobar.
+    match /accessRequests/{userId} {
+      allow get: if isSelf(userId) || isAdmin();
+      allow list, delete: if isAdmin();
+      allow create: if isSelf(userId)
+        && request.resource.data.keys().hasOnly(['displayName', 'email', 'requestedAt', 'status'])
+        && request.resource.data.displayName is string
+        && request.resource.data.email is string
+        && request.resource.data.requestedAt is string
+        && request.resource.data.status == 'pending';
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status'])
+        && request.resource.data.status in ['pending', 'rejected'];
     }
 
     // Un intento (examen o práctica) es un documento de solo creación:
