@@ -1,6 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { existsSync, readFileSync } from 'node:fs';
+import path from 'node:path';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { topicAudioSrc, topicSpeechText } from '../../../lib/topic-speech.js';
 
 export async function getStaticPaths() {
 	const topics = await getCollection('topics');
@@ -9,6 +12,12 @@ export async function getStaticPaths() {
 
 const { topic } = Astro.props;
 const { Content } = await render(topic);
+
+// Audio del tema (AUT-TSK-0037), generado con scripts/generate-topic-audio.mjs.
+const manifestPath = path.join(process.cwd(), 'public', 'audio', 'topics', 'manifest.json');
+const audioManifest = existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : {};
+const speechText = topicSpeechText({ ...topic.data, body: topic.body ?? '' });
+const audioSrc = topicAudioSrc(topic.id, speechText, audioManifest);
 ---
 
 <BaseLayout
@@ -16,6 +25,14 @@ const { Content } = await render(topic);
 	description={topic.data.summary}
 >
 	<h1>{topic.data.title}</h1>
+	{
+		audioSrc && (
+			<figure class="listen">
+				<figcaption>Escuchar el tema</figcaption>
+				<audio controls preload="none" src={audioSrc} />
+			</figure>
+		)
+	}
 	<p class="summary">{topic.data.summary}</p>
 	<ul class="key-points">
 		{topic.data.keyPoints.map((point) => <li>{point}</li>)}
@@ -34,6 +51,16 @@ const { Content } = await render(topic);
 <style>
 	.summary {
 		font-size: 1.1rem;
+	}
+	.listen {
+		margin: 0 0 1rem;
+	}
+	.listen figcaption {
+		font-size: 0.9rem;
+		margin-bottom: 0.25rem;
+	}
+	.listen audio {
+		width: 100%;
 	}
 	.key-points {
 		background: var(--color-surface, #f3f5f8);
