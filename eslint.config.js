@@ -26,6 +26,7 @@ export default [
         process: 'readonly',
         console: 'readonly',
         fetch: 'readonly',
+        Response: 'readonly',
         URL: 'readonly',
         setTimeout: 'readonly',
       },
