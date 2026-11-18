@@ -1,9 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
-import { existsSync, readFileSync } from 'node:fs';
-import path from 'node:path';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { topicAudioSrc, topicSpeechText } from '../../../lib/topic-speech.js';
+import { audioSrcForTopic, readAudioManifest } from '../../../lib/topic-audio.js';
 
 export async function getStaticPaths() {
 	const topics = await getCollection('topics');
@@ -14,10 +12,7 @@ const { topic } = Astro.props;
 const { Content } = await render(topic);
 
 // Audio del tema (AUT-TSK-0037), generado con scripts/generate-topic-audio.mjs.
-const manifestPath = path.join(process.cwd(), 'public', 'audio', 'topics', 'manifest.json');
-const audioManifest = existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : {};
-const speechText = topicSpeechText({ ...topic.data, body: topic.body ?? '' });
-const audioSrc = topicAudioSrc(topic.id, speechText, audioManifest);
+const audioSrc = audioSrcForTopic(topic, readAudioManifest());
 ---
 
 <BaseLayout

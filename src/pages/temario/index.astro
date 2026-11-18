@@ -1,8 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { audioSrcForTopic, readAudioManifest } from '../../lib/topic-audio.js';
 
-const topics = (await getCollection('topics')).toSorted((a, b) => a.data.order - b.data.order);
+const audioManifest = readAudioManifest();
+const topics = (await getCollection('topics'))
+	.toSorted((a, b) => a.data.order - b.data.order)
+	.map((topic) => ({ topic, audioSrc: audioSrcForTopic(topic, audioManifest) }));
 ---
 
 <BaseLayout
@@ -11,17 +15,70 @@ const topics = (await getCollection('topics')).toSorted((a, b) => a.data.order -
 >
 	<h1>Temario</h1>
 	<p><a href="/temario/senales/">Catálogo de señales</a></p>
+	<figure class="list-player" id="list-player" hidden>
+		<figcaption>Escuchando: <span id="list-player-title"></span></figcaption>
+		<audio controls preload="none"></audio>
+	</figure>
 	<ol class="topics">
 		{
-			topics.map((topic) => (
+			topics.map(({ topic, audioSrc }) => (
 				<li>
-					<a href={`/temario/${topic.id}/`}>{topic.data.title}</a>
+					<div class="topic-head">
+						<a href={`/temario/${topic.id}/`}>{topic.data.title}</a>
+						{audioSrc && (
+							<button
+								type="button"
+								class="play"
+								data-src={audioSrc}
+								data-title={topic.data.title}
+								aria-label={`Escuchar ${topic.data.title}`}
+								aria-pressed="false"
+							>
+								▶
+							</button>
+						)}
+					</div>
 					<p>{topic.data.summary}</p>
 				</li>
 			))
 		}
 	</ol>
 </BaseLayout>
+
+<script>
+	import { listPlayerAction } from '../../lib/list-player.js';
+
+	const box = document.querySelector<HTMLElement>('#list-player');
+	const title = document.querySelector<HTMLElement>('#list-player-title');
+	const audio = box?.querySelector('audio');
+	if (!box || !title || !audio) throw new Error('Falta el reproductor del temario');
+	const buttons = [...document.querySelectorAll<HTMLButtonElement>('button.play')];
+
+	const syncButtons = () => {
+		for (const button of buttons) {
+			const playing = button.dataset.src === audio.getAttribute('src') && !audio.paused;
+			button.textContent = playing ? '❚❚' : '▶';
+			button.setAttribute('aria-pressed', String(playing));
+		}
+	};
+
+	for (const button of buttons) {
+		const src = button.dataset.src ?? '';
+		button.addEventListener('click', () => {
+			const action = listPlayerAction({ currentSrc: audio.getAttribute('src') ?? '', paused: audio.paused }, src);
+			if (action === 'pause') return audio.pause();
+			if (action === 'load') {
+				audio.src = src;
+				title.textContent = button.dataset.title ?? '';
+				box.hidden = false;
+				// Pegado justo debajo de la cabecera fija, que no tiene alto fijo.
+				box.style.top = `${document.querySelector<HTMLElement>('.app-header')?.offsetHeight ?? 0}px`;
+			}
+			audio.play();
+		});
+	}
+	for (const event of ['play', 'pause', 'ended']) audio.addEventListener(event, syncButtons);
+</script>
 
 <style>
 	.topics {
@@ -32,5 +89,37 @@ const topics = (await getCollection('topics')).toSorted((a, b) => a.data.order -
 	}
 	.topics a {
 		font-weight: 600;
+	}
+	.topic-head {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.play {
+		flex: none;
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: 50%;
+		border: 1px solid currentColor;
+		background: var(--color-surface, #f3f5f8);
+		color: inherit;
+		cursor: pointer;
+		font-size: 0.9rem;
+	}
+	.list-player {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		margin: 0 0 1rem;
+		padding: 0.5rem 0.75rem;
+		background: var(--color-surface, #f3f5f8);
+		border-radius: 0.5rem;
+	}
+	.list-player figcaption {
+		font-size: 0.9rem;
+		margin-bottom: 0.25rem;
+	}
+	.list-player audio {
+		width: 100%;
 	}
 </style>
