@@ -1,0 +1,39 @@
+{
+	"tables": [
+		{
+			"title": "Cuándo pasa primero el peatón",
+			"columns": ["Situación", "Prioridad"],
+			"rows": [
+				["Paso para peatones señalizado, acera o zona peatonal", "Peatón"],
+				["Giras para entrar en otra vía y hay peatones cruzándola, aunque no haya paso", "Peatón"],
+				["Cruzas un arcén por el que van peatones sin zona peatonal", "Peatón"],
+				["Peatones que suben o bajan de un autobús en su parada, entre el autobús y la acera", "Peatón"],
+				["Unidades militares a pie, filas escolares y comitivas organizadas", "Peatón"]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 65.1", "asOfDate": "2026-10-01" }]
+		},
+		{
+			"title": "Adelantar a usuarios vulnerables",
+			"columns": ["Caso", "Qué hay que hacer"],
+			"rows": [
+				[
+					"Peatones, animales, tracción animal, ciclistas, ciclomotores y vehículos de movilidad personal",
+					"Dejar al menos 1,5 m de separación lateral"
+				],
+				["La calzada tiene más de un carril por sentido", "Cambiar de carril por completo"],
+				["Alguien viene de frente, aunque vaya por el arcén", "No adelantar si se le pone en peligro o se le entorpece"]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 85.4", "asOfDate": "2026-10-01" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "Metro y medio para todo el que va sin carrocería.",
+			"hint": "Ciclistas, ciclomotores, patinetes, peatones o animales: 1,5 m de hueco lateral. Si hay más de un carril por sentido, cámbiate de carril entero."
+		},
+		{
+			"rule": "La ruta del peatón: paso, giro, arcén, autobús y fila.",
+			"hint": "Imagina a un peatón que baja del autobús, cruza por el paso, sigue por el arcén, cruza la calle en la que giras y se une a una fila escolar: en las cinco escenas pasa él primero."
+		}
+	]
+}

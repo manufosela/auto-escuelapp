@@ -1,0 +1,29 @@
+{
+	"tables": [
+		{
+			"title": "Luces con poca visibilidad",
+			"columns": ["Luz", "Cuándo se usa"],
+			"rows": [
+				[
+					"Corto o largo alcance, o antiniebla delantera",
+					"Siempre que la visibilidad baje sensiblemente, de día o de noche: niebla, lluvia intensa, nevada, humo o polvo"
+				],
+				["Antiniebla delantera", "Sola o junto con la de corto o largo alcance"],
+				["Antiniebla delantera sin mala visibilidad", "Solo en vías estrechas (calzada de 6,50 m o menos) con curvas seguidas señalizadas"],
+				["Antiniebla trasera", "Solo si es muy grave: niebla espesa, lluvia muy intensa, nevada fuerte, humo o polvo densos"]
+			],
+			"note": "Circular sin alumbrado cuando falta o baja la visibilidad es infracción grave.",
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 106", "asOfDate": "2025-07-01" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "Detrás, solo lo «muy».",
+			"hint": "La antiniebla trasera va con adjetivos fuertes: niebla espesa, lluvia muy intensa, nevada fuerte, nubes densas. Si no, deslumbra al de detrás."
+		},
+		{
+			"rule": "6,50 y curvas: antiniebla delantera.",
+			"hint": "Es el único caso en que puedes llevarla sin mala visibilidad."
+		}
+	]
+}

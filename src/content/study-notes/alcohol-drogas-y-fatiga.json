@@ -1,0 +1,38 @@
+{
+	"tables": [
+		{
+			"title": "Tasas máximas de alcohol",
+			"columns": ["Conductor", "En sangre", "En aire espirado"],
+			"rows": [
+				["General, incluidos los ciclistas", "0,5 g/l", "0,25 mg/l"],
+				["Novel: los dos primeros años de permiso", "0,3 g/l", "0,15 mg/l"],
+				["Profesional", "0,3 g/l", "0,15 mg/l"]
+			],
+			"note": "Profesional: mercancías de más de 3.500 kg, viajeros de más de 9 plazas, servicio público, transporte escolar y de menores, mercancías peligrosas, urgencias y transportes especiales.",
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 20", "asOfDate": "2004-01-23" }]
+		},
+		{
+			"title": "Quién tiene que hacer la prueba de alcohol",
+			"columns": ["Persona", "¿Está obligada?"],
+			"rows": [
+				["Conductor de cualquier vehículo o de bicicleta", "Sí"],
+				["Peatón u otro usuario de la vía", "Solo si está implicado en un accidente"]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 21", "asOfDate": "2004-01-23" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "Aire = sangre ÷ 2.",
+			"hint": "0,5 g/l en sangre son 0,25 mg/l en aire; 0,3 en sangre son 0,15 en aire."
+		},
+		{
+			"rule": "Novel y profesional: 0,3.",
+			"hint": "Los dos primeros años de permiso y quien lleva camiones, autobuses, taxis, escolares o urgencias bajan de 0,5 a 0,3."
+		},
+		{
+			"rule": "A, S, D, C: «A Su Disposición, Conductor».",
+			"hint": "Los agentes te pueden hacer la prueba por Accidente, Síntomas, Denuncia por otra infracción o Control preventivo."
+		}
+	]
+}
