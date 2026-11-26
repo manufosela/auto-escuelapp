@@ -1,0 +1,69 @@
+---
+// Página de repaso (AUT-TSK-0042): resumen, puntos clave, tablas y reglas
+// nemotécnicas de todos los temas, en el orden del temario.
+import { getCollection, getEntry } from 'astro:content';
+import StudyNotes from '../../components/StudyNotes.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const topics = await Promise.all(
+	(await getCollection('topics'))
+		.toSorted((a, b) => a.data.order - b.data.order)
+		.map(async (topic) => ({ topic, notes: await getEntry('studyNotes', topic.id) })),
+);
+---
+
+<BaseLayout
+	title="Repaso para memorizar — auto-escuelapp"
+	description="Resumen, puntos clave, tablas de valores y reglas para recordar de todos los temas."
+>
+	<h1>Repaso para memorizar</h1>
+	<p><a href="/temario/">← Volver al temario</a></p>
+	<nav aria-label="Temas del repaso">
+		<ol class="toc">
+			{
+				topics.map(({ topic }) => (
+					<li>
+						<a href={`#${topic.id}`}>{topic.data.title}</a>
+					</li>
+				))
+			}
+		</ol>
+	</nav>
+	{
+		topics.map(({ topic, notes }) => (
+			<section class="topic" id={topic.id} aria-labelledby={`${topic.id}-title`}>
+				<h2 id={`${topic.id}-title`}>
+					<a href={`/temario/${topic.id}/`}>{topic.data.title}</a>
+				</h2>
+				<p class="summary">{topic.data.summary}</p>
+				<ul class="key-points">
+					{topic.data.keyPoints.map((point) => (
+						<li>{point}</li>
+					))}
+				</ul>
+				{notes && <StudyNotes {...notes.data} level={3} idPrefix={topic.id} />}
+			</section>
+		))
+	}
+</BaseLayout>
+
+<style>
+	.toc {
+		padding-left: 1.25rem;
+		columns: 2 14rem;
+	}
+	.topic {
+		border-top: 1px solid var(--color-border, #d0d7e2);
+		padding-top: 1rem;
+		margin-top: 1.5rem;
+		scroll-margin-top: 6rem;
+	}
+	.summary {
+		font-size: 1.05rem;
+	}
+	.key-points {
+		background: var(--color-surface, #f3f5f8);
+		border-radius: 0.5rem;
+		padding: 0.75rem 1.25rem;
+	}
+</style>
