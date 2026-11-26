@@ -14,16 +14,24 @@ interface Props {
 		legalReferences: LegalReference[];
 	}>;
 	mnemonics: Array<{ rule: string; hint: string }>;
+	// Nivel del título «Para memorizar»: 3 cuando va dentro de la sección de
+	// un tema en la página de repaso (AUT-TSK-0042).
+	level?: 2 | 3;
+	// Prefijo del id del título, único cuando hay varios bloques en la página.
+	idPrefix?: string;
 }
 
-const { tables, mnemonics } = Astro.props;
+const { tables, mnemonics, level = 2, idPrefix } = Astro.props;
+const Heading = level === 2 ? 'h2' : 'h3';
+const SubHeading = level === 2 ? 'h3' : 'h4';
+const titleId = idPrefix ? `${idPrefix}-study-notes` : 'study-notes-title';
 const cite = (refs: LegalReference[]) => refs.map((ref) => `${ref.norm} ${ref.article}`).join(', ');
 // Las cifras cortas («20 km/h», «0,5 g/l») no se parten en dos líneas.
 const MAX_UNBREAKABLE = 12;
 ---
 
-<section class="study-notes" aria-labelledby="study-notes-title">
-	<h2 id="study-notes-title">Para memorizar</h2>
+<section class="study-notes" aria-labelledby={titleId}>
+	<Heading id={titleId} class="study-notes-title">Para memorizar</Heading>
 	{
 		tables.map((table) => (
 			<div class="table-wrap">
@@ -55,7 +63,7 @@ const MAX_UNBREAKABLE = 12;
 	{
 		mnemonics.length > 0 && (
 			<>
-				<h3>Reglas para recordarlo</h3>
+				<SubHeading>Reglas para recordarlo</SubHeading>
 				<ul class="mnemonics">
 					{mnemonics.map((mnemonic) => (
 						<li>
@@ -75,7 +83,7 @@ const MAX_UNBREAKABLE = 12;
 		border: 2px solid var(--color-border, #d0d7e2);
 		border-radius: 0.5rem;
 	}
-	.study-notes h2 {
+	.study-notes-title {
 		margin-top: 0;
 	}
 	.table-wrap {

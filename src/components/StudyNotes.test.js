@@ -40,6 +40,16 @@ describe('StudyNotes', () => {
 		expect(html).toContain('0,5 en sangre son 0,25 en aire.');
 	});
 
+	it('baja un nivel de título y usa un id propio cuando va dentro de otra sección', async () => {
+		const container = await AstroContainer.create();
+		const html = await container.renderToString(StudyNotes, {
+			props: { ...notes, level: 3, idPrefix: 'alcohol' },
+		});
+		expect(html).toMatch(/<h3 id="alcohol-study-notes"[^>]*>Para memorizar<\/h3>/);
+		expect(html).toContain('aria-labelledby="alcohol-study-notes"');
+		expect(html).toMatch(/<h4[^>]*>Reglas para recordarlo<\/h4>/);
+	});
+
 	it('no pinta la sección de reglas si el tema no tiene', async () => {
 		const container = await AstroContainer.create();
 		const html = await container.renderToString(StudyNotes, { props: { ...notes, mnemonics: [] } });
