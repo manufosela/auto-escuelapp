@@ -1,0 +1,51 @@
+{
+	"tables": [
+		{
+			"title": "Límites genéricos en poblado",
+			"columns": ["Vía", "Límite"],
+			"rows": [
+				["Plataforma única de calzada y acera", "20 km/h"],
+				["Un carril por sentido", "30 km/h"],
+				["Dos o más carriles por sentido", "50 km/h"],
+				["Travesía", "50 km/h"],
+				["Autopista o autovía dentro de poblado", "80 km/h"]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 50", "asOfDate": "2021-05-11" }]
+		},
+		{
+			"title": "Límites genéricos fuera de poblado (km/h)",
+			"columns": ["Vía", "Turismo", "Autobús", "Camión"],
+			"rows": [
+				["Autopista y autovía", "120", "100", "90"],
+				["Convencional", "90", "90", "80"],
+				["Convencional con sentidos separados, si se señala", "100", "90", "80"],
+				["Sin pavimentar", "30", "30", "30"]
+			],
+			"note": "Turismo incluye motos y autocaravanas de hasta 3.500 kg. Autobús incluye los derivados de turismo y los mixtos adaptables. Camión incluye furgonetas, autocaravanas de más de 3.500 kg, articulados y vehículos con remolque.",
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 48", "asOfDate": "2026-10-01" }]
+		},
+		{
+			"title": "Distancia con el vehículo de delante",
+			"columns": ["Caso", "Distancia"],
+			"rows": [
+				["Regla general", "La que permita parar sin chocar si el de delante frena de golpe"],
+				["Más de 3.500 kg o más de 10 m de largo, sin intención de adelantar", "50 m como mínimo"]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 54", "asOfDate": "2004-01-23" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "En ciudad, 20, 30 y 50: cuantos más carriles, más rápido.",
+			"hint": "Calle sin acera separada, 20; un carril por sentido, 30; dos o más, 50."
+		},
+		{
+			"rule": "Turismo fuera de poblado: 120 en autopista, 90 en convencional.",
+			"hint": "El 100 solo existe en convencionales con los sentidos separados físicamente y si el titular lo señala. El arcén ancho ya no da 100."
+		},
+		{
+			"rule": "Pesado o largo: 3.500, 10 y 50.",
+			"hint": "Más de 3.500 kg o más de 10 m de largo: 50 m de separación mientras no vayas a adelantar."
+		}
+	]
+}
