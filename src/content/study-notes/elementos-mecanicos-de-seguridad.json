@@ -1,0 +1,24 @@
+{
+	"tables": [
+		{
+			"title": "Profundidad mínima del dibujo del neumático",
+			"columns": ["Vehículo", "Mínimo"],
+			"rows": [
+				["Turismos, furgonetas ligeras y remolques ligeros (M1, N1, O1, O2)", "1,6 mm"],
+				["Autobuses, camiones y remolques pesados (M2, M3, N2, N3, O3, O4)", "1,0 mm"]
+			],
+			"note": "Se mide en las ranuras principales. Los indicadores de desgaste quedan al ras de la banda de rodadura justo al llegar al mínimo.",
+			"legalReferences": [{ "norm": "BOE-A-1999-1826", "article": "Anexo VII, apartado 2", "asOfDate": "2026-05-30" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "Ligero 1,6; pesado 1,0.",
+			"hint": "El turismo necesita más dibujo que el camión: 1,6 mm frente a 1,0 mm."
+		},
+		{
+			"rule": "Testigo al ras, toca cambiarlo.",
+			"hint": "Cuando el indicador de desgaste queda a la altura de la banda de rodadura, el neumático ya está en el mínimo legal."
+		}
+	]
+}

@@ -1,0 +1,38 @@
+{
+	"tables": [
+		{
+			"title": "Marcha que se deja puesta al bajar del vehículo",
+			"columns": ["Pendiente", "Cambio manual", "Cambio automático"],
+			"rows": [
+				["Subida", "Primera", "Estacionamiento (P)"],
+				["Bajada", "Marcha atrás", "Estacionamiento (P)"]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 92.3", "asOfDate": "2026-10-01" }]
+		},
+		{
+			"title": "Calzar en pendiente sensible",
+			"columns": ["Caso", "Qué hacer"],
+			"rows": [
+				["Quién tiene que calzar", "Vehículos de más de 3.500 kg, autobuses y conjuntos de vehículos"],
+				["Con calzos", "Calzos de verdad, nunca piedras ni objetos improvisados; se retiran al reanudar la marcha"],
+				["Con el bordillo, en subida", "Ruedas delanteras giradas hacia el centro de la calzada"],
+				["Con el bordillo, en bajada", "Ruedas delanteras giradas hacia fuera, hacia el bordillo"]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 92.3.d)", "asOfDate": "2026-10-01" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "La marcha va contra la caída.",
+			"hint": "En subida el coche caería hacia atrás: pon primera. En bajada caería hacia delante: pon marcha atrás."
+		},
+		{
+			"rule": "Motor, mano y marcha.",
+			"hint": "Al bajar del coche: apaga el motor, echa el freno de mano y deja la marcha según la pendiente."
+		},
+		{
+			"rule": "Si el coche rueda, que choque con el bordillo.",
+			"hint": "Las ruedas se giran para que, si el vehículo se mueve, la rueda delantera acabe contra el bordillo: en bajada, hacia el bordillo; en subida, hacia el centro."
+		}
+	]
+}
