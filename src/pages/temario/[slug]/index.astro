@@ -1,5 +1,6 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
+import StudyNotes from '../../../components/StudyNotes.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { audioSrcForTopic, readAudioManifest } from '../../../lib/topic-audio.js';
 
@@ -13,6 +14,8 @@ const { Content } = await render(topic);
 
 // Audio del tema (AUT-TSK-0037), generado con scripts/generate-topic-audio.mjs.
 const audioSrc = audioSrcForTopic(topic, readAudioManifest());
+// Bloque «Para memorizar» (AUT-TSK-0041); va aparte del texto leído en el audio.
+const studyNotes = await getEntry('studyNotes', topic.id);
 ---
 
 <BaseLayout
@@ -33,6 +36,7 @@ const audioSrc = audioSrcForTopic(topic, readAudioManifest());
 		{topic.data.keyPoints.map((point) => <li>{point}</li>)}
 	</ul>
 	<Content />
+	{studyNotes && <StudyNotes {...studyNotes.data} />}
 	<p class="legal-refs">
 		Referencias:{' '}
 		{topic.data.legalReferences.map((ref) => `${ref.norm} ${ref.article}`).join(', ')}

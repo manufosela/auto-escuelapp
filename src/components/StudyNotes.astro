@@ -1,0 +1,126 @@
+---
+// Bloque «Para memorizar» de un tema (AUT-TSK-0041).
+interface LegalReference {
+	norm: string;
+	article: string;
+}
+
+interface Props {
+	tables: Array<{
+		title: string;
+		columns: string[];
+		rows: string[][];
+		note?: string;
+		legalReferences: LegalReference[];
+	}>;
+	mnemonics: Array<{ rule: string; hint: string }>;
+}
+
+const { tables, mnemonics } = Astro.props;
+const cite = (refs: LegalReference[]) => refs.map((ref) => `${ref.norm} ${ref.article}`).join(', ');
+// Las cifras cortas («20 km/h», «0,5 g/l») no se parten en dos líneas.
+const MAX_UNBREAKABLE = 12;
+---
+
+<section class="study-notes" aria-labelledby="study-notes-title">
+	<h2 id="study-notes-title">Para memorizar</h2>
+	{
+		tables.map((table) => (
+			<div class="table-wrap">
+				<table>
+					<caption>{table.title}</caption>
+					<thead>
+						<tr>
+							{table.columns.map((column) => (
+								<th scope="col">{column}</th>
+							))}
+						</tr>
+					</thead>
+					<tbody>
+						{table.rows.map(([first, ...rest]) => (
+							<tr>
+								<th scope="row">{first}</th>
+								{rest.map((cell) => (
+									<td class:list={{ value: cell.length <= MAX_UNBREAKABLE }}>{cell}</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				</table>
+				{table.note && <p class="note">{table.note}</p>}
+				<p class="source">Fuente: {cite(table.legalReferences)}</p>
+			</div>
+		))
+	}
+	{
+		mnemonics.length > 0 && (
+			<>
+				<h3>Reglas para recordarlo</h3>
+				<ul class="mnemonics">
+					{mnemonics.map((mnemonic) => (
+						<li>
+							<strong>{mnemonic.rule}</strong> {mnemonic.hint}
+						</li>
+					))}
+				</ul>
+			</>
+		)
+	}
+</section>
+
+<style>
+	.study-notes {
+		margin: 1.5rem 0;
+		padding: 0.75rem 0.5rem;
+		border: 2px solid var(--color-border, #d0d7e2);
+		border-radius: 0.5rem;
+	}
+	.study-notes h2 {
+		margin-top: 0;
+	}
+	.table-wrap {
+		overflow-x: auto;
+		margin-bottom: 1rem;
+	}
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		font-size: 0.9rem;
+	}
+	caption {
+		text-align: left;
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+	}
+	th,
+	td {
+		border: 1px solid var(--color-border, #d0d7e2);
+		padding: 0.3rem 0.25rem;
+		text-align: left;
+		vertical-align: top;
+	}
+	thead th {
+		background: var(--color-surface, #f3f5f8);
+	}
+	tbody th {
+		font-weight: 400;
+	}
+	.value {
+		white-space: nowrap;
+	}
+	.note {
+		font-size: 0.85rem;
+		margin: 0.25rem 0 0;
+	}
+	.source {
+		font-size: 0.8rem;
+		opacity: 0.8;
+		margin: 0.25rem 0 0;
+	}
+	.mnemonics {
+		padding-left: 1.25rem;
+	}
+	.mnemonics li {
+		margin-bottom: 0.5rem;
+	}
+</style>
