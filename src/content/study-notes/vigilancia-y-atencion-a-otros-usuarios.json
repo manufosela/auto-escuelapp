@@ -1,0 +1,28 @@
+{
+	"tables": [
+		{
+			"title": "Dispositivos al volante",
+			"columns": ["Dispositivo", "¿Permitido?"],
+			"rows": [
+				["Pantalla con internet, televisión o vídeo, en marcha", "No"],
+				["GPS, cámara de marcha atrás o monitor de bajada de peatones", "Sí"],
+				["Cascos o auriculares con sonido", "No, salvo en las clases y pruebas del permiso que lo exijan"],
+				["Teléfono móvil", "Solo sin usar las manos y sin cascos ni auriculares"],
+				["Intercomunicador homologado en el casco de moto", "Sí, para hablar o navegar"],
+				["Detector o inhibidor de radar", "No, ni instalarlo ni llevarlo"],
+				["Aviso de dónde hay controles de tráfico", "Sí"]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 18", "asOfDate": "2026-10-01" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "Pantalla que guía, sí; pantalla que entretiene, no.",
+			"hint": "GPS y cámaras de maniobra están permitidos; internet, tele y vídeo, no."
+		},
+		{
+			"rule": "Avisar del radar, sí; detectarlo o inhibirlo, no.",
+			"hint": "Puedes llevar avisos de dónde hay controles, pero no aparatos que detecten o interfieran el radar."
+		}
+	]
+}

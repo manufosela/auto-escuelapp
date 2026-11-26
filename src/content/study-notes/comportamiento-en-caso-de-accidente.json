@@ -1,0 +1,29 @@
+{
+	"tables": [
+		{
+			"title": "Obligaciones tras un accidente",
+			"columns": ["Quién", "Qué tiene que hacer"],
+			"rows": [
+				[
+					"Quien esté implicado, lo presencie o se entere",
+					"Auxiliar o pedir auxilio, colaborar, evitar más peligros, restablecer la seguridad y ayudar a aclarar los hechos"
+				],
+				[
+					"El conductor cuyo vehículo o carga obstaculiza la calzada",
+					"Señalizarlo, retirarlo cuanto antes y, si puede, dejarlo aparcado fuera de la calzada"
+				]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2015-11722", "article": "art. 51", "asOfDate": "2016-01-31" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "Lo causes, lo veas o lo sepas: ayudas.",
+			"hint": "La obligación de auxiliar no es solo del culpable: también del testigo y de quien se entere."
+		},
+		{
+			"rule": "Señaliza, retira, aparca.",
+			"hint": "Si tu vehículo o tu carga cortan la calzada, en ese orden."
+		}
+	]
+}

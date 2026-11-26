@@ -1,0 +1,21 @@
+{
+	"tables": [
+		{
+			"title": "Cuándo hay que parar el motor aunque no te bajes",
+			"columns": ["Situación", "Motor"],
+			"rows": [
+				["Detenido dentro de un túnel", "Apagado"],
+				["Detenido en un lugar cerrado", "Apagado"],
+				["Mientras repostas", "Apagado"]
+			],
+			"note": "Da igual que sigas en tu asiento y cuánto tiempo vayas a estar parado: se apaga desde el primer momento.",
+			"legalReferences": [{ "norm": "BOE-A-2015-11722", "article": "art. 46", "asOfDate": "2016-01-31" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "T, C, C: «Tu Coche Calla».",
+			"hint": "Túnel, lugar Cerrado y Combustible: en los tres casos el motor se apaga."
+		}
+	]
+}

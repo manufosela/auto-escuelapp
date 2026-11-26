@@ -27,6 +27,12 @@ describe('esquema de las notas para memorizar', () => {
 });
 
 describe('notas para memorizar del temario', () => {
+	it('cubre todos los temas del temario', () => {
+		const topics = readdirSync(path.join(root, 'topics')).filter((file) => file.endsWith('.md'));
+		const covered = new Set(files.map((file) => file.replace(/\.json$/, '')));
+		expect(topics.map((file) => file.replace(/\.md$/, '')).filter((topic) => !covered.has(topic))).toEqual([]);
+	});
+
 	it.each(files)('%s cumple el esquema y corresponde a un tema que existe', (file) => {
 		expect(STUDY_NOTES.safeParse(read(file)).error).toBeUndefined();
 		expect(existsSync(path.join(root, 'topics', file.replace(/\.json$/, '.md')))).toBe(true);
