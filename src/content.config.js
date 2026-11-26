@@ -4,20 +4,11 @@
 import { file, glob } from 'astro/loaders';
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
+import { LEGAL_REFERENCE, STUDY_NOTES } from './lib/content-schemas.js';
 
 // Las 16 materias del Anexo V.B.1 del RD 818/2009 (Reglamento General de
 // Conductores). Ver docs/research/formato-examen-y-preguntas.md.
 const SUBJECT = z.number().int().min(1).max(16);
-
-const LEGAL_REFERENCE = z.object({
-	// ID de norma tal como lo expone la API de datos abiertos del BOE,
-	// p. ej. "BOE-A-2009-9481".
-	norm: z.string().regex(/^BOE-[AB]-\d{4}-\d+$/),
-	article: z.string().min(1),
-	// Fecha (YYYY-MM-DD) de la versión del bloque citada, para poder
-	// detectar cuando una norma cambia y la cita queda desactualizada.
-	asOfDate: z.coerce.date(),
-});
 
 const topics = defineCollection({
 	loader: glob({ pattern: '**/*.md', base: './src/content/topics' }),
@@ -137,4 +128,9 @@ const signs = defineCollection({
 	}),
 });
 
-export const collections = { topics, questions, signs, legal, flashcards };
+const studyNotes = defineCollection({
+	loader: glob({ pattern: '**/*.json', base: './src/content/study-notes' }),
+	schema: STUDY_NOTES,
+});
+
+export const collections = { topics, questions, signs, legal, flashcards, studyNotes };
