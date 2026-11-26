@@ -1,0 +1,26 @@
+{
+	"tables": [
+		{
+			"title": "Lo que la carga no puede hacer nunca",
+			"columns": ["Prohibido", "Ejemplo"],
+			"rows": [
+				["Arrastrar, caer o desplazarse de forma peligrosa", "Una escalera mal atada en la baca"],
+				["Comprometer la estabilidad del vehículo", "Todo el peso en un lado o muy alto"],
+				["Producir ruido, polvo u otras molestias evitables", "Chapas sueltas que golpean"],
+				["Tapar luces, placas, distintivos o las señales con el brazo", "Una bici en el portón que tapa la matrícula"]
+			],
+			"note": "Las materias que producen polvo o pueden caer se llevan siempre cubiertas del todo.",
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 14", "asOfDate": "2004-01-23" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "Ni cae, ni vuelca, ni molesta, ni tapa.",
+			"hint": "Las cuatro cosas que la carga no puede hacer: caer o arrastrar, desestabilizar, hacer ruido o polvo y ocultar luces o placas."
+		},
+		{
+			"rule": "Polvo o suelto, siempre tapado.",
+			"hint": "Arena, grava o lo que pueda caer va cubierto total y eficazmente."
+		}
+	]
+}

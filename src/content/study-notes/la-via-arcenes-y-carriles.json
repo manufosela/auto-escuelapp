@@ -1,0 +1,44 @@
+{
+	"tables": [
+		{
+			"title": "Quién circula por el arcén de la derecha",
+			"columns": ["Vehículo", "Condición"],
+			"rows": [
+				[
+					"Tracción animal, especiales de hasta 3.500 kg, ciclos, ciclomotores, vehículos para personas de movilidad reducida y los que siguen a ciclistas",
+					"Si no tienen vía propia y el arcén es transitable y suficiente; si no, la parte imprescindible de la calzada"
+				],
+				["Vehículos de hasta 3.500 kg que por emergencia van muy despacio", "Igual, si perturban gravemente la circulación"],
+				["Motocicletas", "Solo en tramos señalizados, con los carriles parados por atasco: a 30 km/h y en fila de uno"]
+			],
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 36", "asOfDate": "2026-10-01" }]
+		},
+		{
+			"title": "Bicicletas: en paralelo y en descensos",
+			"columns": ["Situación", "Cómo circulan"],
+			"rows": [
+				["Por el arcén", "En columna de a dos"],
+				["Sin arcén útil", "De a dos por la parte imprescindible de la calzada"],
+				["Por la calzada, sin visibilidad, de noche, con mala visibilidad o si frenan el tráfico", "En hilera, de uno en uno"],
+				["Descenso prolongado con curvas", "Pueden dejar el arcén y usar la parte derecha de la calzada"],
+				["Autovía", "Siempre por el arcén"]
+			],
+			"note": "El resto de vehículos que van por el arcén no pueden circular en paralelo.",
+			"legalReferences": [{ "norm": "BOE-A-2003-23514", "article": "art. 36", "asOfDate": "2026-10-01" }]
+		}
+	],
+	"mnemonics": [
+		{
+			"rule": "Lento y ligero, al arcén.",
+			"hint": "Carros, especiales de hasta 3.500 kg, bicis, ciclomotores y vehículos de movilidad reducida van por el arcén si es transitable y suficiente."
+		},
+		{
+			"rule": "Bicis de a dos, salvo que no se vea.",
+			"hint": "Si van por la calzada, en tramos sin visibilidad, de noche o con niebla, en fila de uno."
+		},
+		{
+			"rule": "En autovía, la bici nunca deja el arcén.",
+			"hint": "Ni en bajadas con curvas, que es la excepción en el resto de vías."
+		}
+	]
+}
